@@ -96,13 +96,27 @@ interface MenuItemComponentProps {
 }
 
 function MenuItemComponent({ item }: MenuItemComponentProps) {
+  // Get the URL for the menu item
+  const getItemUrl = (name: string): string => {
+    switch (name) {
+      case "Artificial Intelligence":
+        return "/technology/artificial-intelligence";
+      case "Machine Learning":
+        return "/technology/machine-learning";
+      case "Big Data & Analytics":
+        return "/technology/big-data-analytics";
+      default:
+        return "#";
+    }
+  };
+
   return (
     <motion.li
       className={styles.item}
       whileHover={{ x: 4 }}
       transition={{ duration: 0.15 }}
     >
-      <a href="#">
+      <a href={getItemUrl(item.name)}>
         <span>{item.name}</span>
       </a>
     </motion.li>
