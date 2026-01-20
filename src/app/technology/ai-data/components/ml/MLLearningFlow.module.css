@@ -1,0 +1,261 @@
+.section {
+  padding: 100px 0;
+  background: linear-gradient(180deg, #0E1A2B 0%, #1a2744 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.section::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 1000px;
+  height: 1000px;
+  background: radial-gradient(
+    circle,
+    rgba(139, 92, 246, 0.05) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 64px;
+  position: relative;
+  z-index: 1;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.title {
+  font-size: 48px;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.2;
+  margin: 0 0 16px 0;
+  letter-spacing: -0.5px;
+}
+
+.subtitle {
+  font-size: 18px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.timeline {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.timelineLine {
+  position: absolute;
+  left: 50%;
+  top: 80px;
+  bottom: 80px;
+  width: 2px;
+  background: linear-gradient(
+    180deg,
+    rgba(139, 92, 246, 0.3) 0%,
+    rgba(96, 165, 250, 0.3) 100%
+  );
+  transform-origin: top;
+  z-index: 0;
+}
+
+.stageWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.stageCard {
+  background: rgba(20, 35, 60, 0.7);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  border-radius: 20px;
+  padding: 32px;
+  width: 100%;
+  max-width: 600px;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.stageCard:hover {
+  border-color: rgba(139, 92, 246, 0.5);
+  background: rgba(20, 35, 60, 0.9);
+  box-shadow: 0 12px 40px rgba(139, 92, 246, 0.2);
+  transform: translateY(-4px);
+}
+
+.iconContainer {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 24px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.knowledgeRing {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(139, 92, 246, 0.4) 0%,
+    rgba(139, 92, 246, 0) 70%
+  );
+  border: 2px solid rgba(139, 92, 246, 0.6);
+}
+
+.icon {
+  font-size: 40px;
+  display: block;
+  position: relative;
+  z-index: 1;
+}
+
+.stageTitle {
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0 0 12px 0;
+  text-align: center;
+  letter-spacing: -0.3px;
+}
+
+.stageDescription {
+  font-size: 16px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin: 0 0 20px 0;
+  text-align: center;
+}
+
+.progressBar {
+  height: 4px;
+  background: linear-gradient(
+    90deg,
+    rgba(139, 92, 246, 0.6) 0%,
+    rgba(96, 165, 250, 0.6) 100%
+  );
+  border-radius: 2px;
+  box-shadow: 0 0 10px rgba(139, 92, 246, 0.4);
+}
+
+.arrowWrapper {
+  margin: 20px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.arrow {
+  font-size: 32px;
+  color: rgba(139, 92, 246, 0.7);
+}
+
+.summary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 24px 40px;
+  background: rgba(139, 92, 246, 0.1);
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  border-radius: 50px;
+  margin-top: 60px;
+}
+
+.summaryIcon {
+  font-size: 24px;
+}
+
+.summaryText {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-primary);
+  letter-spacing: 0.3px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .section {
+    padding: 60px 0;
+  }
+
+  .container {
+    padding: 0 32px;
+  }
+
+  .title {
+    font-size: 36px;
+  }
+
+  .subtitle {
+    font-size: 16px;
+  }
+
+  .timeline {
+    gap: 30px;
+  }
+
+  .stageCard {
+    padding: 24px;
+  }
+
+  .iconContainer {
+    width: 64px;
+    height: 64px;
+  }
+
+  .icon {
+    font-size: 32px;
+  }
+
+  .stageTitle {
+    font-size: 18px;
+  }
+
+  .stageDescription {
+    font-size: 14px;
+  }
+
+  .summary {
+    padding: 20px 32px;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .summaryText {
+    font-size: 14px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 24px;
+  }
+
+  .title {
+    font-size: 32px;
+  }
+
+  .stageCard {
+    padding: 20px;
+  }
+}

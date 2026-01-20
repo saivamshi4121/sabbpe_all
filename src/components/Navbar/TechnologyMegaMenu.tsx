@@ -100,23 +100,23 @@ function MenuItemComponent({ item }: MenuItemComponentProps) {
   const getItemUrl = (name: string): string => {
     switch (name) {
       case "Artificial Intelligence":
-        return "/technology/artificial-intelligence";
+        return "/technology/ai-data#artificial-intelligence";
       case "Machine Learning":
-        return "/technology/machine-learning";
+        return "/technology/ai-data#machine-learning";
       case "Big Data & Analytics":
-        return "/technology/big-data-analytics";
+        return "/technology/ai-data#big-data";
       case "Cloud Computing":
-        return "/technology/cloud-computing";
+        return "/technology/infrastructure#cloud-computing";
       case "Blockchain Development":
-        return "/technology/blockchain-development";
+        return "/technology/infrastructure#blockchain-development";
       case "Internet of Things":
-        return "/technology/internet-of-things";
+        return "/technology/infrastructure#internet-of-things";
       case "Chatbot Development":
-        return "/technology/chatbot-development";
+        return "/technology/next-gen#chatbot-development";
       case "Progressive Web Apps":
-        return "/technology/progressive-web-apps";
+        return "/technology/next-gen#progressive-web-apps";
       case "Metaverse & AR/VR":
-        return "/technology/metaverse-ar-vr";
+        return "/technology/next-gen#metaverse-ar-vr";
       default:
         return "#";
     }
