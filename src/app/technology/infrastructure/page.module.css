@@ -10,23 +10,21 @@
 
 .section {
   position: relative;
-  scroll-margin-top: 100px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  scroll-margin-top: 80px;
+  padding: 40px 0;
 }
 
 /* Section dividers */
 .section:not(:last-child) {
-  margin-bottom: 80px;
-  padding-bottom: 80px;
   border-bottom: 2px solid rgba(255, 255, 255, 0.05);
 }
 
 @media (max-width: 768px) {
   .section {
     scroll-margin-top: 80px;
-  }
-  
-  .section:not(:last-child) {
-    margin-bottom: 60px;
-    padding-bottom: 60px;
+    padding: 20px 0;
   }
 }
