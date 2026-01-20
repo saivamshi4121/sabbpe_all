@@ -1,0 +1,702 @@
+// Managed Recruitment Wireframe Design - Professional UX Wireframe
+// Dark gradient background with refined wireframe styling
+
+// Dark gradient palette (matching homepage)
+$bg-primary: #0e1a2b;
+$bg-secondary: #14233c;
+$bg-card: #1a2d45;
+$border-dark: rgba(255, 255, 255, 0.08);
+$text-primary: #ffffff;
+$text-secondary: rgba(255, 255, 255, 0.72);
+$text-tertiary: rgba(255, 255, 255, 0.45);
+
+// Wireframe annotation colors
+$white: #ffffff;
+$light-gray: rgba(255, 255, 255, 0.08);
+$light-gray-border: rgba(255, 255, 255, 0.12);
+$medium-gray: rgba(255, 255, 255, 0.15);
+$dark-gray: rgba(255, 255, 255, 0.45);
+$text-gray: #ffffff;
+$border-color: rgba(255, 255, 255, 0.1);
+$line-color: rgba(255, 255, 255, 0.3);
+
+// Typography scales (minimal, professional)
+$font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+$font-size-xs: 11px;
+$font-size-sm: 13px;
+$font-size-base: 14px;
+$font-size-lg: 16px;
+$font-size-xl: 18px;
+$font-size-2xl: 24px;
+$font-size-3xl: 32px;
+
+// Spacing
+$spacing-xs: 8px;
+$spacing-sm: 12px;
+$spacing-md: 16px;
+$spacing-lg: 24px;
+$spacing-xl: 32px;
+$spacing-2xl: 48px;
+
+// Container
+.wireframeContainer {
+  font-family: $font-family;
+  color: $text-primary;
+  background: linear-gradient(
+    135deg,
+    $bg-primary 0%,
+    #12213a 25%,
+    #0f2236 50%,
+    #1a2d45 75%,
+    $bg-primary 100%
+  );
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+// ==================== HEADER ====================
+.header {
+  padding: $spacing-lg $spacing-xl;
+  border-bottom: 1px solid $border-dark;
+  background-color: rgba(14, 26, 43, 0.7);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(8px);
+
+  .headerContent {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo {
+    width: 120px;
+    height: 36px;
+    background-color: rgba(255, 255, 255, 0.08);
+    border: 1px dashed $border-dark;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: $font-size-sm;
+    font-weight: 600;
+    color: $text-secondary;
+  }
+
+  .navigation {
+    display: flex;
+    gap: $spacing-xl;
+    font-size: $font-size-base;
+    color: $text-secondary;
+
+    span {
+      padding: $spacing-xs $spacing-sm;
+      border: 1px solid transparent;
+      transition: border-color 0.2s ease;
+
+      &:hover {
+        border-bottom: 1px solid $text-secondary;
+      }
+    }
+  }
+}
+
+.annotation {
+  font-size: $font-size-xs;
+  color: rgba(255, 255, 255, 0.4);
+  margin-top: $spacing-xs;
+  font-style: italic;
+  letter-spacing: 0.5px;
+  opacity: 0.75;
+}
+
+// ==================== HERO SECTION ====================
+.heroSection {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $spacing-2xl;
+  padding: $spacing-2xl $spacing-xl;
+  max-width: 1200px;
+  margin: 0 auto;
+  align-items: center;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: $spacing-lg;
+    padding: $spacing-lg $spacing-md;
+  }
+}
+
+.heroLeft {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+}
+
+.heroBgPlaceholder {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 2px dashed rgba(255, 255, 255, 0.15);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: $spacing-md;
+  padding: $spacing-lg;
+}
+
+.placeholderText {
+  font-size: $font-size-base;
+  color: rgba(255, 255, 255, 0.4);
+  text-align: center;
+  font-weight: 500;
+}
+
+.heroRight {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-lg;
+}
+
+.heroContent {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-lg;
+}
+
+.headline {
+  font-size: $font-size-3xl;
+  font-weight: 700;
+  line-height: 1.2;
+  color: $text-primary;
+  border-left: 3px solid rgba(255, 255, 255, 0.3);
+  padding-left: $spacing-md;
+  margin: 0;
+}
+
+.description {
+  font-size: $font-size-lg;
+  line-height: 1.7;
+  color: $text-secondary;
+  margin: 0;
+  border: 1px solid $light-gray-border;
+  padding: $spacing-md;
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.ctaPrimary {
+  padding: $spacing-md $spacing-lg;
+  background-color: rgba(255, 255, 255, 0.9);
+  color: $bg-primary;
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  font-size: $font-size-base;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: fit-content;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+    border-color: rgba(255, 255, 255, 0.8);
+    transform: translateY(-2px);
+  }
+}
+
+// ==================== SUPPORT SECTION ====================
+.supportSection {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $spacing-2xl;
+  padding: $spacing-2xl $spacing-xl;
+  max-width: 1200px;
+  margin: 0 auto;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.03);
+  margin: $spacing-2xl 0;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: $spacing-lg;
+    padding: $spacing-lg $spacing-md;
+  }
+}
+
+.supportImage {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+  order: 2;
+
+  @media (max-width: 768px) {
+    order: 1;
+  }
+}
+
+.imagePlaceholder {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background-color: $medium-gray;
+  border: 2px dashed $border-color;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: $spacing-sm;
+  padding: $spacing-lg;
+}
+
+.supportText {
+  order: 1;
+
+  @media (max-width: 768px) {
+    order: 2;
+  }
+
+  h2 {
+    font-size: $font-size-2xl;
+    font-weight: 700;
+    margin: 0 0 $spacing-md 0;
+    color: $text-primary;
+    border-bottom: 1px solid $border-dark;
+    padding-bottom: $spacing-md;
+  }
+
+  p {
+    font-size: $font-size-base;
+    line-height: 1.8;
+    color: $text-secondary;
+    margin: 0;
+  }
+}
+
+// ==================== BENEFITS SECTION ====================
+.benefitsSection {
+  padding: $spacing-2xl $spacing-xl;
+  max-width: 1200px;
+  margin: 0 auto;
+
+  h2 {
+    font-size: $font-size-2xl;
+    font-weight: 700;
+    margin: 0 0 $spacing-md 0;
+    color: $text-primary;
+    border-bottom: 1px solid $border-dark;
+    padding-bottom: $spacing-md;
+  }
+
+  @media (max-width: 768px) {
+    padding: $spacing-lg $spacing-md;
+  }
+}
+
+.benefitsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: $spacing-lg;
+  margin-top: $spacing-xl;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: $spacing-md;
+  }
+}
+
+.benefitItem {
+  display: flex;
+  gap: $spacing-md;
+  padding: $spacing-md;
+  border: 1px solid $border-dark;
+  background-color: rgba(255, 255, 255, 0.05);
+  align-items: flex-start;
+
+  .bulletPoint {
+    font-size: $font-size-2xl;
+    color: rgba(255, 255, 255, 0.5);
+    flex-shrink: 0;
+    margin-top: -$spacing-sm;
+  }
+
+  span {
+    font-size: $font-size-base;
+    line-height: 1.6;
+    color: $text-secondary;
+  }
+}
+
+// ==================== SOCIAL PROOF SECTION ====================
+.socialProofSection {
+  padding: $spacing-2xl $spacing-xl;
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: rgba(255, 255, 255, 0.02);
+
+  h2 {
+    font-size: $font-size-2xl;
+    font-weight: 700;
+    margin: 0 0 $spacing-md 0;
+    color: $text-primary;
+    border-bottom: 1px solid $border-dark;
+    padding-bottom: $spacing-md;
+  }
+
+  @media (max-width: 768px) {
+    padding: $spacing-lg $spacing-md;
+  }
+}
+
+.testimonialsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $spacing-lg;
+  margin-top: $spacing-xl;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: $spacing-md;
+  }
+}
+
+.testimonialCard {
+  padding: $spacing-lg;
+  border: 1px solid $border-dark;
+  background-color: rgba(255, 255, 255, 0.05);
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+  transition: all 0.3s ease;
+
+  &:hover {
+    border-color: rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  }
+}
+
+.testimonialText {
+  font-size: $font-size-base;
+  line-height: 1.8;
+  color: $text-secondary;
+  font-style: italic;
+  border-left: 2px solid rgba(255, 255, 255, 0.2);
+  padding-left: $spacing-md;
+}
+
+.clientInfo {
+  display: flex;
+  gap: $spacing-md;
+  align-items: center;
+}
+
+.clientAvatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid $border-dark;
+  flex-shrink: 0;
+}
+
+.clientName {
+  font-weight: 600;
+  font-size: $font-size-base;
+  color: $text-primary;
+  margin-bottom: 2px;
+}
+
+.clientTitle {
+  font-size: $font-size-sm;
+  color: $text-secondary;
+}
+
+// ==================== CASE STUDIES / FEATURES SECTION ====================
+.caseStudiesSection {
+  padding: $spacing-2xl $spacing-xl;
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: rgba(255, 255, 255, 0.03);
+
+  h2 {
+    font-size: $font-size-2xl;
+    font-weight: 700;
+    margin: 0 0 $spacing-md 0;
+    color: $text-primary;
+    border-bottom: 1px solid $border-dark;
+    padding-bottom: $spacing-md;
+  }
+
+  @media (max-width: 768px) {
+    padding: $spacing-lg $spacing-md;
+  }
+}
+
+.featuresList {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $spacing-lg;
+  margin-top: $spacing-xl;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: $spacing-md;
+  }
+}
+
+.featureItem {
+  display: flex;
+  gap: $spacing-md;
+  padding: $spacing-lg;
+  border: 1px solid $border-dark;
+  background-color: rgba(255, 255, 255, 0.05);
+
+  .featureNumber {
+    width: 32px;
+    height: 32px;
+    background-color: rgba(255, 255, 255, 0.15);
+    color: $text-primary;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    flex-shrink: 0;
+    font-size: $font-size-base;
+  }
+}
+
+.featureContent {
+  flex: 1;
+
+  h3 {
+    font-size: $font-size-lg;
+    font-weight: 600;
+    margin: 0 0 $spacing-xs 0;
+    color: $text-primary;
+  }
+
+  p {
+    font-size: $font-size-sm;
+    color: $text-secondary;
+    margin: 0;
+    line-height: 1.6;
+  }
+}
+
+// ==================== SECONDARY CTA SECTION ====================
+.secondaryCtaSection {
+  padding: $spacing-2xl $spacing-xl;
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: rgba(255, 255, 255, 0.02);
+  text-align: center;
+
+  @media (max-width: 768px) {
+    padding: $spacing-lg $spacing-md;
+  }
+}
+
+.ctaContent {
+  h2 {
+    font-size: $font-size-2xl;
+    font-weight: 700;
+    margin: 0 0 $spacing-md 0;
+    color: $text-primary;
+  }
+
+  p {
+    font-size: $font-size-lg;
+    color: $text-secondary;
+    margin: 0 0 $spacing-xl 0;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.ctaButtons {
+  display: flex;
+  gap: $spacing-md;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.ctaSecondary {
+  padding: $spacing-md $spacing-lg;
+  background-color: rgba(255, 255, 255, 0.9);
+  color: $bg-primary;
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  font-size: $font-size-base;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+    border-color: rgba(255, 255, 255, 0.8);
+    transform: translateY(-2px);
+  }
+}
+
+.ctaTertiary {
+  padding: $spacing-md $spacing-lg;
+  background-color: transparent;
+  color: $text-primary;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  font-size: $font-size-base;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: translateY(-2px);
+  }
+}
+
+// ==================== FOOTER ====================
+.footer {
+  padding: $spacing-2xl $spacing-xl;
+  background-color: rgba(14, 26, 43, 0.8);
+  border-top: 1px solid $border-dark;
+  margin-top: $spacing-2xl;
+
+  @media (max-width: 768px) {
+    padding: $spacing-lg $spacing-md;
+  }
+}
+
+.footerContent {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: $spacing-2xl;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: $spacing-lg;
+  }
+}
+
+.footerLeft {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+}
+
+.footerLogo {
+  width: 100px;
+  height: 32px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px dashed $border-dark;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: $font-size-sm;
+  font-weight: 600;
+  color: $text-secondary;
+}
+
+.footerLeft p {
+  font-size: $font-size-sm;
+  color: $text-secondary;
+  margin: 0;
+}
+
+.footerLinks {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $spacing-lg;
+
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: $spacing-md;
+  }
+}
+
+.linkGroup {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+
+  .linkTitle {
+    font-weight: 600;
+    font-size: $font-size-sm;
+    color: $text-primary;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  span {
+    font-size: $font-size-sm;
+    color: $text-secondary;
+    cursor: pointer;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: $text-primary;
+      border-bottom: 1px solid $text-primary;
+    }
+  }
+}
+
+// ==================== RESPONSIVE ADJUSTMENTS ====================
+@media (max-width: 1024px) {
+  .wireframeContainer {
+    .headline {
+      font-size: $font-size-2xl;
+    }
+
+    .description {
+      font-size: $font-size-base;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .wireframeContainer {
+    .logo,
+    .footerLogo {
+      width: 80px;
+      height: 28px;
+      font-size: $font-size-xs;
+    }
+
+    .headline {
+      font-size: $font-size-xl;
+    }
+
+    .description {
+      font-size: $font-size-sm;
+    }
+
+    .ctaPrimary,
+    .ctaSecondary,
+    .ctaTertiary {
+      padding: $spacing-sm $spacing-md;
+      font-size: $font-size-sm;
+    }
+  }
+}

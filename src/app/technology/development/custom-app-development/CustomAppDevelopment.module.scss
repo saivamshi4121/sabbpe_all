@@ -1,0 +1,823 @@
+// ============================================================================
+// Custom App Development Page - Premium Dark Blue & Purple Glassmorphism
+// ============================================================================
+
+// Color Palette
+$bg-primary: #0a0e27;
+$bg-secondary: #1a1f3a;
+$bg-tertiary: #0f1829;
+$glass-light: rgba(255, 255, 255, 0.08);
+$glass-lighter: rgba(255, 255, 255, 0.12);
+$text-primary: #ffffff;
+$text-secondary: rgba(255, 255, 255, 0.75);
+$text-tertiary: rgba(255, 255, 255, 0.5);
+$neon-blue: #0f6bff;
+$neon-purple: #7c3aed;
+$neon-pink: #ec4899;
+$neon-cyan: #06b6d4;
+$neon-teal: #14b8a6;
+
+// ============================================================================
+// Main Container
+// ============================================================================
+.container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 25%, #0f1829 50%, #1a2d45 75%, #0a0e27 100%);
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:
+      radial-gradient(circle at 20% 50%, rgba(124, 58, 237, 0.08) 0%, transparent 50%),
+      radial-gradient(circle at 80% 80%, rgba(15, 107, 255, 0.05) 0%, transparent 50%),
+      radial-gradient(circle at 50% 0%, rgba(236, 72, 153, 0.04) 0%, transparent 60%);
+    pointer-events: none;
+    z-index: 0;
+  }
+}
+
+// ============================================================================
+// HERO SECTION
+// ============================================================================
+.heroSection {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 40px;
+  overflow: hidden;
+  z-index: 1;
+
+  @media (max-width: 768px) {
+    padding: 60px 20px;
+    min-height: 80vh;
+  }
+}
+
+.heroBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.glow1,
+.glow2,
+.glow3 {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.3;
+}
+
+.glow1 {
+  width: 400px;
+  height: 400px;
+  background: linear-gradient(135deg, $neon-purple, $neon-pink);
+  top: -100px;
+  left: -100px;
+  animation: float 15s ease-in-out infinite;
+}
+
+.glow2 {
+  width: 500px;
+  height: 500px;
+  background: linear-gradient(135deg, $neon-blue, $neon-cyan);
+  bottom: -150px;
+  right: -150px;
+  animation: float 20s ease-in-out infinite 2s;
+}
+
+.glow3 {
+  width: 300px;
+  height: 300px;
+  background: linear-gradient(135deg, $neon-teal, $neon-blue);
+  top: 50%;
+  right: 10%;
+  animation: float 18s ease-in-out infinite 1s;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px) translateX(0px); }
+  50% { transform: translateY(-30px) translateX(20px); }
+}
+
+.heroContent {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+  text-align: center;
+  margin-right: 50px;
+
+  @media (max-width: 1024px) {
+    margin-right: 0;
+  }
+}
+
+.heroTitle {
+  font-size: clamp(2.5rem, 7vw, 4.5rem);
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  margin: 0 0 20px;
+  color: $text-primary;
+  line-height: 1.1;
+  background: linear-gradient(135deg, #ffffff 0%, $neon-cyan 50%, $neon-purple 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+
+  @media (max-width: 768px) {
+    font-size: 2.5rem;
+  }
+}
+
+.heroSubtitle {
+  font-size: clamp(1rem, 2.5vw, 1.5rem);
+  color: $text-secondary;
+  margin: 0 0 40px;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+
+  @media (max-width: 768px) {
+    font-size: 1rem;
+    margin-bottom: 32px;
+  }
+}
+
+.heroButtons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  @media (max-width: 768px) {
+    gap: 12px;
+  }
+}
+
+.btn {
+  padding: 14px 32px;
+  border: none;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.95rem;
+
+  @media (max-width: 768px) {
+    padding: 12px 24px;
+    font-size: 0.9rem;
+  }
+}
+
+.btnPrimary {
+  background: linear-gradient(135deg, $neon-blue, $neon-purple);
+  color: white;
+  box-shadow: 0 0 30px rgba(15, 107, 255, 0.4), 0 8px 24px rgba(0, 0, 0, 0.3);
+
+  &:hover {
+    box-shadow: 0 0 50px rgba(15, 107, 255, 0.6), 0 12px 32px rgba(0, 0, 0, 0.4);
+    transform: translateY(-3px);
+  }
+}
+
+.btnSecondary {
+  background: transparent;
+  color: $text-primary;
+  border: 2px solid $glass-lighter;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 20px rgba(124, 58, 237, 0.2);
+
+  &:hover {
+    border-color: $neon-purple;
+    box-shadow: 0 0 40px rgba(124, 58, 237, 0.4);
+    transform: translateY(-3px);
+  }
+}
+
+// ============================================================================
+// FLOATING MOCKUPS
+// ============================================================================
+.mockupsContainer {
+  position: absolute;
+  right: 40px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  gap: 40px;
+  z-index: 1;
+
+  @media (max-width: 1200px) {
+    display: none;
+  }
+}
+
+.mobileMockup,
+.laptopMockup {
+  perspective: 1000px;
+}
+
+.mobileMockup {
+  width: 250px;
+}
+
+.laptopMockup {
+  width: 350px;
+  margin-top: 80px;
+}
+
+.mockupFrame {
+  background: linear-gradient(135deg, rgba(15, 107, 255, 0.15), rgba(124, 58, 237, 0.1));
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 24px;
+  padding: 12px;
+  backdrop-filter: blur(20px);
+  box-shadow: 0 0 60px rgba(15, 107, 255, 0.2), inset 0 0 30px rgba(255, 255, 255, 0.05);
+  height: 100%;
+}
+
+.mockupScreen {
+  background: linear-gradient(135deg, #1a1f3a 0%, #0f1829 100%);
+  border-radius: 16px;
+  padding: 20px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  justify-content: flex-start;
+}
+
+.screenElement {
+  height: 40px;
+  background: linear-gradient(90deg, $neon-blue, $neon-purple);
+  border-radius: 8px;
+  opacity: 0.7;
+}
+
+// ============================================================================
+// TRUST SECTION
+// ============================================================================
+.trustSection {
+  position: relative;
+  z-index: 1;
+  padding: 60px 40px;
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+  @media (max-width: 768px) {
+    padding: 40px 20px;
+  }
+}
+
+.trustContent {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.trustLabel {
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: $neon-cyan;
+  margin: 0 0 30px;
+  text-transform: uppercase;
+
+  @media (max-width: 768px) {
+    margin-bottom: 20px;
+  }
+}
+
+.logosGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+}
+
+.logoItem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 16px 20px;
+  background: $glass-light;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: $glass-lighter;
+    border-color: $neon-blue;
+    box-shadow: 0 0 20px rgba(15, 107, 255, 0.2);
+  }
+}
+
+.logoEmoji {
+  font-size: 1.5rem;
+}
+
+.logoName {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: $text-secondary;
+}
+
+// ============================================================================
+// WHAT WE BUILD SECTION
+// ============================================================================
+.whatWeBuildSection {
+  position: relative;
+  z-index: 1;
+  padding: 100px 40px;
+  background: rgba(18, 33, 58, 0.3);
+  backdrop-filter: blur(10px);
+
+  @media (max-width: 768px) {
+    padding: 60px 20px;
+  }
+}
+
+.sectionHeader {
+  text-align: center;
+  margin-bottom: 60px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+
+  h2 {
+    font-size: clamp(2rem, 5vw, 2.8rem);
+    font-weight: 800;
+    margin: 0 0 12px;
+    color: $text-primary;
+    background: linear-gradient(135deg, $text-primary, $neon-cyan);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+
+    @media (max-width: 768px) {
+      font-size: 1.75rem;
+    }
+  }
+
+  p {
+    font-size: 1.1rem;
+    color: $text-secondary;
+    margin: 0;
+
+    @media (max-width: 768px) {
+      font-size: 1rem;
+    }
+  }
+}
+
+.carouselContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.carouselGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+
+  @media (max-width: 768px) {
+    gap: 16px;
+  }
+}
+
+.appCard {
+  position: relative;
+  padding: 32px 24px;
+  background: linear-gradient(135deg, $glass-light, rgba(255, 255, 255, 0.04));
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  backdrop-filter: blur(20px);
+  overflow: hidden;
+  transition: all 0.3s ease;
+  cursor: pointer;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, var(--card-color) 0%, transparent 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  &:hover {
+    transform: translateY(-12px);
+    border-color: var(--card-color);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.05));
+    box-shadow: 0 0 40px rgba(15, 107, 255, 0.2), 0 20px 40px rgba(0, 0, 0, 0.3);
+
+    &::before {
+      opacity: 0.08;
+    }
+  }
+}
+
+.cardIcon {
+  font-size: 3rem;
+  margin-bottom: 16px;
+  display: block;
+  position: relative;
+  z-index: 1;
+}
+
+.cardTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0 0 12px;
+  color: $text-primary;
+  position: relative;
+  z-index: 1;
+}
+
+.cardDescription {
+  font-size: 0.95rem;
+  color: $text-secondary;
+  margin: 0;
+  line-height: 1.6;
+  position: relative;
+  z-index: 1;
+}
+
+.cardGlow {
+  position: absolute;
+  bottom: -50px;
+  right: -50px;
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(circle, var(--card-color) 0%, transparent 70%);
+  opacity: 0.1;
+  filter: blur(40px);
+}
+
+// ============================================================================
+// TECHNOLOGY STACK SECTION
+// ============================================================================
+.techStackSection {
+  position: relative;
+  z-index: 1;
+  padding: 100px 40px;
+
+  @media (max-width: 768px) {
+    padding: 60px 20px;
+  }
+}
+
+.techGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+
+  @media (max-width: 768px) {
+    gap: 16px;
+  }
+}
+
+.techCard {
+  position: relative;
+  padding: 32px 24px;
+  background: linear-gradient(135deg, $glass-light, rgba(255, 255, 255, 0.03));
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  backdrop-filter: blur(15px);
+  text-align: center;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, var(--glow-color) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    animation: rotate 20s linear infinite;
+  }
+
+  &:hover {
+    border-color: var(--glow-color);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.04));
+    box-shadow: 0 0 30px rgba(15, 107, 255, 0.15), 0 8px 24px rgba(0, 0, 0, 0.2);
+    transform: scale(1.05);
+
+    &::before {
+      opacity: 0.1;
+    }
+  }
+}
+
+@keyframes rotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.techIcon {
+  font-size: 2.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.techName {
+  font-weight: 700;
+  font-size: 1rem;
+  color: $text-primary;
+  position: relative;
+  z-index: 1;
+}
+
+.techGlow {
+  position: absolute;
+  bottom: -30px;
+  right: -30px;
+  width: 100px;
+  height: 100px;
+  background: radial-gradient(circle, var(--glow-color) 0%, transparent 70%);
+  opacity: 0.08;
+  filter: blur(30px);
+}
+
+// ============================================================================
+// APPROACH SECTION
+// ============================================================================
+.approachSection {
+  position: relative;
+  z-index: 1;
+  padding: 100px 40px;
+  background: rgba(26, 31, 58, 0.5);
+  backdrop-filter: blur(10px);
+
+  @media (max-width: 768px) {
+    padding: 60px 20px;
+  }
+}
+
+.approachGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+
+  @media (max-width: 768px) {
+    gap: 16px;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.approachCard {
+  position: relative;
+  padding: 32px 24px;
+  background: linear-gradient(135deg, $glass-light, rgba(255, 255, 255, 0.03));
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  backdrop-filter: blur(15px);
+  transition: all 0.3s ease;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, $neon-blue, $neon-purple, $neon-pink);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+  }
+
+  &:hover {
+    border-color: $neon-cyan;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.04));
+    box-shadow: 0 0 30px rgba(6, 182, 212, 0.2), 0 12px 32px rgba(0, 0, 0, 0.3);
+    transform: translateY(-8px);
+
+    &::before {
+      transform: scaleX(1);
+    }
+  }
+}
+
+.stepNumber {
+  position: absolute;
+  top: 16px;
+  right: 24px;
+  font-size: 2rem;
+  font-weight: 900;
+  color: rgba(6, 182, 212, 0.15);
+  line-height: 1;
+}
+
+.stepIcon {
+  font-size: 2.5rem;
+  margin-bottom: 12px;
+  display: block;
+}
+
+.stepTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0 0 8px;
+  color: $text-primary;
+}
+
+.stepDescription {
+  font-size: 0.95rem;
+  color: $text-secondary;
+  margin: 0;
+  line-height: 1.6;
+}
+
+.cardBorder {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, $neon-blue, transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+
+  .approachCard:hover & {
+    opacity: 1;
+  }
+}
+
+// ============================================================================
+// CTA SECTION
+// ============================================================================
+.ctaSection {
+  position: relative;
+  z-index: 1;
+  padding: 100px 40px;
+  overflow: hidden;
+
+  @media (max-width: 768px) {
+    padding: 60px 20px;
+  }
+}
+
+.ctaBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 50%, #0f1829 100%);
+}
+
+.ctaGlow1,
+.ctaGlow2 {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.2;
+}
+
+.ctaGlow1 {
+  width: 500px;
+  height: 500px;
+  background: $neon-purple;
+  top: -200px;
+  left: -100px;
+}
+
+.ctaGlow2 {
+  width: 600px;
+  height: 600px;
+  background: $neon-blue;
+  bottom: -300px;
+  right: -200px;
+}
+
+.ctaContent {
+  position: relative;
+  z-index: 1;
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.ctaTitle {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 900;
+  margin: 0 0 16px;
+  color: $text-primary;
+  line-height: 1.2;
+  background: linear-gradient(135deg, #ffffff 0%, $neon-cyan 50%, $neon-purple 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+
+  @media (max-width: 768px) {
+    font-size: 1.75rem;
+  }
+}
+
+.ctaSubtitle {
+  font-size: 1.1rem;
+  color: $text-secondary;
+  margin: 0 0 40px;
+
+  @media (max-width: 768px) {
+    font-size: 1rem;
+    margin-bottom: 32px;
+  }
+}
+
+.ctaButton {
+  display: inline-block;
+  padding: 16px 48px;
+  background: linear-gradient(135deg, $neon-cyan, $neon-blue);
+  border: none;
+  border-radius: 12px;
+  color: white;
+  font-weight: 700;
+  font-size: 1.125rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 40px rgba(6, 182, 212, 0.3), 0 12px 32px rgba(0, 0, 0, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+
+  &:hover {
+    box-shadow: 0 0 60px rgba(6, 182, 212, 0.5), 0 16px 40px rgba(0, 0, 0, 0.4);
+    transform: translateY(-4px);
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
+
+  @media (max-width: 768px) {
+    padding: 14px 36px;
+    font-size: 1rem;
+  }
+}
+
+// ============================================================================
+// Responsive Adjustments
+// ============================================================================
+@media (max-width: 480px) {
+  .trustLabel {
+    font-size: 0.75rem;
+  }
+
+  .carouselGrid {
+    gap: 12px;
+  }
+
+  .techCard,
+  .approachCard {
+    padding: 24px 16px;
+  }
+
+  .stepNumber {
+    font-size: 1.5rem;
+  }
+}

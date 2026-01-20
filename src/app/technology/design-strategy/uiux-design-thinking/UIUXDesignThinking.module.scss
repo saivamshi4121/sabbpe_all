@@ -1,0 +1,536 @@
+// UI/UX Design Thinking - Modern Enterprise/SaaS Design System
+// Professional, minimal, and modern aesthetic
+
+// Color Palette
+$bg-primary: #0e1a2b;
+$bg-secondary: #14233c;
+$bg-tertiary: rgba(20, 35, 60, 0.5);
+$accent-primary: #7c3aed; // Purple accent
+$accent-light: #a78bfa;
+$accent-subtle: rgba(124, 58, 237, 0.1);
+$text-primary: #ffffff;
+$text-secondary: rgba(255, 255, 255, 0.72);
+$text-tertiary: rgba(255, 255, 255, 0.45);
+$border-color: rgba(255, 255, 255, 0.08);
+$border-hover: rgba(255, 255, 255, 0.15);
+
+// Typography
+$font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", sans-serif;
+$font-size-xs: 12px;
+$font-size-sm: 14px;
+$font-size-base: 16px;
+$font-size-lg: 18px;
+$font-size-xl: 20px;
+$font-size-2xl: 28px;
+$font-size-3xl: 36px;
+$font-size-4xl: 48px;
+
+// Spacing
+$spacing-xs: 4px;
+$spacing-sm: 8px;
+$spacing-md: 12px;
+$spacing-lg: 16px;
+$spacing-xl: 24px;
+$spacing-2xl: 32px;
+$spacing-3xl: 48px;
+$spacing-4xl: 64px;
+
+// Shadows
+$shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.12);
+$shadow-md: 0 4px 16px rgba(0, 0, 0, 0.2);
+$shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.25);
+$glow-purple: 0 0 24px rgba(124, 58, 237, 0.15);
+
+// Transitions
+$transition-base: 0.3s ease;
+$transition-fast: 0.2s ease;
+
+// ==================== CONTAINER ====================
+.container {
+  font-family: $font-family;
+  background: linear-gradient(135deg, $bg-primary 0%, #12213a 25%, #0f2236 50%, #1a2d45 75%, $bg-primary 100%);
+  min-height: 100vh;
+  color: $text-primary;
+  padding: $spacing-3xl 0;
+}
+
+// ==================== HEADER ====================
+.header {
+  max-width: 1200px;
+  margin: 0 auto $spacing-4xl;
+  padding: 0 $spacing-lg;
+  text-align: center;
+}
+
+.title {
+  font-size: $font-size-4xl;
+  font-weight: 700;
+  margin: 0 0 $spacing-lg 0;
+  color: $text-primary;
+  letter-spacing: -1px;
+
+  @media (max-width: 768px) {
+    font-size: $font-size-3xl;
+  }
+}
+
+.subtitle {
+  font-size: $font-size-xl;
+  color: $text-secondary;
+  margin: 0;
+  line-height: 1.6;
+
+  @media (max-width: 768px) {
+    font-size: $font-size-lg;
+  }
+}
+
+// ==================== PROCESS SECTION ====================
+.processSection {
+  max-width: 1200px;
+  margin: 0 auto $spacing-4xl;
+  padding: 0 $spacing-lg;
+}
+
+.sectionHeader {
+  text-align: center;
+  margin-bottom: $spacing-3xl;
+
+  h2 {
+    font-size: $font-size-3xl;
+    font-weight: 700;
+    margin: 0 0 $spacing-md 0;
+    color: $text-primary;
+
+    @media (max-width: 768px) {
+      font-size: $font-size-2xl;
+    }
+  }
+
+  p {
+    font-size: $font-size-lg;
+    color: $text-secondary;
+    margin: 0;
+
+    @media (max-width: 768px) {
+      font-size: $font-size-base;
+    }
+  }
+}
+
+// ==================== TIMELINE ====================
+.timelineContainer {
+  position: relative;
+  margin-bottom: $spacing-4xl;
+  padding: $spacing-xl $spacing-md;
+}
+
+// Background line (inactive)
+.progressLineBackground {
+  position: absolute;
+  top: 24px;
+  left: $spacing-xl;
+  right: $spacing-xl;
+  height: 2px;
+  background-color: $border-color;
+  z-index: 1;
+}
+
+// Active progress line
+.progressLineFill {
+  position: absolute;
+  top: 24px;
+  left: $spacing-xl;
+  height: 2px;
+  background: linear-gradient(90deg, $accent-primary, $accent-light);
+  z-index: 2;
+  transition: width $transition-base;
+}
+
+// Timeline steps container
+.timelineSteps {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  z-index: 3;
+
+  @media (max-width: 768px) {
+    gap: $spacing-md;
+  }
+}
+
+// Individual timeline step
+.timelineStep {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.stepCircle {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: $bg-secondary;
+  border: 2px solid $border-color;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: $font-size-sm;
+  color: $text-secondary;
+  transition: all $transition-base;
+  cursor: pointer;
+}
+
+// Active step styling
+.timelineStep.active .stepCircle {
+  background: linear-gradient(135deg, $accent-primary, $accent-light);
+  border-color: $accent-light;
+  box-shadow: $glow-purple;
+  color: #ffffff;
+}
+
+// Completed step styling
+.timelineStep.completed .stepCircle {
+  background-color: rgba($accent-primary, 0.2);
+  border-color: $accent-primary;
+  color: $accent-primary;
+}
+
+.checkIcon {
+  font-size: $font-size-lg;
+  font-weight: 700;
+}
+
+.stepLabel {
+  font-size: $font-size-sm;
+  font-weight: 600;
+}
+
+// ==================== PROCESS CARDS ====================
+.cardsContainer {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: $spacing-lg;
+
+  @media (max-width: 1200px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.processCard {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.05) 0%,
+    rgba(255, 255, 255, 0.02) 100%
+  );
+  border: 1px solid $border-color;
+  border-radius: 16px;
+  padding: $spacing-2xl $spacing-lg;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: $spacing-lg;
+  transition: all $transition-base;
+  cursor: pointer;
+  backdrop-filter: blur(4px);
+
+  &:hover {
+    border-color: $border-hover;
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.08) 0%,
+      rgba(255, 255, 255, 0.04) 100%
+    );
+    box-shadow: $shadow-md;
+    transform: translateY(-4px);
+  }
+
+  @media (max-width: 768px) {
+    padding: $spacing-xl $spacing-md;
+  }
+}
+
+.cardIcon {
+  font-size: 48px;
+  line-height: 1;
+  opacity: 0.9;
+
+  @media (max-width: 768px) {
+    font-size: 36px;
+  }
+}
+
+.cardStepNumber {
+  font-size: $font-size-sm;
+  color: $text-tertiary;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.cardTitle {
+  font-size: $font-size-lg;
+  font-weight: 700;
+  margin: 0;
+  color: $text-primary;
+  line-height: 1.4;
+
+  @media (max-width: 768px) {
+    font-size: $font-size-base;
+  }
+}
+
+// ==================== SERVICES SECTION ====================
+.servicesSection {
+  max-width: 1200px;
+  margin: 0 auto $spacing-4xl;
+  padding: $spacing-3xl $spacing-lg;
+  background: linear-gradient(
+    135deg,
+    rgba(124, 58, 237, 0.05) 0%,
+    rgba(124, 58, 237, 0.02) 100%
+  );
+  border: 1px solid $border-color;
+  border-radius: 24px;
+  backdrop-filter: blur(8px);
+}
+
+.servicesGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $spacing-2xl;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: $spacing-lg;
+  }
+}
+
+.serviceCard {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.05) 0%,
+    rgba(255, 255, 255, 0.02) 100%
+  );
+  border: 1px solid $border-color;
+  border-radius: 16px;
+  padding: $spacing-2xl $spacing-lg;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: $spacing-lg;
+  transition: all $transition-base;
+  cursor: pointer;
+  backdrop-filter: blur(4px);
+
+  &:hover {
+    border-color: $accent-primary;
+    background: linear-gradient(
+      135deg,
+      rgba(124, 58, 237, 0.1) 0%,
+      rgba(124, 58, 237, 0.05) 100%
+    );
+    box-shadow: $glow-purple, $shadow-md;
+    transform: translateX(4px);
+  }
+
+  @media (max-width: 768px) {
+    padding: $spacing-xl $spacing-md;
+  }
+}
+
+.serviceIcon {
+  font-size: 36px;
+  line-height: 1;
+}
+
+.serviceCard h3 {
+  font-size: $font-size-lg;
+  font-weight: 700;
+  margin: 0;
+  color: $text-primary;
+
+  @media (max-width: 768px) {
+    font-size: $font-size-base;
+  }
+}
+
+.serviceCard p {
+  font-size: $font-size-sm;
+  color: $text-secondary;
+  margin: 0;
+  line-height: 1.6;
+}
+
+// ==================== RESULTS SECTION ====================
+.resultsSection {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 $spacing-lg;
+}
+
+.resultsList {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: $spacing-2xl;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: $spacing-lg;
+  }
+}
+
+.resultItem {
+  display: flex;
+  align-items: center;
+  gap: $spacing-lg;
+  padding: $spacing-lg;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.03) 0%,
+    rgba(255, 255, 255, 0.01) 100%
+  );
+  border: 1px solid $border-color;
+  border-radius: 12px;
+  transition: all $transition-base;
+
+  &:hover {
+    border-color: $border-hover;
+    background: linear-gradient(
+      135deg,
+      rgba(124, 58, 237, 0.08) 0%,
+      rgba(124, 58, 237, 0.03) 100%
+    );
+  }
+
+  font-size: $font-size-base;
+  color: $text-secondary;
+  line-height: 1.6;
+
+  @media (max-width: 768px) {
+    font-size: $font-size-sm;
+    padding: $spacing-md;
+  }
+}
+
+.resultIcon {
+  font-size: $font-size-2xl;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+// ==================== RESPONSIVE ADJUSTMENTS ====================
+@media (max-width: 1024px) {
+  .title {
+    font-size: $font-size-3xl;
+  }
+
+  .processCard {
+    padding: $spacing-xl $spacing-md;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: $spacing-2xl 0;
+  }
+
+  .processSection {
+    margin-bottom: $spacing-2xl;
+  }
+
+  .timelineContainer {
+    padding: $spacing-lg $spacing-sm;
+  }
+
+  .progressLineBackground,
+  .progressLineFill {
+    top: 20px;
+  }
+
+  .stepCircle {
+    width: 40px;
+    height: 40px;
+    font-size: $font-size-xs;
+  }
+
+  .cardIcon {
+    font-size: 32px;
+  }
+
+  .serviceCard {
+    padding: $spacing-lg $spacing-md;
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: $font-size-2xl;
+  }
+
+  .sectionHeader h2 {
+    font-size: $font-size-xl;
+  }
+
+  .cardsContainer {
+    gap: $spacing-md;
+  }
+
+  .processCard {
+    padding: $spacing-lg $spacing-sm;
+    gap: $spacing-md;
+  }
+
+  .cardIcon {
+    font-size: 24px;
+  }
+
+  .cardTitle {
+    font-size: $font-size-sm;
+  }
+
+  .servicesGrid {
+    gap: $spacing-md;
+  }
+
+  .serviceCard {
+    padding: $spacing-lg $spacing-md;
+  }
+}
+
+// ==================== ANIMATION HELPERS ====================
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

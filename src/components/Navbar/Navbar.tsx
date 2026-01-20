@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useId } from "react";
 import * as NavigationMenu from "@radix-ui/react-navigation-menu";
 import { motion, AnimatePresence } from "framer-motion";
 import clsx from "clsx";
@@ -19,6 +19,7 @@ import { TechnologyMegaMenu } from "./TechnologyMegaMenu";
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [value, setValue] = useState<string>("");
+  const navId = useId();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -78,7 +79,7 @@ export function Navbar() {
           delayDuration={150}
           skipDelayDuration={500}
           className={styles.navigationMenu}
-          suppressHydrationWarning
+          id={navId}
         >
           <NavigationMenu.List className={styles.menuList}>
             {/* Products Mega Menu - Capsule Style */}
