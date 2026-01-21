@@ -10,7 +10,7 @@ export default function CustomAppDevelopment() {
       x: 0,
       rotateY: 0,
       opacity: 1,
-      transition: { duration: 1.2, type: "spring", stiffness: 50 },
+      transition: { duration: 1.2, type: "spring" as const, stiffness: 50 },
     },
   };
 

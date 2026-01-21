@@ -274,7 +274,8 @@ export default function DigitalTransformationPage() {
 
                 {/* Dropdown */}
                 <div className={styles.dropdownSection}>
-                  <select className={styles.bankDropdown}>
+                  <label htmlFor="bank-select" className={styles.srOnly}>Select a bank</label>
+                  <select id="bank-select" className={styles.bankDropdown} aria-label="Select a different bank">
                     <option>Select a different bank</option>
                     <option>HDFC Bank</option>
                     <option>Central Bank</option>

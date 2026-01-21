@@ -188,21 +188,6 @@ export default function TechnologyConsultingPage() {
             </motion.div>
           ))}
         </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ delay: 0.3 }}
-          className={styles.servicesButtonContainer}
-        >
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className={styles.exploreBtn}
-          >
-            Explore All Services
-          </motion.button>
-        </motion.div>
       </section>
 
       {/* WHY CHOOSE SABBPE SECTION */}

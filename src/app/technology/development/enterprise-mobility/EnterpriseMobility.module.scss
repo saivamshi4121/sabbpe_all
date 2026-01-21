@@ -609,7 +609,7 @@ $transition-slow: 0.5s ease;
 
   @media (max-width: 768px) {
     padding: $spacing-2xl $spacing-md;
-    min-height: auto;
+    min-height: fit-content;
   }
 }
 
@@ -693,7 +693,7 @@ $transition-slow: 0.5s ease;
 
   .coverPage {
     padding: $spacing-2xl $spacing-md;
-    min-height: auto;
+    min-height: fit-content;
   }
 
   .coverContent {
