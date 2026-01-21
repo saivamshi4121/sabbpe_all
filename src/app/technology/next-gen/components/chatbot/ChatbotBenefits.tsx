@@ -7,15 +7,23 @@ import styles from "./ChatbotBenefits.module.css";
 const benefits = [
   {
     title: "Always Available",
-    metric: "24/7"
+    metric: "24/7",
+    description: "Support that never takes breaks"
+  },
+  {
+    title: "Response Time",
+    metric: "<2s",
+    description: "Instant answers to your questions"
   },
   {
     title: "Resolution Rate",
-    metric: "75%"
+    metric: "75%",
+    description: "Issues solved without human help"
   },
   {
     title: "Customer Satisfaction",
-    metric: "88%"
+    metric: "88%",
+    description: "Users happy with chatbot assistance"
   }
 ];
 
@@ -51,6 +59,7 @@ export function ChatbotBenefits() {
                 <AnimatedCounter value={benefit.metric} />
               </div>
               <h3 className={styles.cardTitle}>{benefit.title}</h3>
+              <p className={styles.cardDescription}>{benefit.description}</p>
             </motion.div>
           ))}
         </div>

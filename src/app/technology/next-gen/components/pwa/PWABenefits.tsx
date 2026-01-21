@@ -7,15 +7,23 @@ import styles from "./PWABenefits.module.css";
 const benefits = [
   {
     title: "Storage Savings",
-    metric: "90%"
+    metric: "90%",
+    description: "Less space than native apps"
   },
   {
     title: "Load Speed",
-    metric: "<1s"
+    metric: "<1s",
+    description: "Instant loading like native apps"
   },
   {
     title: "User Engagement",
-    metric: "3x"
+    metric: "3x",
+    description: "Higher interaction rates"
+  },
+  {
+    title: "Install Rate",
+    metric: "52%",
+    description: "Users adding to home screen"
   }
 ];
 
@@ -51,6 +59,7 @@ export function PWABenefits() {
                 <AnimatedCounter value={benefit.metric} />
               </div>
               <h3 className={styles.cardTitle}>{benefit.title}</h3>
+              <p className={styles.cardDescription}>{benefit.description}</p>
             </motion.div>
           ))}
         </div>

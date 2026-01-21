@@ -7,15 +7,23 @@ import styles from "./MetaverseBenefits.module.css";
 const benefits = [
   {
     title: "Market Growth",
-    metric: "30%"
+    metric: "30%",
+    description: "Annual growth in virtual commerce"
+  },
+  {
+    title: "User Time Spent",
+    metric: "2.5x",
+    description: "Longer engagement in VR experiences"
   },
   {
     title: "Conversion Rate",
-    metric: "94%"
+    metric: "94%",
+    description: "Virtual try-on before purchase"
   },
   {
     title: "Return Reduction",
-    metric: "40%"
+    metric: "40%",
+    description: "Fewer returns with AR preview"
   }
 ];
 
@@ -51,6 +59,7 @@ export function MetaverseBenefits() {
                 <AnimatedCounter value={benefit.metric} />
               </div>
               <h3 className={styles.cardTitle}>{benefit.title}</h3>
+              <p className={styles.cardDescription}>{benefit.description}</p>
             </motion.div>
           ))}
         </div>
