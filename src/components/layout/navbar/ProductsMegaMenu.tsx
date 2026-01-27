@@ -34,28 +34,28 @@ const megaMenuContent: Record<string, ContentColumn[]> = {
         {
             title: 'UPI & Assisted',
             items: [
-                { name: 'UPI Payments', href: '/products/upi' },
-                { name: 'SabbPe Minis', tag: 'Popular', href: '/products/minis' },
-                { name: 'VAS', href: '/products/vas' },
+                { name: 'UPI Payments', href: '/products/upi-assisted#upi-payments' },
+                { name: 'SabbPe Minis', tag: 'Popular', href: '/products/upi-assisted#minis' },
+                { name: 'VAS', href: '/products/upi-assisted#vas' },
             ],
         },
         {
             title: 'Collections & Recurring',
             items: [
-                { name: 'UPI Collections', href: '/products/upi-collections' },
-                { name: 'UPI AutoPay', href: '/products/autopay' },
-                { name: 'BBPS Services', href: '/products/bbps' },
+                { name: 'UPI Collections', href: '/products/collections-recurring#upi-collections' },
+                { name: 'UPI AutoPay', href: '/products/collections-recurring#autopay' },
+                { name: 'BBPS Services', href: '/products/collections-recurring#bbps' },
             ],
         },
         {
             title: 'Assisted Solutions',
             items: [
-                { name: 'Payment Gateway', href: '/products/gateway' },
-                { name: 'Payment Links', href: '/products/links' },
-                { name: 'Payment Forms', href: '/products/forms' },
-                { name: 'Subscriptions', href: '/products/subscriptions' },
-                { name: 'Payouts', href: '/products/payouts' },
-                { name: 'SabbPe Integration', href: '/products/integration' },
+                { name: 'Payment Gateway', href: '/products/assisted-solutions#gateway' },
+                { name: 'Payment Links', href: '/products/assisted-solutions#links' },
+                { name: 'Payment Forms', href: '/products/assisted-solutions#links' },
+                { name: 'Subscriptions', href: '/products/assisted-solutions#subscriptions' },
+                { name: 'Payouts', href: '/products/assisted-solutions#payouts' },
+                { name: 'SabbPe Integration', href: '/products/assisted-solutions#integration' },
             ],
         },
     ],
@@ -63,17 +63,17 @@ const megaMenuContent: Record<string, ContentColumn[]> = {
         {
             title: 'Payment Processing',
             items: [
-                { name: 'Credit/Debit Cards', href: '/products/cards' },
-                { name: 'Digital Wallets', href: '/products/wallets' },
-                { name: 'Net Banking', href: '/products/netbanking' },
+                { name: 'Credit/Debit Cards', href: '/products/online-payments#cards' },
+                { name: 'Digital Wallets', href: '/products/online-payments#wallets' },
+                { name: 'Net Banking', href: '/products/online-payments#netbanking' },
             ],
         },
         {
             title: 'Settlement & Reporting',
             items: [
-                { name: 'Instant Settlement', href: '/products/settlement' },
-                { name: 'Real-time Reports', href: '/products/reports' },
-                { name: 'Reconciliation', href: '/products/reconciliation' },
+                { name: 'Instant Settlement', href: '/products/settlement-reporting#settlement' },
+                { name: 'Real-time Reports', href: '/products/settlement-reporting#reports' },
+                { name: 'Reconciliation', href: '/products/settlement-reporting#reconciliation' },
             ],
         },
         {
