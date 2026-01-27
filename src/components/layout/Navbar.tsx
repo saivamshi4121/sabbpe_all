@@ -5,12 +5,12 @@ import * as NavigationMenu from '@radix-ui/react-navigation-menu';
 import { motion, AnimatePresence } from 'framer-motion';
 import clsx from 'clsx';
 import ProductsMegaMenu from './navbar/ProductsMegaMenu';
-import TechnologyMegaMenu from './navbar/TechnologyMegaMenu';
+
 import SaaSMegaMenu from './navbar/SaaSMegaMenu';
 import Link from 'next/link';
 import { Menu, X, ChevronDown } from 'lucide-react';
 
-type MegaMenuType = 'products' | 'saas' | 'technology' | '';
+type MegaMenuType = 'products' | 'saas' | '';
 
 export default function Navbar() {
     const [isScrolled, setIsScrolled] = useState(false);
@@ -95,12 +95,6 @@ export default function Navbar() {
                                                 content: <SaaSMegaMenu onClose={() => setValue('')} />,
                                                 width: 'w-[850px]'
                                             },
-                                            {
-                                                id: 'technology',
-                                                label: 'Technology',
-                                                content: <TechnologyMegaMenu onClose={() => setValue('')} />,
-                                                width: 'w-[850px]'
-                                            }
                                         ].map((item) => (
                                             <NavigationMenu.Item key={item.id} value={item.id}>
                                                 <NavigationMenu.Trigger

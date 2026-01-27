@@ -64,7 +64,7 @@ export default function CardsLayer() {
                 <motion.div
                     whileHover={{ rotateY: 10, rotateX: 5 }}
                     className="w-96 h-60 bg-gradient-to-br from-slate-900 to-slate-800 rounded-2xl border border-white/10 shadow-2xl relative overflow-hidden group p-6 flex flex-col justify-between transform transition-transform"
-                    style={{ transforStyle: 'preserve-3d' }}
+                    style={{ transformStyle: 'preserve-3d' }}
                 >
                     <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3" />
 
