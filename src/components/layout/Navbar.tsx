@@ -70,9 +70,9 @@ export default function Navbar() {
                                     <Image
                                         src="/videos/sabbpe_logo.png"
                                         alt="SabbPe Logo"
-                                        width={180}
-                                        height={50}
-                                        className="h-12 w-auto"
+                                        width={240}
+                                        height={66}
+                                        className="h-16 w-auto"
                                         priority
                                     />
                                 </motion.div>
