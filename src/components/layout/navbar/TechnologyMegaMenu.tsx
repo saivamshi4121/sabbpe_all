@@ -22,9 +22,9 @@ const technologyContent: Record<string, MenuSection[]> = {
         {
             title: 'DEVELOPMENT',
             items: [
-                { name: 'Custom App Development', href: '/technology/development?scroll=custom-app-development', icon: Code },
-                { name: 'Digital Transformation', href: '/technology/development?scroll=digital-transformation', icon: Globe },
-                { name: 'Enterprise Mobility', href: '/technology/development?scroll=enterprise-mobility', icon: Smartphone },
+                { name: 'Custom App Development', href: '/technology/custom-app-development', icon: Code },
+                { name: 'Digital Transformation', href: '/technology/digital-transformation', icon: Globe },
+                { name: 'Enterprise Mobility', href: '/technology/enterprise-mobility', icon: Smartphone },
             ]
         },
         {
