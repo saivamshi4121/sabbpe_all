@@ -29,14 +29,7 @@ export default function QuickLoansPage() {
   return (
     <main className="min-h-screen bg-gradient-to-br from-[#02040a] via-[#0E1A2B] to-[#0a0f1a]">
       {/* Header Navigation */}
-      <nav className="fixed top-0 w-full z-50 bg-[#02040a]/80 backdrop-blur-xl border-b border-white/5">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
-          <Link href="/" className="text-xl font-bold gradient-text">SabbPe</Link>
-          <Link href="/" className="text-sm text-gray-400 hover:text-white transition">
-            ← Back to Home
-          </Link>
-        </div>
-      </nav>
+
 
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 px-4">
