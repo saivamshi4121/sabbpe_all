@@ -157,7 +157,16 @@ export default function HeroLayer() {
                             </button>
                         </motion.div>
 
-                        <div className="pt-6 sm:pt-8 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 sm:gap-6 text-xs sm:text-sm text-sabbpe-text-tertiary font-medium">
+                        <motion.p
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.5, delay: 0.4 }}
+                            className="pt-4 text-center lg:text-left text-sm text-slate-400 font-medium"
+                        >
+                            Trusted by merchants across India
+                        </motion.p>
+
+                        <div className="pt-4 sm:pt-6 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 sm:gap-6 text-xs sm:text-sm text-sabbpe-text-tertiary font-medium">
                             <span className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-sabbpe-cyan" /> 99.99% Uptime</span>
                             <span className="flex items-center gap-2"><ShieldCheck className="w-4 h-4 text-sabbpe-cyan" /> RBI Compliant</span>
                             <span className="flex items-center gap-2"><Zap className="w-4 h-4 text-sabbpe-cyan" /> 24/7 Support</span>

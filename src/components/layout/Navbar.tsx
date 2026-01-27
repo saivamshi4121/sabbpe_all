@@ -8,6 +8,7 @@ import ProductsMegaMenu from './navbar/ProductsMegaMenu';
 
 import SaaSMegaMenu from './navbar/SaaSMegaMenu';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Menu, X, ChevronDown } from 'lucide-react';
 
 type MegaMenuType = 'products' | 'saas' | '';
@@ -54,11 +55,11 @@ export default function Navbar() {
                         className={clsx(
                             'relative rounded-full transition-all duration-500',
                             isScrolled
-                                ? 'bg-[#0a0a0a]/80 backdrop-blur-xl border border-white/10 shadow-lg shadow-black/20 p-2'
-                                : 'bg-transparent border border-transparent p-4'
+                                ? 'bg-[#0a0a0a]/80 backdrop-blur-xl border border-white/10 shadow-lg shadow-black/20 p-3'
+                                : 'bg-transparent border border-transparent p-5'
                         )}
                     >
-                        <div className="flex items-center justify-between px-2">
+                        <div className="flex items-center justify-between px-4">
                             {/* Logo */}
                             <Link href="/">
                                 <motion.div
@@ -66,9 +67,14 @@ export default function Navbar() {
                                     whileHover={{ scale: 1.05 }}
                                     transition={{ duration: 0.2 }}
                                 >
-                                    <span className="text-2xl font-display font-bold text-white tracking-tight">
-                                        Sabb<span className="text-sabbpe-cyan">Pe</span>
-                                    </span>
+                                    <Image
+                                        src="/videos/sabbpe_logo.png"
+                                        alt="SabbPe Logo"
+                                        width={180}
+                                        height={50}
+                                        className="h-12 w-auto"
+                                        priority
+                                    />
                                 </motion.div>
                             </Link>
 
