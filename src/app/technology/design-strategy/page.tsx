@@ -1,11 +1,11 @@
 'use client';
 
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, Suspense } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 
-const DesignStrategyPage = () => {
+const DesignStrategyContent = () => {
     const containerRef = useRef<HTMLDivElement>(null);
     const { scrollY } = useScroll();
     const searchParams = useSearchParams();
@@ -246,4 +246,10 @@ const DesignStrategyPage = () => {
     );
 };
 
-export default DesignStrategyPage;
+export default function DesignStrategyPage() {
+    return (
+        <Suspense fallback={<div className="min-h-screen bg-[#02040a] flex items-center justify-center text-white">Loading...</div>}>
+            <DesignStrategyContent />
+        </Suspense>
+    );
+}

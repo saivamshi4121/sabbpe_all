@@ -1,12 +1,12 @@
 'use client';
 
-import React, { useEffect } from 'react';
+import React, { useEffect, Suspense } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import { Users, UserPlus, Target, TrendingUp, CheckCircle, Globe, Search, ClipboardCheck, Handshake } from 'lucide-react';
 
-export default function RecruitmentPage() {
+const RecruitmentContent = () => {
     const { scrollY } = useScroll();
     const searchParams = useSearchParams();
 
@@ -199,7 +199,7 @@ export default function RecruitmentPage() {
                 ))}
             </div>
 
-            {/* Stats Section from User Request */}
+            {/* Stats Section */}
             <section className="py-20 bg-black/20">
                 <div className="container mx-auto px-4">
                     <h2 className="text-3xl text-center font-bold mb-12 text-slate-300 uppercase tracking-widest">By The Numbers</h2>
@@ -249,5 +249,13 @@ export default function RecruitmentPage() {
                 </Link>
             </motion.section>
         </div>
+    );
+};
+
+export default function RecruitmentPage() {
+    return (
+        <Suspense fallback={<div className="min-h-screen bg-[#0e1a2b] flex items-center justify-center text-white">Loading...</div>}>
+            <RecruitmentContent />
+        </Suspense>
     );
 }

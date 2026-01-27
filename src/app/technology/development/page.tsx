@@ -1,12 +1,12 @@
 'use client';
 
-import React, { useEffect } from 'react';
+import React, { useEffect, Suspense } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import { Smartphone, Rocket, Building2, Code, Database, Shield, Zap, RefreshCw, BarChart, Globe, Cloud } from 'lucide-react';
 
-export default function DevelopmentPage() {
+const DevelopmentContent = () => {
     const { scrollY } = useScroll();
     const searchParams = useSearchParams();
 
@@ -256,5 +256,13 @@ export default function DevelopmentPage() {
                 </Link>
             </motion.section>
         </div>
+    );
+};
+
+export default function DevelopmentPage() {
+    return (
+        <Suspense fallback={<div className="min-h-screen bg-[#02040a] flex items-center justify-center text-white">Loading...</div>}>
+            <DevelopmentContent />
+        </Suspense>
     );
 }

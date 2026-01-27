@@ -5,7 +5,7 @@ import LayeredStickySection from '@/components/layout/LayeredStickySection';
 import DashboardHeroLayer from '@/components/saas/dashboard/layers/DashboardHeroLayer';
 import DashboardFeaturesLayer from '@/components/saas/dashboard/layers/DashboardFeaturesLayer';
 import DashboardCTALayer from '@/components/saas/dashboard/layers/DashboardCTALayer';
-import { Navbar } from '@/components/Navbar/Navbar';
+
 
 export default function DashboardPage() {
     return (
