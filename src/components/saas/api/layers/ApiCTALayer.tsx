@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 
@@ -13,10 +14,12 @@ export default function ApiCTALayer() {
                     Start building today
                 </h2>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                    <button className="px-8 py-4 rounded-xl font-bold text-white bg-sabbpe-blue hover:bg-blue-600 transition-all flex items-center justify-center gap-2">
-                        Get API Keys
-                        <ArrowRight className="w-4 h-4" />
-                    </button>
+                    <Link href="/contact">
+                        <button className="px-8 py-4 rounded-xl font-bold text-white bg-sabbpe-blue hover:bg-blue-600 transition-all flex items-center justify-center gap-2">
+                            Get API Keys
+                            <ArrowRight className="w-4 h-4" />
+                        </button>
+                    </Link>
                     <button className="px-8 py-4 rounded-xl font-bold text-slate-300 border border-white/20 hover:bg-white/10 transition-all">
                         Read Docs
                     </button>

@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 
@@ -12,10 +13,12 @@ export default function ReconCTALayer() {
                 <h2 className="text-4xl md:text-6xl font-display font-bold text-white mb-8">
                     Your books, balanced.
                 </h2>
-                <button className="px-8 py-4 rounded-xl font-bold text-white bg-emerald-600 hover:bg-emerald-700 transition-all flex items-center justify-center gap-2 mx-auto">
-                    Try Auto-Reconciliation
-                    <ArrowRight className="w-4 h-4" />
-                </button>
+                <Link href="/contact">
+                    <button className="px-8 py-4 rounded-xl font-bold text-white bg-emerald-600 hover:bg-emerald-700 transition-all flex items-center justify-center gap-2 mx-auto">
+                        Try Auto-Reconciliation
+                        <ArrowRight className="w-4 h-4" />
+                    </button>
+                </Link>
             </div>
         </section>
     );

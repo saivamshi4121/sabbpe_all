@@ -99,7 +99,7 @@ export default function Navbar() {
                                                 id: 'technology',
                                                 label: 'Technology',
                                                 content: <TechnologyMegaMenu onClose={() => setValue('')} />,
-                                                width: 'w-[800px]'
+                                                width: 'w-[1000px]'
                                             },
                                             {
                                                 id: 'saas',

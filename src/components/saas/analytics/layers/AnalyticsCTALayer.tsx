@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 
@@ -12,10 +13,12 @@ export default function AnalyticsCTALayer() {
                 <h2 className="text-4xl md:text-6xl font-display font-bold text-white mb-8">
                     Stop guessing. Start knowing.
                 </h2>
-                <button className="px-8 py-4 rounded-xl font-bold text-white bg-indigo-600 hover:bg-indigo-700 transition-all flex items-center justify-center gap-2 mx-auto shadow-lg shadow-indigo-900/30 hover:scale-105">
-                    Upgrade to Premium Analytics
-                    <ArrowRight className="w-4 h-4" />
-                </button>
+                <Link href="/contact">
+                    <button className="px-8 py-4 rounded-xl font-bold text-white bg-indigo-600 hover:bg-indigo-700 transition-all flex items-center justify-center gap-2 mx-auto shadow-lg shadow-indigo-900/30 hover:scale-105">
+                        Upgrade to Premium Analytics
+                        <ArrowRight className="w-4 h-4" />
+                    </button>
+                </Link>
             </div>
         </section>
     );

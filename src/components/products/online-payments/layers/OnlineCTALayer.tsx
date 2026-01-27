@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { ArrowRight, Globe } from 'lucide-react';
 
@@ -25,16 +26,17 @@ export default function OnlineCTALayer() {
                     </p>
 
                     <div className="flex flex-col md:flex-row items-center justify-center gap-6">
-                        <motion.a
-                            href="/signup"
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.95 }}
-                            className="w-full md:w-auto px-10 py-5 rounded-2xl bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-bold text-lg shadow-xl shadow-indigo-500/20 flex items-center justify-center gap-3 group"
-                        >
-                            Create Account
-                            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                        </motion.a>
-                        
+                        <Link href="/contact" className="w-full md:w-auto">
+                            <motion.button
+                                whileHover={{ scale: 1.05 }}
+                                whileTap={{ scale: 0.95 }}
+                                className="w-full px-10 py-5 rounded-2xl bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-bold text-lg shadow-xl shadow-indigo-500/20 flex items-center justify-center gap-3 group"
+                            >
+                                Get Started
+                                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                            </motion.button>
+                        </Link>
+
                         <motion.a
                             href="#"
                             whileHover={{ scale: 1.05 }}

@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 
@@ -7,7 +8,7 @@ const ctas = [
     {
         title: "Get Started",
         desc: "Start accepting payments with SabbPe's integrated payment solutions.",
-        link: "/start",
+        link: "/contact",
         icon: "⚡",
         color: "from-sabbpe-cyan to-blue-600"
     },
@@ -119,12 +120,14 @@ export default function AboutCTALayer() {
                             <p className="font-semibold">📞 +91 8247017667</p>
                             <p className="font-semibold">📍 Bengaluru, India</p>
                         </div>
-                        <motion.button
-                            whileHover={{ scale: 1.05 }}
-                            className="px-8 py-3 rounded-xl font-bold text-white bg-sabbpe-blue hover:bg-blue-600 transition-all shadow-lg shadow-blue-900/20"
-                        >
-                            Get Started Today
-                        </motion.button>
+                        <Link href="/contact">
+                            <motion.button
+                                whileHover={{ scale: 1.05 }}
+                                className="px-8 py-3 rounded-xl font-bold text-white bg-sabbpe-blue hover:bg-blue-600 transition-all shadow-lg shadow-blue-900/20"
+                            >
+                                Get Started Today
+                            </motion.button>
+                        </Link>
                     </div>
                 </div>
             </motion.div>

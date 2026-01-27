@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 import { useState, useMemo } from 'react';
 import {
   QrCode,
@@ -337,14 +338,16 @@ export default function Hero() {
               className="flex flex-col sm:flex-row gap-4 pt-4"
             >
               {/* Primary Button */}
-              <motion.button
-                whileHover={{ scale: 1.05, boxShadow: '0 20px 40px rgba(6, 182, 212, 0.3)' }}
-                whileTap={{ scale: 0.95 }}
-                className="group relative px-8 py-4 rounded-lg bg-gradient-to-r from-cyan-400 to-blue-500 text-black font-bold flex items-center justify-center gap-2 overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300"
-              >
-                <span className="relative z-10">Get Started</span>
-                <ArrowRight className="w-5 h-5 relative z-10 group-hover:translate-x-1 transition-transform" />
-              </motion.button>
+              <Link href="/contact">
+                <motion.button
+                  whileHover={{ scale: 1.05, boxShadow: '0 20px 40px rgba(6, 182, 212, 0.3)' }}
+                  whileTap={{ scale: 0.95 }}
+                  className="group relative px-8 py-4 rounded-lg bg-gradient-to-r from-cyan-400 to-blue-500 text-black font-bold flex items-center justify-center gap-2 overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300"
+                >
+                  <span className="relative z-10">Get Started</span>
+                  <ArrowRight className="w-5 h-5 relative z-10 group-hover:translate-x-1 transition-transform" />
+                </motion.button>
+              </Link>
 
               {/* Secondary Button */}
               <motion.button

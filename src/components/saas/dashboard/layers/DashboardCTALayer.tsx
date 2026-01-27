@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 
@@ -24,10 +25,12 @@ export default function DashboardCTALayer() {
                     transition={{ delay: 0.1 }}
                     className="flex flex-col sm:flex-row gap-4 justify-center"
                 >
-                    <button className="flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-bold text-black bg-sabbpe-cyan hover:bg-cyan-300 transition-all hover:scale-105">
-                        Get Dashboard Access
-                        <ArrowRight className="w-4 h-4" />
-                    </button>
+                    <Link href="/contact">
+                        <button className="flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-bold text-black bg-sabbpe-cyan hover:bg-cyan-300 transition-all hover:scale-105">
+                            Get Dashboard Access
+                            <ArrowRight className="w-4 h-4" />
+                        </button>
+                    </Link>
                 </motion.div>
             </div>
         </section>

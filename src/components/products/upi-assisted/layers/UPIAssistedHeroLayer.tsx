@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { ArrowRight, QrCode, Smartphone } from 'lucide-react';
 
@@ -35,10 +36,12 @@ export default function UPIAssistedHeroLayer() {
                     </p>
 
                     <div className="flex flex-wrap items-center justify-center gap-4 pt-4">
-                        <button className="flex items-center gap-2 px-8 py-4 rounded-xl font-bold text-white bg-sabbpe-blue hover:bg-blue-600 transition-all hover:scale-105 shadow-lg shadow-blue-900/20">
-                            Get Started
-                            <ArrowRight className="w-4 h-4" />
-                        </button>
+                        <Link href="/contact">
+                            <button className="flex items-center gap-2 px-8 py-4 rounded-xl font-bold text-white bg-sabbpe-blue hover:bg-blue-600 transition-all hover:scale-105 shadow-lg shadow-blue-900/20">
+                                Get Started
+                                <ArrowRight className="w-4 h-4" />
+                            </button>
+                        </Link>
                         <button className="px-8 py-4 rounded-xl font-medium text-slate-300 border border-white/10 hover:bg-white/5 hover:text-white transition-all">
                             View Pricing
                         </button>
