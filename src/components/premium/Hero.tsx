@@ -108,9 +108,9 @@ const IconBubble = ({
         marginTop: '-40px',
       }}
       initial={{ x: x, y: y, opacity: 0 }}
-      animate={{ 
-        x: x, 
-        y: y, 
+      animate={{
+        x: x,
+        y: y,
         opacity: 1,
         translateY: isHovered ? -8 : [0, -6, 0],
       }}
@@ -302,19 +302,6 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="space-y-8"
           >
-            {/* Trust Badge */}
-            <motion.div
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-green-500/10 border border-green-500/30 w-fit"
-            >
-              <CheckCircle className="w-4 h-4 text-green-400" />
-              <span className="text-sm font-semibold text-green-300">
-                Trusted by merchants across India
-              </span>
-            </motion.div>
-
             {/* Main Headline */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}

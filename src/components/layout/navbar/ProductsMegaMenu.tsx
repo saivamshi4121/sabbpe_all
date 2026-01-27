@@ -26,7 +26,6 @@ const categories: Category[] = [
     { id: 'offline', label: 'Offline Payments', icon: '💳' },
     { id: 'online', label: 'Online Payments', icon: '🌐' },
     { id: 'banking', label: 'Banking Suite', icon: '🏦' },
-    { id: 'payroll', label: 'Payroll & HR', icon: '👥' },
 ];
 
 const megaMenuContent: Record<string, ContentColumn[]> = {
@@ -108,32 +107,6 @@ const megaMenuContent: Record<string, ContentColumn[]> = {
                 { name: 'Cash Management', href: '/products/cash' },
                 { name: 'FX Services', href: '/products/fx' },
                 { name: 'Hedging Tools', href: '/products/hedging' },
-            ],
-        },
-    ],
-    payroll: [
-        {
-            title: 'Payroll Processing',
-            items: [
-                { name: 'Automated Payroll', href: '/products/automated-payroll' },
-                { name: 'Compliance Filing', href: '/products/compliance-filing' },
-                { name: 'Tax Calculations', href: '/products/tax' },
-            ],
-        },
-        {
-            title: 'HR Management',
-            items: [
-                { name: 'Leave Management', href: '/products/leave' },
-                { name: 'Attendance Tracking', href: '/products/attendance' },
-                { name: 'Performance Reviews', href: '/products/performance' },
-            ],
-        },
-        {
-            title: 'Employee Benefits',
-            items: [
-                { name: 'Insurance Plans', href: '/products/insurance' },
-                { name: 'Retirement Plans', href: '/products/retirement' },
-                { name: 'Wellness Programs', href: '/products/wellness' },
             ],
         },
     ],

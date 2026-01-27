@@ -53,7 +53,7 @@ const categories = [
         features: [
             { title: "Instant Transfers", desc: "IMPS/NEFT/RTGS API available 24/7." },
             { title: "Vendor Payouts", desc: "Add beneficiaries and pay in bulk." },
-            { title: "Salary Disbursals", desc: "One-click payroll for your entire team." },
+            { title: "Bulk Payouts", desc: "Process multiple payments in one go." },
             { title: "Refunds", desc: "Instant refunds to original source." },
         ],
         visual: (

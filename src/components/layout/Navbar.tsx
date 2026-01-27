@@ -5,13 +5,13 @@ import * as NavigationMenu from '@radix-ui/react-navigation-menu';
 import { motion, AnimatePresence } from 'framer-motion';
 import clsx from 'clsx';
 import ProductsMegaMenu from './navbar/ProductsMegaMenu';
-
+import TechnologyMegaMenu from './navbar/TechnologyMegaMenu';
 import SaaSMegaMenu from './navbar/SaaSMegaMenu';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Menu, X, ChevronDown } from 'lucide-react';
 
-type MegaMenuType = 'products' | 'saas' | '';
+type MegaMenuType = 'products' | 'technology' | 'saas' | '';
 
 export default function Navbar() {
     const [isScrolled, setIsScrolled] = useState(false);
@@ -94,6 +94,12 @@ export default function Navbar() {
                                                 label: 'Products',
                                                 content: <ProductsMegaMenu onClose={() => setValue('')} />,
                                                 width: 'w-[900px]'
+                                            },
+                                            {
+                                                id: 'technology',
+                                                label: 'Technology',
+                                                content: <TechnologyMegaMenu onClose={() => setValue('')} />,
+                                                width: 'w-[800px]'
                                             },
                                             {
                                                 id: 'saas',
