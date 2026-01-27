@@ -146,18 +146,18 @@ export default function HeroLayer() {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.5, delay: 0.3 }}
-                            className="flex flex-wrap justify-center lg:justify-start gap-4"
+                            className="flex flex-col sm:flex-row flex-wrap justify-center lg:justify-start gap-3 sm:gap-4"
                         >
-                            <button className="flex items-center gap-2 px-8 py-4 rounded-xl font-bold text-white bg-sabbpe-blue hover:bg-blue-600 transition-all hover:scale-105 shadow-lg shadow-blue-900/20">
+                            <button className="flex items-center justify-center gap-2 px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-bold text-white bg-sabbpe-blue hover:bg-blue-600 transition-all hover:scale-105 shadow-lg shadow-blue-900/20 text-sm sm:text-base">
                                 Start Integration
                                 <ArrowRight className="w-4 h-4" />
                             </button>
-                            <button className="px-8 py-4 rounded-xl font-medium text-slate-300 border border-white/10 hover:bg-white/5 hover:text-white transition-all">
+                            <button className="px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-medium text-slate-300 border border-white/10 hover:bg-white/5 hover:text-white transition-all text-sm sm:text-base">
                                 Sales Contact
                             </button>
                         </motion.div>
 
-                        <div className="pt-8 flex items-center justify-center lg:justify-start gap-6 text-sm text-sabbpe-text-tertiary font-medium">
+                        <div className="pt-6 sm:pt-8 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 sm:gap-6 text-xs sm:text-sm text-sabbpe-text-tertiary font-medium">
                             <span className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-sabbpe-cyan" /> 99.99% Uptime</span>
                             <span className="flex items-center gap-2"><ShieldCheck className="w-4 h-4 text-sabbpe-cyan" /> RBI Compliant</span>
                             <span className="flex items-center gap-2"><Zap className="w-4 h-4 text-sabbpe-cyan" /> 24/7 Support</span>

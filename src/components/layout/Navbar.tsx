@@ -174,19 +174,14 @@ export default function Navbar() {
                         initial={{ opacity: 0, y: -20 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -20 }}
-                        className="fixed inset-0 z-[999] bg-[#0a0a0a] pt-32 px-6"
+                        className="fixed inset-0 z-[999] bg-[#0a0a0a] pt-24 px-6 overflow-y-auto"
                     >
-                        <div className="flex flex-col gap-6 text-center">
-                            <Link href="/services" className="text-2xl font-medium text-white" onClick={() => setMobileMenuOpen(false)}>Services</Link>
-                            <Link href="/about" className="text-2xl font-medium text-white" onClick={() => setMobileMenuOpen(false)}>About Us</Link>
-                            <Link href="/contact" className="text-2xl font-medium text-white" onClick={() => setMobileMenuOpen(false)}>Contact</Link>
-                            <Link href="/login" className="text-2xl font-medium text-white" onClick={() => setMobileMenuOpen(false)}>Login</Link>
-                            <hr className="border-white/10 my-4" />
-                            <Link href="/signup" onClick={() => setMobileMenuOpen(false)}>
-                                <span className="inline-block w-full py-4 bg-sabbpe-cyan text-black font-bold rounded-xl text-xl">
-                                    Get Started
-                                </span>
-                            </Link>
+                        <div className="flex flex-col gap-4 py-6">
+                            <Link href="https://giftvouchers.sabbpe.com" className="text-xl font-medium text-white hover:text-sabbpe-cyan transition-colors" onClick={() => setMobileMenuOpen(false)} target="_blank" rel="noopener noreferrer">Gift Vouchers</Link>
+                            <Link href="https://onboarding.sabbpe.com" className="text-xl font-medium text-white hover:text-sabbpe-cyan transition-colors" onClick={() => setMobileMenuOpen(false)} target="_blank" rel="noopener noreferrer">On Boarding</Link>
+                            <Link href="/services" className="text-xl font-medium text-white hover:text-sabbpe-cyan transition-colors" onClick={() => setMobileMenuOpen(false)}>Services</Link>
+                            <Link href="/about" className="text-xl font-medium text-white hover:text-sabbpe-cyan transition-colors" onClick={() => setMobileMenuOpen(false)}>About Us</Link>
+                            <Link href="/contact" className="text-xl font-medium text-white hover:text-sabbpe-cyan transition-colors" onClick={() => setMobileMenuOpen(false)}>Contact</Link>
                         </div>
                     </motion.div>
                 )}
