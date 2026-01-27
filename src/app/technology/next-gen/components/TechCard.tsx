@@ -7,7 +7,7 @@ interface TechCardProps {
   children: ReactNode;
   opacity: MotionValue<number>;
   scale: MotionValue<number>;
-  y: MotionValue<number>;
+  y: any;
   zIndex: MotionValue<number>;
 }
 

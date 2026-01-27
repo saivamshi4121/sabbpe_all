@@ -74,7 +74,7 @@ export function LayeredTechSection({ cards }: LayeredTechSectionProps) {
               key={card.id}
               opacity={opacity}
               scale={scale}
-              y={y}
+              y={y as any}
               zIndex={zIndex}
             >
               {card.content}
