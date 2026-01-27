@@ -132,12 +132,18 @@ export default function Navbar() {
                                         <div className="w-px h-5 bg-white/10 mx-2" />
 
                                         {[
+                                            { label: 'Gift Vouchers', href: 'https://giftvouchers.sabbpe.com' },
+                                            { label: 'On Boarding', href: 'https://onboarding.sabbpe.com' },
                                             { label: 'Services', href: '/services' },
                                             { label: 'About', href: '/about' },
                                             { label: 'Contact', href: '/contact' },
                                         ].map((link) => (
                                             <NavigationMenu.Item key={link.href}>
-                                                <Link href={link.href} className="block px-4 py-2 text-sm font-medium text-gray-300 hover:text-white transition-colors">
+                                                <Link
+                                                    href={link.href}
+                                                    className="block px-4 py-2 text-sm font-medium text-gray-300 hover:text-white transition-colors"
+                                                    {...(link.href.startsWith('http') ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+                                                >
                                                     {link.label}
                                                 </Link>
                                             </NavigationMenu.Item>
@@ -148,13 +154,6 @@ export default function Navbar() {
 
                             {/* Actions */}
                             <div className="flex items-center gap-4">
-                                <Link href="/login" className="hidden sm:block text-sm font-medium text-gray-300 hover:text-white transition-colors">
-                                    Login
-                                </Link>
-                                <button className="hidden sm:flex items-center justify-center px-5 py-2.5 text-sm font-semibold text-black bg-white rounded-full hover:bg-sabbpe-cyan transition-colors duration-300">
-                                    Get Started
-                                </button>
-
                                 {/* Mobile Menu Toggle */}
                                 <button
                                     className="lg:hidden p-2 text-white hover:bg-white/10 rounded-full transition-colors"
