@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 import { ArrowRight, Code } from 'lucide-react';
 
 export default function AssistedCTALayer() {
@@ -25,25 +26,33 @@ export default function AssistedCTALayer() {
                     </p>
 
                     <div className="flex flex-col md:flex-row items-center justify-center gap-6">
-                        <motion.a
-                            href="/signup"
+                        <motion.div
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
-                            className="w-full md:w-auto px-10 py-5 rounded-2xl bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-bold text-lg shadow-xl shadow-blue-500/20 flex items-center justify-center gap-3 group"
+                            className="w-full md:w-auto"
                         >
-                            Sign Up Now
-                            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                        </motion.a>
+                            <Link
+                                href="/contact#contact-form"
+                                className="block w-full px-10 py-5 rounded-2xl bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-bold text-lg shadow-xl shadow-blue-500/20 flex items-center justify-center gap-3 group"
+                            >
+                                Get In Touch
+                                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                            </Link>
+                        </motion.div>
 
-                        <motion.a
-                            href="#"
+                        <motion.div
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
-                            className="w-full md:w-auto px-10 py-5 rounded-2xl bg-white/5 border border-white/10 text-white font-bold text-lg hover:bg-white/10 transition-colors flex items-center justify-center gap-3"
+                            className="w-full md:w-auto"
                         >
-                            <Code className="w-5 h-5" />
-                            API Documentation
-                        </motion.a>
+                            <Link
+                                href="/contact#contact-form"
+                                className="block w-full px-10 py-5 rounded-2xl bg-white/5 border border-white/10 text-white font-bold text-lg hover:bg-white/10 transition-colors flex items-center justify-center gap-3"
+                            >
+                                <Code className="w-5 h-5" />
+                                View API Documentation
+                            </Link>
+                        </motion.div>
                     </div>
                 </motion.div>
             </div>

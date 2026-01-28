@@ -8,9 +8,6 @@ import clsx from 'clsx';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Menu, X, ChevronDown, ChevronRight } from 'lucide-react';
-import ProductsMegaMenu from './navbar/ProductsMegaMenu';
-import TechnologyMegaMenu from './navbar/TechnologyMegaMenu';
-import SaaSMegaMenu from './navbar/SaaSMegaMenu';
 
 type MegaMenuType = 'products' | 'technology' | 'saas' | '';
 
@@ -110,7 +107,7 @@ export default function Navbar() {
                     alt="SabbPe Logo"
                     width={140}
                     height={40}
-                    className="h-22 xs:h-20 md:h-20 w-auto"
+                    className="h-8 xs:h-10 md:h-12 w-auto"
                     priority
                   />
                 </motion.div>
@@ -127,24 +124,9 @@ export default function Navbar() {
                 >
                   <NavigationMenu.List className="flex items-center gap-1 list-none m-0 p-0">
                     {[
-                      { 
-                        id: 'products', 
-                        label: 'Products', 
-                        content: <ProductsMegaMenu onClose={() => setValue('')} />,
-                        width: 'w-[900px]' 
-                      },
-                      { 
-                        id: 'technology', 
-                        label: 'Technology', 
-                        content: <TechnologyMegaMenu onClose={() => setValue('')} />,
-                        width: 'w-[1000px]' 
-                      },
-                      { 
-                        id: 'saas', 
-                        label: 'SaaS', 
-                        content: <SaaSMegaMenu onClose={() => setValue('')} />,
-                        width: 'w-[850px]' 
-                      },
+                      { id: 'products', label: 'Products', width: 'w-[900px]' },
+                      { id: 'technology', label: 'Technology', width: 'w-[1000px]' },
+                      { id: 'saas', label: 'SaaS', width: 'w-[850px]' },
                     ].map((item) => (
                       <NavigationMenu.Item key={item.id} value={item.id}>
                         <NavigationMenu.Trigger
@@ -163,20 +145,6 @@ export default function Navbar() {
                             )}
                           />
                         </NavigationMenu.Trigger>
-                            <NavigationMenu.Content
-                                className={clsx(
-                                    'absolute top-full left-1/2 -translate-x-1/2 mt-2',
-                                    item.width || 'w-auto',
-                                    'max-w-[90vw]',
-                                    'z-[1001] outline-none animate-in fade-in zoom-in-95 duration-200'
-                                )}
-                            >
-                          <div className="relative -translate-y-3 bg-[#0a0a0a]/95 backdrop-blur-2xl border border-white/10 rounded-3xl p-6 shadow-2xl shadow-black/50 overflow-hidden">
-
-                            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-sabbpe-blue via-sabbpe-cyan to-sabbpe-teal opacity-50" />
-                            {item.content}
-                          </div>
-                        </NavigationMenu.Content>
                       </NavigationMenu.Item>
                     ))}
 
@@ -379,7 +347,6 @@ export default function Navbar() {
                 </Link>
               </div>
             </div>
-            
           </motion.div>
         )}
       </AnimatePresence>
@@ -392,7 +359,7 @@ export default function Navbar() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-x-0 top-28 bottom-0 bg-black/60 backdrop-blur-sm z-[999]"
+            className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[999]"
             onClick={() => setValue('')}
           />
         )}

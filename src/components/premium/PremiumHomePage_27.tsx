@@ -45,10 +45,9 @@ export default function PremiumHomePage() {
       {/* Hero Section */}
       <Hero />
 
-      {/* Stacking Cards Section */}
-      <div id="stacking-cards-section">
-        <StackingCards items={STACKING_CARDS_DATA} />
-      </div>
+      <div id="stacking-cards-section"> 
+  <StackingCards items={STACKING_CARDS_DATA} />
+</div>
 
       {/* Footer */}
       <Footer />
