@@ -1,6 +1,5 @@
 'use client';
 
-import { useState } from 'react';
 import Link from 'next/link';
 import {
     Mail,
@@ -10,9 +9,7 @@ import {
     Linkedin,
     Facebook,
     Instagram,
-    ArrowRight,
-    Loader2,
-    CheckCircle2
+    ArrowRight
 } from 'lucide-react';
 
 const footerLinks = {
@@ -42,7 +39,7 @@ const footerLinks = {
     ],
     legal: [
         { label: 'Privacy Policy', href: '/privacy' },
-        { label: 'Terms & Conditions', href: '/terms' },
+        { label: 'Terms of Service', href: '/terms' },
         { label: 'Refund Policy', href: '/refund' },
         { label: 'Security', href: '/security' },
     ],
@@ -56,61 +53,6 @@ const socialLinks = [
 ];
 
 export default function Footer() {
-    const [email, setEmail] = useState('');
-    const [isSubmitting, setIsSubmitting] = useState(false);
-    const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
-    const [message, setMessage] = useState('');
-
-    const handleNewsletterSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
-        setIsSubmitting(true);
-        setSubmitStatus('idle');
-
-        try {
-            const response = await fetch('/api/newsletter', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ email }),
-            });
-
-            const data = await response.json();
-
-            if (response.ok) {
-                setSubmitStatus('success');
-                setMessage(data.message || 'Successfully subscribed!');
-                setEmail('');
-                
-                // Reset success message after 5 seconds
-                setTimeout(() => {
-                    setSubmitStatus('idle');
-                    setMessage('');
-                }, 5000);
-            } else {
-                setSubmitStatus('error');
-                setMessage(data.error || 'Subscription failed. Please try again.');
-                
-                // Reset error message after 5 seconds
-                setTimeout(() => {
-                    setSubmitStatus('idle');
-                    setMessage('');
-                }, 5000);
-            }
-        } catch (error) {
-            console.error('Newsletter subscription error:', error);
-            setSubmitStatus('error');
-            setMessage('Unable to subscribe. Please try again later.');
-            
-            setTimeout(() => {
-                setSubmitStatus('idle');
-                setMessage('');
-            }, 5000);
-        } finally {
-            setIsSubmitting(false);
-        }
-    };
-
     return (
         <footer className="relative mt-32 border-t border-white/10 bg-gradient-to-b from-transparent to-black/20">
             <div className="max-w-7xl mx-auto px-6 py-16">
@@ -119,11 +61,11 @@ export default function Footer() {
                     {/* Brand Column */}
                     <div className="col-span-2 md:col-span-3 lg:col-span-2">
                         <Link href="/" className="inline-block mb-6">
-                            <span className="text-3xl font-display font-bold bg-gradient-to-r from-sabbpe-blue via-sabbpe-cyan to-sabbpe-teal bg-clip-text text-transparent">
+                            <span className="text-3xl font-display font-bold gradient-text">
                                 SabbPe
                             </span>
                         </Link>
-                        <p className="text-sm text-white/60 leading-relaxed mb-6 max-w-sm">
+                        <p className="text-sm text-muted-foreground leading-relaxed mb-6 max-w-sm">
                             India's premier digital payments platform. Empowering businesses with seamless UPI, QR, Gateway, and Payout solutions.
                         </p>
 
@@ -131,19 +73,19 @@ export default function Footer() {
                         <div className="space-y-3">
                             <a
                                 href="mailto:support@sabbpe.com"
-                                className="flex items-center gap-2 text-sm text-white/60 hover:text-sabbpe-cyan transition-colors group"
+                                className="flex items-center gap-2 text-sm text-muted-foreground hover:text-sabbpe-cyan transition-colors group"
                             >
                                 <Mail className="w-4 h-4 group-hover:scale-110 transition-transform" />
                                 support@sabbpe.com
                             </a>
                             <a
                                 href="tel:+911234567890"
-                                className="flex items-center gap-2 text-sm text-white/60 hover:text-sabbpe-cyan transition-colors group"
+                                className="flex items-center gap-2 text-sm text-muted-foreground hover:text-sabbpe-cyan transition-colors group"
                             >
                                 <Phone className="w-4 h-4 group-hover:scale-110 transition-transform" />
                                 +91 123 456 7890
                             </a>
-                            <div className="flex items-start gap-2 text-sm text-white/60">
+                            <div className="flex items-start gap-2 text-sm text-muted-foreground">
                                 <MapPin className="w-4 h-4 mt-0.5 flex-shrink-0" />
                                 <span>Mumbai, Maharashtra, India</span>
                             </div>
@@ -160,7 +102,7 @@ export default function Footer() {
                                 <li key={link.href}>
                                     <Link
                                         href={link.href}
-                                        className="text-sm text-white/60 hover:text-sabbpe-cyan transition-colors inline-flex items-center gap-1 group"
+                                        className="text-sm text-muted-foreground hover:text-sabbpe-cyan transition-colors inline-flex items-center gap-1 group"
                                     >
                                         {link.label}
                                         <ArrowRight className="w-3 h-3 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
@@ -180,7 +122,7 @@ export default function Footer() {
                                 <li key={link.href}>
                                     <Link
                                         href={link.href}
-                                        className="text-sm text-white/60 hover:text-sabbpe-cyan transition-colors inline-flex items-center gap-1 group"
+                                        className="text-sm text-muted-foreground hover:text-sabbpe-cyan transition-colors inline-flex items-center gap-1 group"
                                     >
                                         {link.label}
                                         <ArrowRight className="w-3 h-3 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
@@ -200,7 +142,7 @@ export default function Footer() {
                                 <li key={link.href}>
                                     <Link
                                         href={link.href}
-                                        className="text-sm text-white/60 hover:text-sabbpe-cyan transition-colors inline-flex items-center gap-1 group"
+                                        className="text-sm text-muted-foreground hover:text-sabbpe-cyan transition-colors inline-flex items-center gap-1 group"
                                     >
                                         {link.label}
                                         <ArrowRight className="w-3 h-3 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
@@ -220,7 +162,7 @@ export default function Footer() {
                                 <li key={link.href}>
                                     <Link
                                         href={link.href}
-                                        className="text-sm text-white/60 hover:text-sabbpe-cyan transition-colors inline-flex items-center gap-1 group"
+                                        className="text-sm text-muted-foreground hover:text-sabbpe-cyan transition-colors inline-flex items-center gap-1 group"
                                     >
                                         {link.label}
                                         <ArrowRight className="w-3 h-3 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
@@ -231,57 +173,27 @@ export default function Footer() {
                     </div>
                 </div>
 
-                {/* Newsletter Section with Supabase Integration */}
+                {/* Newsletter Section */}
                 <div className="mb-12 p-8 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm">
                     <div className="max-w-2xl">
                         <h3 className="text-xl font-semibold text-white mb-2">
                             Stay Updated
                         </h3>
-                        <p className="text-sm text-white/60 mb-4">
+                        <p className="text-sm text-muted-foreground mb-4">
                             Get the latest updates on products, features, and payment industry insights.
                         </p>
-                        
-                        <form onSubmit={handleNewsletterSubmit} className="space-y-3">
-                            <div className="flex flex-col sm:flex-row gap-3">
-                                <input
-                                    type="email"
-                                    name="email"
-                                    value={email}
-                                    onChange={(e) => setEmail(e.target.value)}
-                                    placeholder="Enter your email"
-                                    required
-                                    disabled={isSubmitting}
-                                    className="flex-1 px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-white/40 focus:outline-none focus:border-sabbpe-cyan/50 focus:bg-white/[0.07] transition-all disabled:opacity-50 disabled:cursor-not-allowed"
-                                />
-                                <button
-                                    type="submit"
-                                    disabled={isSubmitting}
-                                    className="px-6 py-3 bg-sabbpe-cyan rounded-xl font-semibold text-black hover:bg-sabbpe-cyan/90 transition-all hover:scale-105 whitespace-nowrap disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 flex items-center justify-center gap-2"
-                                >
-                                    {isSubmitting ? (
-                                        <>
-                                            <Loader2 className="w-4 h-4 animate-spin" />
-                                            <span>Subscribing...</span>
-                                        </>
-                                    ) : (
-                                        'Subscribe'
-                                    )}
-                                </button>
-                            </div>
-
-                            {/* Success/Error Messages */}
-                            {submitStatus === 'success' && (
-                                <div className="flex items-center gap-2 text-sm text-green-400 bg-green-500/10 px-4 py-2 rounded-lg border border-green-500/20">
-                                    <CheckCircle2 className="w-4 h-4 flex-shrink-0" />
-                                    <span>{message}</span>
-                                </div>
-                            )}
-                            
-                            {submitStatus === 'error' && (
-                                <div className="flex items-center gap-2 text-sm text-red-400 bg-red-500/10 px-4 py-2 rounded-lg border border-red-500/20">
-                                    <span>{message}</span>
-                                </div>
-                            )}
+                        <form className="flex flex-col sm:flex-row gap-3">
+                            <input
+                                type="email"
+                                placeholder="Enter your email"
+                                className="flex-1 px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-muted-foreground focus:outline-none focus:border-sabbpe-cyan/50 focus:bg-white/[0.07] transition-all"
+                            />
+                            <button
+                                type="submit"
+                                className="px-6 py-3 bg-sabbpe-cyan rounded-xl font-semibold text-background hover:bg-sabbpe-cyan/90 transition-all hover:scale-105 whitespace-nowrap"
+                            >
+                                Subscribe
+                            </button>
                         </form>
                     </div>
                 </div>
@@ -290,7 +202,7 @@ export default function Footer() {
                 <div className="pt-8 border-t border-white/10">
                     <div className="flex flex-col md:flex-row justify-between items-center gap-6">
                         {/* Copyright */}
-                        <p className="text-sm text-white/60 text-center md:text-left">
+                        <p className="text-sm text-muted-foreground text-center md:text-left">
                             © {new Date().getFullYear()} SabbPe. All rights reserved.
                         </p>
 
@@ -300,7 +212,7 @@ export default function Footer() {
                                 <Link
                                     key={link.href}
                                     href={link.href}
-                                    className="text-sm text-white/60 hover:text-sabbpe-cyan transition-colors"
+                                    className="text-sm text-muted-foreground hover:text-sabbpe-cyan transition-colors"
                                 >
                                     {link.label}
                                 </Link>
@@ -316,7 +228,7 @@ export default function Footer() {
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     aria-label={social.label}
-                                    className="p-2 rounded-lg bg-white/5 border border-white/10 text-white/60 hover:text-sabbpe-cyan hover:bg-white/10 hover:border-sabbpe-cyan/30 transition-all hover:scale-110"
+                                    className="p-2 rounded-lg bg-white/5 border border-white/10 text-muted-foreground hover:text-sabbpe-cyan hover:bg-white/10 hover:border-sabbpe-cyan/30 transition-all hover:scale-110"
                                 >
                                     <social.icon className="w-4 h-4" />
                                 </a>
@@ -327,7 +239,7 @@ export default function Footer() {
 
                 {/* Trust Badges */}
                 <div className="mt-8 pt-8 border-t border-white/10">
-                    <div className="flex flex-wrap justify-center items-center gap-8 text-xs text-white/60">
+                    <div className="flex flex-wrap justify-center items-center gap-8 text-xs text-muted-foreground">
                         <div className="flex items-center gap-2">
                             <div className="w-2 h-2 rounded-full bg-green-400" />
                             <span>PCI-DSS Certified</span>

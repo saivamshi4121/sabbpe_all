@@ -7,10 +7,26 @@ export default {
         "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
     ],
     theme: {
+        screens: {
+            'xs': '375px',   // Extra small - iPhone SE, small phones
+            'sm': '640px',   // Small - Large phones (landscape)
+            'md': '768px',   // Medium - Tablets (portrait)
+            'lg': '1024px',  // Large - Laptops
+            'xl': '1280px',  // Extra Large - Desktops
+            '2xl': '1536px', // 2X Large - Large desktops
+        },
         extend: {
             colors: {
                 background: "hsl(222, 47%, 6%)",
                 foreground: "hsl(210, 40%, 98%)",
+                card: {
+                    DEFAULT: "hsl(222, 47%, 11%)",
+                    foreground: "hsl(210, 40%, 98%)",
+                },
+                popover: {
+                    DEFAULT: "hsl(222, 47%, 11%)",
+                    foreground: "hsl(210, 40%, 98%)",
+                },
                 primary: {
                     DEFAULT: "hsl(217, 91%, 60%)",
                     foreground: "hsl(222, 47%, 6%)",
@@ -27,6 +43,13 @@ export default {
                     DEFAULT: "hsl(192, 91%, 55%)",
                     foreground: "hsl(222, 47%, 6%)",
                 },
+                destructive: {
+                    DEFAULT: "hsl(0, 84%, 60%)",
+                    foreground: "hsl(210, 40%, 98%)",
+                },
+                border: "hsl(222, 47%, 15%)",
+                input: "hsl(222, 47%, 15%)",
+                ring: "hsl(217, 91%, 60%)",
                 sabbpe: {
                     navy: {
                         DEFAULT: "#0E1A2B",
@@ -38,7 +61,7 @@ export default {
                         light: "#60A5FA",
                     },
                     cyan: "#2EE6D6",
-                    teal: "#14B8A6", // Keeping teal for legacy if needed, or remove if strict
+                    teal: "#14B8A6",
                     green: "#22C55E",
                     yellow: "#EAB308",
                     pastel: "#7C83FF",
@@ -54,6 +77,9 @@ export default {
                 display: ['var(--font-space-grotesk)', 'system-ui', 'sans-serif'],
             },
             borderRadius: {
+                lg: 'var(--radius)',
+                md: 'calc(var(--radius) - 2px)',
+                sm: 'calc(var(--radius) - 4px)',
                 '4xl': '2rem',
             },
             backdropBlur: {
@@ -67,6 +93,14 @@ export default {
                 'slide-in': {
                     '0%': { opacity: '0', transform: 'translateX(-20px)' },
                     '100%': { opacity: '1', transform: 'translateX(0)' },
+                },
+                'accordion-down': {
+                    from: { height: '0' },
+                    to: { height: 'var(--radix-accordion-content-height)' },
+                },
+                'accordion-up': {
+                    from: { height: 'var(--radix-accordion-content-height)' },
+                    to: { height: '0' },
                 },
                 float: {
                     '0%, 100%': { transform: 'translateY(0px)' },
@@ -89,6 +123,8 @@ export default {
             animation: {
                 'fade-in-up': 'fade-in-up 0.6s ease-out forwards',
                 'slide-in': 'slide-in 0.5s ease-out forwards',
+                'accordion-down': 'accordion-down 0.2s ease-out',
+                'accordion-up': 'accordion-up 0.2s ease-out',
                 float: 'float 4s ease-in-out infinite',
                 'pulse-slow': 'pulse 3s ease-in-out infinite',
                 'glow-pulse': 'glow-pulse 2s ease-in-out infinite',
