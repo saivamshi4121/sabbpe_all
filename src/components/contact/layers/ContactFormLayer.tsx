@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { useState } from 'react';
-import { Send, CheckCircle } from 'lucide-react';
+import { Send, CheckCircle, Loader2 } from 'lucide-react';
 
 export default function ContactFormLayer() {
     const [formData, setFormData] = useState({
@@ -16,6 +16,7 @@ export default function ContactFormLayer() {
     });
     const [submitted, setSubmitted] = useState(false);
     const [loading, setLoading] = useState(false);
+    const [error, setError] = useState('');
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
         const { name, value } = e.target;
@@ -23,31 +24,59 @@ export default function ContactFormLayer() {
             ...prev,
             [name]: value
         }));
+        setError(''); // Clear error on input change
     };
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         setLoading(true);
+        setError('');
 
-        // Simulate API call
-        await new Promise(resolve => setTimeout(resolve, 1500));
-
-        setSubmitted(true);
-        setLoading(false);
-
-        // Reset form after 3 seconds
-        setTimeout(() => {
-            setFormData({
-                fullName: '',
-                email: '',
-                company: '',
-                phone: '',
-                subject: '',
-                message: '',
-                category: 'general'
+        try {
+            // Map form fields to Supabase schema
+            const response = await fetch('/api/contact', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    name: formData.fullName,           // fullName → name
+                    email: formData.email,
+                    phone: formData.phone || 'Not provided',  // Required field
+                    organization: formData.company || 'Not provided',  // company → organization
+                    product_interest: formData.category,  // category → product_interest
+                    technology_interest: null,
+                    message: `Subject: ${formData.subject}\n\n${formData.message}`, // Combine subject + message
+                }),
             });
-            setSubmitted(false);
-        }, 3000);
+
+            const data = await response.json();
+
+            if (response.ok) {
+                setSubmitted(true);
+                
+                // Reset form after 3 seconds
+                setTimeout(() => {
+                    setFormData({
+                        fullName: '',
+                        email: '',
+                        company: '',
+                        phone: '',
+                        subject: '',
+                        message: '',
+                        category: 'general'
+                    });
+                    setSubmitted(false);
+                }, 3000);
+            } else {
+                setError(data.error || 'Failed to submit form. Please try again.');
+            }
+        } catch (err) {
+            console.error('Form submission error:', err);
+            setError('Unable to submit form. Please try again later.');
+        } finally {
+            setLoading(false);
+        }
     };
 
     return (
@@ -96,6 +125,17 @@ export default function ContactFormLayer() {
                     </motion.div>
                 ) : (
                     <form onSubmit={handleSubmit} className="space-y-6">
+                        {/* Error Message */}
+                        {error && (
+                            <motion.div
+                                initial={{ opacity: 0, y: -10 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                className="p-4 bg-red-500/10 border border-red-500/20 rounded-lg text-red-400 text-sm"
+                            >
+                                {error}
+                            </motion.div>
+                        )}
+
                         {/* Row 1 */}
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <motion.div
@@ -246,11 +286,7 @@ export default function ContactFormLayer() {
                             >
                                 {loading ? (
                                     <>
-                                        <motion.div
-                                            animate={{ rotate: 360 }}
-                                            transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
-                                            className="w-4 h-4 border-2 border-white border-t-transparent rounded-full"
-                                        />
+                                        <Loader2 className="w-4 h-4 animate-spin" />
                                         Sending...
                                     </>
                                 ) : (

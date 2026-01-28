@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 import { ArrowRight, Zap, Shield, Rocket } from 'lucide-react';
 
 const features = [
@@ -22,6 +23,22 @@ const features = [
 ];
 
 export default function ContactCTALayer() {
+    const handleScheduleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+        e.preventDefault();
+        
+        // Check if we're already on the contact page
+        if (window.location.pathname === '/contact') {
+            // Just scroll to the form
+            const formElement = document.getElementById('contact-form');
+            if (formElement) {
+                formElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        } else {
+            // Navigate to contact page with hash
+            window.location.href = '/contact#contact-form';
+        }
+    };
+
     return (
         <section className="w-full h-full relative overflow-hidden">
             {/* Background */}
@@ -100,18 +117,24 @@ export default function ContactCTALayer() {
                                     </div>
                                     <div>
                                         <p className="text-sm text-sabbpe-text-tertiary mb-2">Call Us Directly</p>
-                                        <p className="text-lg font-semibold text-sabbpe-cyan">+91 8247017667</p>
+                                        <a 
+                                            href="tel:+918247017667"
+                                            className="text-lg font-semibold text-sabbpe-cyan hover:text-sabbpe-cyan/80 transition-colors"
+                                        >
+                                            +91 8247017667
+                                        </a>
                                     </div>
                                 </div>
 
                                 <div className="pt-6 space-y-3">
-                                    <a
-                                        href="#contact-form"
+                                    <Link
+                                        href="/contact#contact-form"
+                                        onClick={handleScheduleClick}
                                         className="inline-flex w-full items-center justify-center gap-2 px-6 py-3 rounded-lg bg-gradient-to-r from-sabbpe-blue to-sabbpe-cyan text-white font-semibold hover:shadow-lg hover:shadow-sabbpe-blue/50 transition-all duration-300 group text-center"
                                     >
                                         Schedule Now
                                         <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                                    </a>
+                                    </Link>
                                     <p className="text-xs text-sabbpe-text-tertiary text-center">
                                         No credit card required. Takes 2 minutes.
                                     </p>

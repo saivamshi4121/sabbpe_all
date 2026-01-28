@@ -1,8 +1,8 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 import { useState, useEffect } from 'react';
-import ProductTour from '@/components/ProductTour';
 import {
   QrCode,
   CreditCard,
@@ -15,8 +15,6 @@ import {
   ArrowRight,
   Play,
 } from 'lucide-react';
-import ContactModal from '@/components/modals/ContactModal';
-import DemoModal from '@/components/modals/DemoModal';
 
 const FEATURE_ICONS = [
   { Icon: QrCode, label: 'UPI' },
@@ -279,7 +277,6 @@ const NetworkHub = ({ hoveredIndex, onHover, isMobile }: NetworkHubProps) => {
 export default function Hero() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const [isMobile, setIsMobile] = useState(false);
-  const [showTour, setShowTour] = useState(false);
 
   useEffect(() => {
     const checkMobile = () => {
@@ -292,104 +289,95 @@ export default function Hero() {
   }, []);
 
   return (
-    <>
-      <section id="hero-section" className="relative w-full min-h-screen bg-[#02040a] overflow-hidden">
-        {/* Subtle background - minimal grid only */}
-        <div className="absolute inset-0 opacity-5" style={{
-          backgroundImage: 'linear-gradient(rgba(255,255,255,.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.1) 1px, transparent 1px)',
-          backgroundSize: '50px 50px'
-        }} />
+    <section className="relative w-full min-h-screen bg-[#02040a] overflow-hidden">
+      {/* Subtle background - minimal grid only */}
+      <div className="absolute inset-0 opacity-5" style={{
+        backgroundImage: 'linear-gradient(rgba(255,255,255,.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.1) 1px, transparent 1px)',
+        backgroundSize: '50px 50px'
+      }} />
 
-        {/* Content */}
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12 py-16 sm:py-20 md:py-32">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center min-h-[70vh]">
-            {/* Left Side - Text Content */}
+      {/* Content */}
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12 py-16 sm:py-20 md:py-32">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center min-h-[70vh]">
+          {/* Left Side - Text Content */}
+          <motion.div
+            initial={{ opacity: 0, x: -40 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="space-y-6 sm:space-y-8 order-2 lg:order-1"
+          >
+            {/* Main Headline */}
             <motion.div
-              initial={{ opacity: 0, x: -40 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="space-y-6 sm:space-y-8 order-2 lg:order-1"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
             >
-              {/* Main Headline */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.3 }}
-              >
-                <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white leading-tight tracking-tight">
-                  Payments
-                  <br />
-                  <span className="bg-gradient-to-r from-cyan-300 via-blue-400 to-cyan-300 bg-clip-text text-transparent">
-                    Simplified.
-                  </span>
-                  <br />
-                  Business Amplified.
-                </h1>
-              </motion.div>
+              <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white leading-tight tracking-tight">
+                Payments
+                <br />
+                <span className="bg-gradient-to-r from-cyan-300 via-blue-400 to-cyan-300 bg-clip-text text-transparent">
+                  Simplified.
+                </span>
+                <br />
+                Business Amplified.
+              </h1>
+            </motion.div>
 
-              {/* Subheading */}
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.4 }}
-                className="text-base sm:text-lg md:text-xl text-white/60 max-w-md leading-relaxed font-light"
-              >
-                Unified UPI, Gateway, Payouts, BBPS & Analytics in one stack for India-scale payments.
-              </motion.p>
+            {/* Subheading */}
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="text-base sm:text-lg md:text-xl text-white/60 max-w-md leading-relaxed font-light"
+            >
+              Unified UPI, Gateway, Payouts, BBPS & Analytics in one stack for India-scale payments.
+            </motion.p>
 
-              {/* CTA Buttons */}
-              <motion.div
-                id="hero-cta"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.5 }}
-                className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-4"
-              >
-                {/* Get Started → Contact Modal */}
-                <ContactModal 
-                  trigger={
-                    <motion.button
-                      whileHover={{ scale: 1.05, boxShadow: '0 20px 40px rgba(6, 182, 212, 0.3)' }}
-                      whileTap={{ scale: 0.95 }}
-                      className="w-full sm:w-auto group relative px-6 sm:px-8 py-3 sm:py-4 rounded-lg bg-gradient-to-r from-cyan-400 to-blue-500 text-black font-bold flex items-center justify-center gap-2 overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300"
-                    >
-                      <span className="relative z-10">Get Started</span>
-                      <ArrowRight className="w-5 h-5 relative z-10 group-hover:translate-x-1 transition-transform" />
-                    </motion.button>
-                  }
-                />
-
-                {/* Watch Demo → Product Tour */}
+            {/* CTA Buttons */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.5 }}
+              className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-4"
+            >
+              {/* Primary Button */}
+              <Link href="/contact" className="w-full sm:w-auto">
                 <motion.button
-                  onClick={() => setShowTour(true)}
-                  whileHover={{ scale: 1.05, backgroundColor: 'rgba(255, 255, 255, 0.12)' }}
+                  whileHover={{ scale: 1.05, boxShadow: '0 20px 40px rgba(6, 182, 212, 0.3)' }}
                   whileTap={{ scale: 0.95 }}
-                  className="w-full sm:w-auto group relative px-6 sm:px-8 py-3 sm:py-4 rounded-lg bg-white/8 backdrop-blur-xl border border-white/20 text-white font-bold flex items-center justify-center gap-2 hover:border-white/40 transition-all duration-300"
+                  className="w-full sm:w-auto group relative px-6 sm:px-8 py-3 sm:py-4 rounded-lg bg-gradient-to-r from-cyan-400 to-blue-500 text-black font-bold flex items-center justify-center gap-2 overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300"
                 >
-                  <Play className="w-5 h-5 fill-white" />
-                  <span className="relative z-10">Take A Tour</span>
+                  <span className="relative z-10">Get Started</span>
+                  <ArrowRight className="w-5 h-5 relative z-10 group-hover:translate-x-1 transition-transform" />
                 </motion.button>
-              </motion.div>
-            </motion.div>
+              </Link>
 
-            {/* Right Side - Network Hub */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              className="relative h-full min-h-[400px] sm:min-h-[500px] md:min-h-[600px] flex items-center justify-center order-1 lg:order-2"
-            >
-              {/* Network Hub */}
-              <div className="relative w-full h-full flex items-center justify-center">
-                <NetworkHub hoveredIndex={hoveredIndex} onHover={setHoveredIndex} isMobile={isMobile} />
-              </div>
+              {/* Secondary Button */}
+              <motion.button
+                whileHover={{ scale: 1.05, backgroundColor: 'rgba(255, 255, 255, 0.12)' }}
+                whileTap={{ scale: 0.95 }}
+                className="w-full sm:w-auto group relative px-6 sm:px-8 py-3 sm:py-4 rounded-lg bg-white/8 backdrop-blur-xl border border-white/20 text-white font-bold flex items-center justify-center gap-2 hover:border-white/40 transition-all duration-300"
+              >
+                <Play className="w-5 h-5 fill-white" />
+                <span className="relative z-10">Watch Demo</span>
+              </motion.button>
             </motion.div>
-          </div>
+          </motion.div>
+
+          {/* Right Side - Network Hub */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="relative h-full min-h-[400px] sm:min-h-[500px] md:min-h-[600px] flex items-center justify-center order-1 lg:order-2"
+          >
+            {/* Network Hub */}
+            <div className="relative w-full h-full flex items-center justify-center">
+              <NetworkHub hoveredIndex={hoveredIndex} onHover={setHoveredIndex} isMobile={isMobile} />
+            </div>
+          </motion.div>
         </div>
-      </section>
-
-      {/* Product Tour */}
-      <ProductTour isOpen={showTour} onClose={() => setShowTour(false)} />
-    </>
+      </div>
+    </section>
   );
 }
