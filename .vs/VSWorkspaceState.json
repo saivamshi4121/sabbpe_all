@@ -2,13 +2,11 @@
   "ExpandedNodes": [
     "",
     "\\src",
-    "\\src\\app\\api\\contact",
+    "\\src\\assests",
     "\\src\\components",
-    "\\src\\components\\contact",
-    "\\src\\components\\contact\\layers",
-    "\\src\\components\\ValueProposition",
+    "\\src\\components\\premium",
     "\\src\\lib"
   ],
-  "SelectedNode": "\\src\\components\\contact\\layers\\ContactFormLayer.tsx",
+  "SelectedNode": "\\src\\components\\premium\\HeroNew.tsx",
   "PreviewInSolutionExplorer": false
 }
