@@ -3,285 +3,213 @@
 import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import ProductTour from '@/components/ProductTour';
-import {
-  QrCode,
-  CreditCard,
-  Send,
-  ReceiptText,
-  BarChart3,
-  Shield,
-  Repeat2,
-  Building2,
-  ArrowRight,
-  Play,
-} from 'lucide-react';
+import { ArrowRight, Play } from 'lucide-react';
 import ContactModal from '@/components/modals/ContactModal';
+import Link from 'next/link';
 
-const FEATURE_ICONS = [
-  { Icon: QrCode, label: 'UPI' },
-  { Icon: CreditCard, label: 'Gateway' },
-  { Icon: Send, label: 'Payouts' },
-  { Icon: ReceiptText, label: 'BBPS' },
-  { Icon: Building2, label: 'Settlement' },
-  { Icon: BarChart3, label: 'Analytics' },
-  { Icon: Repeat2, label: 'Subscriptions' },
-  { Icon: Shield, label: 'Security' },
+const PAYMENT_ISSUES = [
+  { text: 'Settlement Delays', sub: 'Liquidity & float issues' },
+  { text: 'Integration Pain', sub: 'Months of dev work' },
+  { text: 'Checkout Drops', sub: 'High cart abandonment' },
+  { text: 'Manual KYC', sub: 'Onboarding delays' },
+  { text: 'Reconciliation', sub: 'Accounting errors' },
+  { text: 'Hidden Fees', sub: 'Markup & charges' },
 ];
 
-const SabbPeLogo = () => {
-  return (
-    <svg
-      viewBox="0 0 100 100"
-      className="w-10 h-10 xs:w-12 xs:h-12"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      {/* S */}
-      <path
-        d="M 25 30 Q 15 25 25 18 Q 38 12 48 18 Q 52 20 50 28"
-        fill="none"
-        stroke="#06B6D4"
-        strokeWidth="6"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <path
-        d="M 50 28 Q 52 38 42 48 Q 28 60 15 52"
-        fill="none"
-        stroke="#0EA5E9"
-        strokeWidth="6"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
+const SOLUTIONS = [
+  { text: 'Custom Checkout', detail: 'Removes payment friction and increases LTV', image: 'CustomCheckout.png', link: '/products/technology/design-strategy' },
+  { text: 'No Code Setup', detail: 'Go live instantly without engineering overhead', image: 'No Code.png', link: '/products//saas/api' },
+  { text: 'UPI QR', detail: 'Get your registered UPI QR for accepting payments', image: 'Offline Qr.png', link: '/products/upi-assisted#upi-payments' },
+  { text: 'Buy Gift Vouchers', detail: 'Shop gift vouchers in bulk with 1 click', image: 'GV.png', link: 'https://giftvouchers.sabbpe.com/' },
+  { text: 'Instant KYC', detail: 'Onboard merchants in under 2 hours', image: 'InstantKYC.png', link: '/products/collections-recurring#upi-collections' },
+  { text: 'Smart Subscriptions', detail: 'Automated recurring billing cycles', image: 'Subscription.png', link: '/products/collections-recurring#upi-collections' },
+  { text: 'Zero Hidden Fees', detail: 'Transparent flat rates that scale with your business', image: 'Zero Hidden Fee.png', link: '/products/assisted-solutions#links' },
+  { text: 'Smart Apps', detail: 'Transform your business with customer delight solutions', image: 'WebDev.png', link: '//technology/cloud-computing' },
+];
 
-      {/* P */}
-      <path
-        d="M 60 18 L 60 52"
-        stroke="#2563EB"
-        strokeWidth="6"
-        strokeLinecap="round"
-      />
-      <path
-        d="M 60 18 Q 75 18 82 28 Q 86 36 80 46 Q 72 52 60 48"
-        fill="none"
-        stroke="#2563EB"
-        strokeWidth="6"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-
-      {/* Speed lines */}
-      <line x1="65" y1="24" x2="80" y2="20" stroke="#06B6D4" strokeWidth="2.5" strokeLinecap="round" opacity="0.8" />
-      <line x1="65" y1="32" x2="82" y2="26" stroke="#06B6D4" strokeWidth="2.5" strokeLinecap="round" opacity="0.6" />
-    </svg>
-  );
-};
-
-interface IconBubbleProps {
-  item: (typeof FEATURE_ICONS)[0];
-  index: number;
-  totalIcons: number;
-  hoveredIndex: number | null;
-  onHover: (index: number | null) => void;
+interface BranchingAnimationProps {
   isMobile: boolean;
 }
 
-const IconBubble = ({
-  item: { Icon, label },
-  index,
-  totalIcons,
-  hoveredIndex,
-  onHover,
-  isMobile,
-}: IconBubbleProps) => {
-  const angle = (index / totalIcons) * Math.PI * 2 - Math.PI / 2;
-  const radius = isMobile ? 120 : 220;
-  const x = Math.cos(angle) * radius;
-  const y = Math.sin(angle) * radius;
+const BranchingAnimation = ({ isMobile }: BranchingAnimationProps) => {
+  // Mobile: Reduced radius for better visibility
+  const radius = isMobile ? 120 : 250;
+  const problemStartDistance = isMobile ? 300 : 450;
+  const TOTAL = 25;
 
-  const isHovered = hoveredIndex === index;
-  const bubbleSize = isMobile ? 'w-14 h-14' : 'w-16 h-16 md:w-20 md:h-20';
+  // Reduced logo size
+  const logoSize = isMobile ? 'h-8' : 'h-12';
+  const logoPadding = isMobile ? 'px-4 py-2.5' : 'px-6 py-4';
 
-  return (
-    <motion.div
-      className={`absolute ${bubbleSize}`}
-      style={{
-        left: '50%',
-        top: '50%',
-        marginLeft: isMobile ? '-28px' : '-32px',
-        marginTop: isMobile ? '-28px' : '-32px',
-      }}
-      initial={{ x: x, y: y, opacity: 0 }}
-      animate={{
-        x: x,
-        y: y,
-        opacity: 1,
-        translateY: isHovered ? -8 : [0, -6, 0],
-      }}
-      transition={{
-        x: { type: 'spring', stiffness: 500, damping: 100 },
-        y: { type: 'spring', stiffness: 500, damping: 100 },
-        translateY: isHovered
-          ? { duration: 0.3 }
-          : { duration: 4 + index * 0.2, repeat: Infinity, ease: 'easeInOut' },
-        opacity: { duration: 0.6 },
-      }}
-    >
-      <motion.button
-        onMouseEnter={() => !isMobile && onHover(index)}
-        onMouseLeave={() => !isMobile && onHover(null)}
-        onClick={() => isMobile && onHover(isHovered ? null : index)}
-        className="group relative w-full h-full rounded-xl md:rounded-2xl flex items-center justify-center backdrop-blur-xl bg-white border border-slate-200 shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:shadow-xl transition-all duration-300"
-        whileHover={{
-          scale: 1.1,
-          borderColor: 'rgba(37, 99, 235, 0.4)',
-        }}
-      >
-        {/* Glow effect on hover */}
-        <motion.div
-          className="absolute inset-0 rounded-xl md:rounded-2xl bg-gradient-to-br from-blue-50/0 to-blue-100/0"
-          animate={{
-            backgroundColor: isHovered ? 'rgba(239, 246, 255, 1)' : 'rgba(255, 255, 255, 0)',
-          }}
-          transition={{ duration: 0.3 }}
-        />
+  // Reduced image container size
+  const cardImageHeight = isMobile ? 'h-12' : 'h-20 sm:h-28';
+  const cardWidth = isMobile ? '85px' : '180px';
+  const cardPadding = isMobile ? 'p-1.5' : 'p-2 sm:p-3';
 
-        {/* Icon */}
-        <Icon className="w-5 h-5 md:w-7 md:h-7 text-primary relative z-10 transition-transform duration-300 group-hover:scale-110" />
-
-        {/* Label tooltip on hover */}
-        <motion.div
-          initial={{ opacity: 0, y: 8 }}
-          animate={
-            isHovered
-              ? { opacity: 1, y: -40 }
-              : { opacity: 0, y: 8 }
-          }
-          transition={{ duration: 0.2 }}
-          className="absolute left-1/2 -translate-x-1/2 whitespace-nowrap text-xs font-semibold text-white bg-slate-900 shadow-lg px-3 py-1.5 rounded-full pointer-events-none z-50"
-        >
-          {label}
-        </motion.div>
-      </motion.button>
-    </motion.div>
-  );
-};
-
-interface NetworkHubProps {
-  hoveredIndex: number | null;
-  onHover: (index: number | null) => void;
-  isMobile: boolean;
-}
-
-const NetworkHub = ({ hoveredIndex, onHover, isMobile }: NetworkHubProps) => {
-  const svgSize = isMobile ? 'w-72 h-72' : 'w-96 h-96 lg:w-[500px] lg:h-[500px]';
-  const lineRadius = isMobile ? 100 : 150;
+  // Reduced text size
+  const titleSize = isMobile ? 'text-[5px]' : 'text-[10px] sm:text-xs';
+  const detailSize = isMobile ? 'text-[7px]' : 'text-[9px] sm:text-[10px]';
+  const dotSize = isMobile ? 'h-1.5 w-1.5' : 'h-2 w-2 sm:h-2.5 sm:w-2.5';
+  const gapSize = isMobile ? 'gap-1' : 'gap-1.5';
+  const marginSize = isMobile ? 'mb-1' : 'mb-1';
 
   return (
-    <div className="relative w-full h-full flex items-center justify-center">
-      {/* SVG Container for connecting lines */}
-      <svg
-        className={`absolute ${svgSize}`}
-        viewBox="0 0 500 500"
-        style={{ pointerEvents: 'none' }}
-      >
-        {FEATURE_ICONS.map((_, index) => {
-          const angle = (index / FEATURE_ICONS.length) * Math.PI * 2 - Math.PI / 2;
-          const x = Math.cos(angle) * lineRadius;
-          const y = Math.sin(angle) * lineRadius;
-          const isHovered = hoveredIndex === index;
+    <div className="relative w-full h-[400px] md:h-[600px] flex items-center justify-center">
+      <div className="relative w-full h-full">
+
+        {/* CENTER LOGO - Always visible */}
+        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-50">
+          <motion.div
+            className={`bg-black rounded-xl shadow-[0_0_60px_rgba(6,182,212,0.9)] ${logoPadding}`}
+            animate={{
+              x: [0, -8, 8, -6, 6, -4, 4, 0],
+              y: [0, 6, -6, 4, -4, 3, -3, 0],
+              rotate: [0, -3, 3, -2, 2, -1, 1, 0],
+            }}
+            transition={{
+              duration: 1,
+              delay: 4,
+              repeat: Infinity,
+              repeatDelay: 24, // 25 - 1 = 24
+              ease: 'easeInOut',
+            }}
+          >
+            <img
+              src="/videos/sabbpe_logo.png"
+              alt="SabbPe"
+              className={`${logoSize} w-auto`}
+              onError={(e) => {
+                console.error('Logo failed to load from /videos/sabbpe_logo.png');
+                e.currentTarget.src = '/assests/LOGO_bigger_(1)_1769061262983.ico';
+              }}
+            />
+          </motion.div>
+        </div>
+
+        {/* Problems converging */}
+        {PAYMENT_ISSUES.map((issue, i) => {
+          const angle = (i / PAYMENT_ISSUES.length) * Math.PI * 2;
+          const startX = Math.cos(angle) * problemStartDistance;
+          const startY = Math.sin(angle) * problemStartDistance;
 
           return (
-            <motion.line
-              key={`line-${index}`}
-              x1="250"
-              y1="250"
-              x2={250 + x}
-              y2={250 + y}
-              stroke="url(#gradientLine)"
-              strokeWidth="1.5"
+            <motion.div
+              key={i}
+              className="absolute left-1/2 top-1/2 z-30"
+              initial={{ opacity: 0 }}
               animate={{
-                opacity: isHovered ? 0.8 : 0.2,
-                strokeWidth: isHovered ? 2.5 : 1.5,
+                x: [startX, 0],
+                y: [startY, 0],
+                opacity: [0, 1, 1, 0],
+                scale: [1.2, 1],
               }}
-              transition={{ duration: 0.3 }}
-            />
+              transition={{
+                duration: 3,
+                delay: 1,
+                repeat: Infinity,
+                repeatDelay: 21, // 25 - 4 = 21
+                times: [0, 0.1, 0.9, 1],
+                ease: 'easeInOut',
+              }}
+            >
+              <div className={`bg-red-500/20 backdrop-blur-3xl ${isMobile ? 'px-2 py-1' : 'px-4 py-2'} rounded-xl border-2 border-red-500/60 shadow-[0_0_40px_rgba(239,68,68,0.3)] whitespace-nowrap -translate-x-1/2 -translate-y-1/2`}>
+                <span className={`${isMobile ? 'text-[7px]' : 'text-sm'} font-black uppercase tracking-widest text-red-400 block text-center`}>{issue.text}</span>
+                <p className={`${isMobile ? 'text-[5px]' : 'text-[10px]'} text-red-200/60 mt-0.5 font-semibold text-center`}>{issue.sub}</p>
+              </div>
+            </motion.div>
           );
         })}
-        <defs>
-          <linearGradient id="gradientLine" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#2563EB" stopOpacity="0.6" />
-            <stop offset="100%" stopColor="#22D3EE" stopOpacity="0" />
-          </linearGradient>
-        </defs>
-      </svg>
 
-      {/* Center Hub */}
-      <motion.div
-        className="absolute w-20 h-20 xs:w-24 xs:h-24 rounded-2xl xs:rounded-3xl bg-white border border-slate-200 flex flex-col items-center justify-center shadow-xl z-20"
-        animate={{
-          scale: [1, 1.03, 1],
-          boxShadow: [
-            '0 0 40px rgba(37, 99, 235, 0.1)',
-            '0 0 60px rgba(37, 99, 235, 0.2)',
-            '0 0 40px rgba(37, 99, 235, 0.1)',
-          ],
-        }}
-        transition={{
-          duration: 3,
-          repeat: Infinity,
-          ease: 'easeInOut',
-        }}
-      >
-        {/* Glow ring behind */}
-        <motion.div
-          className="absolute inset-0 rounded-2xl xs:rounded-3xl"
-          animate={{
-            boxShadow: [
-              'inset 0 0 40px rgba(37, 99, 235, 0.05), 0 0 60px rgba(37, 99, 235, 0.1)',
-              'inset 0 0 50px rgba(37, 99, 235, 0.1), 0 0 80px rgba(37, 99, 235, 0.15)',
-              'inset 0 0 40px rgba(37, 99, 235, 0.05), 0 0 60px rgba(37, 99, 235, 0.1)',
-            ],
-          }}
-          transition={{
-            duration: 3,
-            repeat: Infinity,
-            ease: 'easeInOut',
-          }}
-        />
+        {/* Solutions branching */}
+        {SOLUTIONS.map((solution, i) => {
+          const angle = (i / SOLUTIONS.length) * Math.PI * 2 - Math.PI / 2;
+          const endX = Math.cos(angle) * radius;
+          const endY = Math.sin(angle) * radius;
 
-        {/* Content */}
-        <div className="relative z-10 text-center flex items-center justify-center">
-          <SabbPeLogo />
-        </div>
-      </motion.div>
+          return (
+            <motion.div
+              key={i}
+              className="absolute left-1/2 top-1/2 z-10"
+              initial={{ opacity: 0 }}
+              animate={{
+                x: [0, 0, 0, endX, endX, endX, 0],
+                y: [0, 0, 0, endY, endY, endY, 0],
+                opacity: [0, 0, 0, 1, 1, 1, 0],
+                scale: [0, 0, 0, 1, 1, 1, 0],
+              }}
+              transition={{
+                duration: TOTAL,
+                times: [0, 0.16, 0.20, 0.28, 0.28, 0.88, 1], // Scaled to 25s: 4s, 5s, 7s, 7s, 22s, 25s
+                repeat: Infinity,
+                ease: 'easeInOut',
+              }}
+            >
+              <Link href={solution.link} className="block">
+                <div
+                  className={`flex flex-col items-center bg-cyan-400/10 backdrop-blur-3xl ${cardPadding} rounded-2xl border-2 border-cyan-400/40 shadow-[0_0_60px_rgba(34,211,238,0.3)] text-center cursor-pointer hover:bg-cyan-400/20 hover:border-cyan-400/60 hover:scale-105 transition-all duration-300`}
+                  style={{
+                    width: cardWidth,
+                    transform: 'translate(-50%, -50%)',
+                  }}
+                >
+                  <div className={`relative w-full ${cardImageHeight} ${isMobile ? 'mb-1' : 'mb-2 sm:mb-3'} rounded-lg overflow-hidden border border-slate-200 bg-purple-50`}>
+                    <img
+                      src={`/assests/${solution.image}`}
+                      alt={solution.text}
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-cyan-900/10 to-transparent" />
 
-      {/* Icon Bubbles */}
-      {FEATURE_ICONS.map((item, index) => (
-        <IconBubble
-          key={`icon-${index}`}
-          item={item}
-          index={index}
-          totalIcons={FEATURE_ICONS.length}
-          hoveredIndex={hoveredIndex}
-          onHover={onHover}
-          isMobile={isMobile}
-        />
-      ))}
+                    {[...Array(12)].map((_, j) => (
+                      <motion.div
+                        key={j}
+                        className="absolute h-1.5 w-1.5 bg-cyan-500 rounded-full shadow-[0_0_10px_rgba(6,182,212,0.5)]"
+                        style={{
+                          left: `${(j * 7 + i * 13) % 100}%`,
+                          top: `${(j * 11 + i * 17) % 100}%`,
+                        }}
+                        initial={{ opacity: 0 }}
+                        animate={{
+                          opacity: [0, 0, 0, 1, 0, 1, 0],
+                          scale: [0, 0, 0, 2, 0, 2, 0],
+                        }}
+                        transition={{
+                          duration: TOTAL,
+                          times: [0, 0.28, 0.30, 0.36, 0.42, 0.48, 0.88], // 7s-22s range scaled
+                          repeat: Infinity,
+                          delay: j * 0.1,
+                          ease: 'easeInOut',
+                        }}
+                      />
+                    ))}
+                  </div>
+
+                  {/* Mobile: 50% smaller text */}
+                  <div className={`flex items-center ${gapSize} ${marginSize}`}>
+                    <div className={`${dotSize} rounded-full bg-cyan-600 shadow-[0_0_15px_rgba(8,145,178,0.4)]`} />
+                    <span className={`${titleSize} sm:text-sm font-black uppercase tracking-wider text-cyan-700`}>
+                      {solution.text}
+                    </span>
+                  </div>
+                  <p className={`${detailSize} sm:text-xs text-slate-600 font-semibold leading-relaxed`}>
+                    {solution.detail}
+                  </p>
+                </div>
+              </Link>
+            </motion.div>
+          );
+        })}
+      </div>
     </div>
   );
 };
 
 export default function Hero() {
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const [isMobile, setIsMobile] = useState(false);
   const [showTour, setShowTour] = useState(false);
 
   useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
     checkMobile();
     window.addEventListener('resize', checkMobile);
     return () => window.removeEventListener('resize', checkMobile);
@@ -289,78 +217,45 @@ export default function Hero() {
 
   return (
     <>
-      <section id="hero-section" className="relative w-full min-h-[95vh] bg-background overflow-hidden flex items-center justify-center">
-        {/* Subtle background - minimal grid only */}
-        <div className="absolute inset-0 opacity-[0.4]" style={{
-          backgroundImage: 'linear-gradient(#e2e8f0 1px, transparent 1px), linear-gradient(90deg, #e2e8f0 1px, transparent 1px)',
+      <section id="hero-section" className="relative w-full min-h-screen bg-white overflow-hidden">
+        <div className="absolute inset-0 opacity-[0.03]" style={{
+          backgroundImage: 'linear-gradient(#000 1px, transparent 1px), linear-gradient(90deg, #000 1px, transparent 1px)',
           backgroundSize: '50px 50px',
-          maskImage: 'radial-gradient(circle at center, black 40%, transparent 90%)'
         }} />
 
-        {/* Soft Blurs */}
-        <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-blue-100/50 rounded-full blur-[100px] -translate-x-1/2 -translate-y-1/2" />
-        <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-cyan-100/40 rounded-full blur-[100px] translate-x-1/2 translate-y-1/2" />
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12 py-16 sm:py-20 md:py-32">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
 
-        {/* Content */}
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12 py-16 sm:py-20">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-            {/* Left Side - Text Content */}
-            <motion.div
-              initial={{ opacity: 0, x: -40 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="space-y-8 order-2 lg:order-1 text-center lg:text-left"
-            >
-              {/* Main Headline */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.3 }}
-              >
-                <h1 className="text-4xl xs:text-5xl sm:text-6xl md:text-7xl font-black text-slate-900 leading-tight tracking-tight">
-                  Payments
-                  <br />
-                  <span className="bg-gradient-to-r from-primary via-blue-500 to-sabbpe-cyan bg-clip-text text-transparent">
+            <div className="space-y-6 sm:space-y-8 order-2 lg:order-1">
+              <div>
+                <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-slate-900 leading-tight tracking-tight">
+                  Payments<br />
+                  <span className="bg-gradient-to-r from-blue-600 via-cyan-500 to-blue-600 bg-clip-text text-transparent">
                     Simplified.
-                  </span>
-                  <br />
+                  </span><br />
                   Business Amplified.
                 </h1>
-              </motion.div>
+              </div>
 
-              {/* Subheading */}
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.4 }}
-                className="text-lg sm:text-xl text-slate-600 max-w-lg mx-auto lg:mx-0 leading-relaxed font-normal"
-              >
-                Unified UPI, Gateway, Payouts, BBPS & Analytics in one stack for India-scale payments.
-              </motion.p>
+              <p className="text-base sm:text-lg md:text-xl text-slate-600 max-w-md leading-relaxed font-light">
+                <strong className="text-slate-900">All payments. One platform.</strong><br />
+                <span className="text-slate-900 font-semibold">
+                  Smarter payment infrastructure that saves time, effort, and money.
+                </span>
+              </p>
 
-              {/* CTA Buttons */}
-              <motion.div
-                id="hero-cta"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.5 }}
-                className="flex flex-col sm:flex-row gap-4 pt-4 justify-center lg:justify-start"
-              >
-                {/* Get Started → Contact Modal */}
-                <ContactModal
-                  trigger={
-                    <motion.button
-                      whileHover={{ scale: 1.05, boxShadow: '0 10px 30px rgba(37, 99, 235, 0.2)' }}
-                      whileTap={{ scale: 0.95 }}
-                      className="w-full sm:w-auto group relative px-8 py-4 rounded-xl bg-primary text-white font-bold flex items-center justify-center gap-2 overflow-hidden shadow-lg shadow-blue-500/20 transition-all duration-300"
-                    >
-                      <span className="relative z-10">Get Started</span>
-                      <ArrowRight className="w-5 h-5 relative z-10 group-hover:translate-x-1 transition-transform" />
-                    </motion.button>
-                  }
-                />
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-4">
+                <ContactModal trigger={
+                  <motion.button
+                    whileHover={{ scale: 1.05, boxShadow: '0 20px 40px rgba(6, 182, 212, 0.3)' }}
+                    whileTap={{ scale: 0.95 }}
+                    className="w-full sm:w-auto group relative px-6 sm:px-8 py-3 sm:py-4 rounded-lg bg-gradient-to-r from-cyan-400 to-blue-500 text-black font-bold flex items-center justify-center gap-2 overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300"
+                  >
+                    <span className="relative z-10">Get Started</span>
+                    <ArrowRight className="w-5 h-5 relative z-10 group-hover:translate-x-1 transition-transform" />
+                  </motion.button>
+                } />
 
-                {/* Watch Demo → Product Tour */}
                 <motion.button
                   onClick={() => setShowTour(true)}
                   whileHover={{ scale: 1.05, backgroundColor: '#F8FAFF' }}
@@ -370,26 +265,16 @@ export default function Hero() {
                   <Play className="w-5 h-5 fill-slate-700 group-hover:fill-primary transition-colors" />
                   <span className="relative z-10">Take A Tour</span>
                 </motion.button>
-              </motion.div>
-            </motion.div>
-
-            {/* Right Side - Network Hub */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              className="relative h-full min-h-[400px] sm:min-h-[500px] md:min-h-[600px] flex items-center justify-center order-1 lg:order-2"
-            >
-              {/* Network Hub */}
-              <div className="relative w-full h-full flex items-center justify-center scale-90 lg:scale-100">
-                <NetworkHub hoveredIndex={hoveredIndex} onHover={setHoveredIndex} isMobile={isMobile} />
               </div>
-            </motion.div>
+            </div>
+
+            <div className="relative order-1 lg:order-2 flex items-center justify-center">
+              <BranchingAnimation isMobile={isMobile} />
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Product Tour */}
       <ProductTour isOpen={showTour} onClose={() => setShowTour(false)} />
     </>
   );
