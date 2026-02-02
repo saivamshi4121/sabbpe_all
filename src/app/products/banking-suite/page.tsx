@@ -47,7 +47,7 @@ export default function BankingSuitePage() {
   };
 
   return (
-    <main className="min-h-screen bg-gradient-to-br from-[#02040a] via-[#0E1A2B] to-[#0a0f1a]">
+    <main className="min-h-screen bg-background">
       {/* Header Navigation */}
 
 
@@ -60,21 +60,21 @@ export default function BankingSuitePage() {
           animate="visible"
         >
           <motion.div variants={itemVariants} className="inline-block mb-4">
-            <div className="glass-pill px-4 py-2 text-sm text-[#2EE6D6]">
+            <div className="glass-pill px-4 py-2 text-sm text-primary bg-blue-50 border-blue-100">
               Complete Banking Solution
             </div>
           </motion.div>
 
           <motion.h1
             variants={itemVariants}
-            className="text-5xl md:text-6xl font-bold mb-6 text-white"
+            className="text-5xl md:text-6xl font-bold mb-6 text-slate-900"
           >
-            Banking <span className="gradient-text">Suite</span>
+            Banking <span className="text-primary">Suite</span>
           </motion.h1>
 
           <motion.p
             variants={itemVariants}
-            className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto"
+            className="text-xl text-slate-600 mb-8 max-w-2xl mx-auto"
           >
             Everything you need for modern banking—from business payments to personal savings to regulatory compliance.
           </motion.p>
@@ -94,28 +94,28 @@ export default function BankingSuitePage() {
             {products.map((product, idx) => (
               <motion.div key={idx} variants={itemVariants}>
                 <Link href={product.href}>
-                  <div className="glass-card p-6 h-full hover:border-[#2EE6D6]/50 transition-all group cursor-pointer hover:bg-white/10">
+                  <div className="bg-white border border-slate-200 rounded-2xl shadow-sm p-6 h-full hover:border-blue-300 hover:shadow-lg transition-all group cursor-pointer hover:bg-slate-50">
                     {/* Icon */}
-                    <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${product.gradient} p-2.5 mb-4 flex items-center justify-center`}>
+                    <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${product.gradient} p-2.5 mb-4 flex items-center justify-center shadow-md`}>
                       <product.icon className="w-6 h-6 text-white" />
                     </div>
 
                     {/* Title & Description */}
-                    <h3 className="text-xl font-bold text-white mb-2">{product.title}</h3>
-                    <p className="text-sm text-gray-400 mb-4">{product.description}</p>
+                    <h3 className="text-xl font-bold text-slate-900 mb-2">{product.title}</h3>
+                    <p className="text-sm text-slate-500 mb-4">{product.description}</p>
 
                     {/* Features */}
                     <ul className="space-y-2 mb-6">
                       {product.features.map((feature, i) => (
-                        <li key={i} className="text-xs text-gray-400 flex items-start gap-2">
-                          <span className="text-[#2EE6D6] mt-1">✓</span>
+                        <li key={i} className="text-xs text-slate-500 flex items-start gap-2">
+                          <span className="text-primary mt-1">✓</span>
                           {feature}
                         </li>
                       ))}
                     </ul>
 
                     {/* CTA */}
-                    <div className="flex items-center gap-2 text-[#2EE6D6] font-semibold text-sm group-hover:gap-3 transition-all">
+                    <div className="flex items-center gap-2 text-primary font-semibold text-sm group-hover:gap-3 transition-all">
                       Explore <ArrowRight className="w-4 h-4" />
                     </div>
                   </div>
@@ -127,9 +127,9 @@ export default function BankingSuitePage() {
       </section>
 
       {/* Why Banking Suite Section */}
-      <section className="py-16 px-4 bg-white/5">
+      <section className="py-16 px-4 bg-slate-50">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold text-white mb-12 text-center">Why Choose SabbPe Banking Suite?</h2>
+          <h2 className="text-3xl font-bold text-slate-900 mb-12 text-center">Why Choose SabbPe Banking Suite?</h2>
 
           <motion.div
             className="grid grid-cols-1 md:grid-cols-2 gap-8"
@@ -151,10 +151,10 @@ export default function BankingSuitePage() {
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.1 }}
               >
-                <div className="text-[#2EE6D6] text-2xl font-bold">0{idx + 1}</div>
+                <div className="text-primary text-2xl font-bold">0{idx + 1}</div>
                 <div>
-                  <h3 className="font-bold text-white mb-1">{item.title}</h3>
-                  <p className="text-gray-400 text-sm">{item.desc}</p>
+                  <h3 className="font-bold text-slate-900 mb-1">{item.title}</h3>
+                  <p className="text-slate-600 text-sm">{item.desc}</p>
                 </div>
               </motion.div>
             ))}
@@ -165,14 +165,14 @@ export default function BankingSuitePage() {
       {/* CTA Section */}
       <section className="py-16 px-4">
         <motion.div
-          className="max-w-2xl mx-auto glass-card p-8 text-center"
+          className="max-w-2xl mx-auto bg-white border border-slate-200 shadow-xl rounded-2xl p-8 text-center"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-3xl font-bold text-white mb-4">Ready to Experience Modern Banking?</h2>
-          <p className="text-gray-300 mb-6">Join thousands of businesses and individuals on SabbPe.</p>
-          <button className="px-8 py-3 rounded-xl font-semibold bg-gradient-to-r from-[#2563EB] to-[#2EE6D6] text-white hover:shadow-lg transition-all inline-flex items-center gap-2">
+          <h2 className="text-3xl font-bold text-slate-900 mb-4">Ready to Experience Modern Banking?</h2>
+          <p className="text-slate-600 mb-6">Join thousands of businesses and individuals on SabbPe.</p>
+          <button className="px-8 py-3 rounded-xl font-semibold bg-primary text-white hover:shadow-lg transition-all inline-flex items-center gap-2 hover:bg-blue-700">
             Get Started <ArrowRight className="w-4 h-4" />
           </button>
         </motion.div>

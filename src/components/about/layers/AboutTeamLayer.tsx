@@ -58,8 +58,8 @@ export default function AboutTeamLayer() {
                     transition={{ duration: 0.8 }}
                     className="relative group hidden lg:block"
                 >
-                    <div className="absolute -inset-4 bg-gradient-to-r from-sabbpe-cyan/10 to-blue-500/10 rounded-3xl blur-2xl group-hover:from-sabbpe-cyan/20 group-hover:to-blue-500/20 transition-all duration-500" />
-                    <div className="relative rounded-3xl border border-white/10 bg-gradient-to-br from-white/5 to-white/[0.02] overflow-hidden p-8">
+                    <div className="absolute -inset-4 bg-gradient-to-r from-cyan-100/50 to-blue-100/50 rounded-3xl blur-2xl group-hover:from-cyan-200/50 group-hover:to-blue-200/50 transition-all duration-500" />
+                    <div className="relative rounded-3xl border border-slate-200 bg-white shadow-xl overflow-hidden p-8">
                         <div className="space-y-6">
                             {[1, 2, 3].map((i) => (
                                 <motion.div
@@ -67,14 +67,14 @@ export default function AboutTeamLayer() {
                                     initial={{ opacity: 0, x: -20 }}
                                     whileInView={{ opacity: 1, x: 0 }}
                                     transition={{ delay: i * 0.1 }}
-                                    className="flex gap-4 p-4 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors"
+                                    className="flex gap-4 p-4 rounded-xl bg-slate-50 border border-slate-200 hover:bg-slate-100 transition-colors"
                                 >
-                                    <div className="w-12 h-12 rounded-full bg-sabbpe-cyan/20 flex items-center justify-center flex-shrink-0">
-                                        <div className="w-8 h-8 rounded-full bg-sabbpe-cyan/40" />
+                                    <div className="w-12 h-12 rounded-full bg-cyan-100 flex items-center justify-center flex-shrink-0">
+                                        <div className="w-8 h-8 rounded-full bg-cyan-300" />
                                     </div>
                                     <div className="flex-1">
-                                        <div className="h-4 w-32 bg-slate-400/30 rounded mb-2" />
-                                        <div className="h-3 w-48 bg-slate-500/20 rounded" />
+                                        <div className="h-4 w-32 bg-slate-300 rounded mb-2" />
+                                        <div className="h-3 w-48 bg-slate-200 rounded" />
                                     </div>
                                 </motion.div>
                             ))}
@@ -91,10 +91,10 @@ export default function AboutTeamLayer() {
                     className="space-y-8"
                 >
                     <motion.div variants={itemVariants}>
-                        <h2 className="text-3xl md:text-5xl font-display font-bold text-white mb-4">
+                        <h2 className="text-3xl md:text-5xl font-display font-bold text-slate-900 mb-4">
                             Exceptional Team
                         </h2>
-                        <p className="text-slate-400 text-lg">
+                        <p className="text-slate-600 text-lg">
                             We've assembled a world-class team of builders, innovators, and problem solvers.
                             People who care deeply about impact and excellence.
                         </p>
@@ -103,12 +103,12 @@ export default function AboutTeamLayer() {
                     <div className="space-y-4">
                         {teamAspects.slice(0, 2).map((aspect, i) => (
                             <motion.div key={i} variants={itemVariants} className="flex gap-4 group cursor-pointer">
-                                <div className="flex-shrink-0 w-12 h-12 rounded-full bg-sabbpe-cyan/10 flex items-center justify-center border border-sabbpe-cyan/20 group-hover:bg-sabbpe-cyan group-hover:text-black transition-all">
+                                <div className="flex-shrink-0 w-12 h-12 rounded-full bg-cyan-50 flex items-center justify-center border border-cyan-100 group-hover:bg-cyan-600 group-hover:text-white transition-all text-cyan-600">
                                     <aspect.icon className="w-5 h-5" />
                                 </div>
                                 <div>
-                                    <h3 className="text-white font-bold mb-1 group-hover:text-sabbpe-cyan transition-colors">{aspect.title}</h3>
-                                    <p className="text-slate-400 text-sm">{aspect.desc}</p>
+                                    <h3 className="text-slate-900 font-bold mb-1 group-hover:text-cyan-600 transition-colors">{aspect.title}</h3>
+                                    <p className="text-slate-600 text-sm">{aspect.desc}</p>
                                 </div>
                             </motion.div>
                         ))}
@@ -125,14 +125,14 @@ export default function AboutTeamLayer() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: i * 0.1 }}
-                        className="p-8 rounded-2xl border border-white/10 bg-white/[0.02] hover:bg-white/[0.05] transition-all group"
+                        className="p-8 rounded-2xl border border-slate-200 bg-white hover:bg-slate-50 hover:shadow-md transition-all group shadow-sm"
                     >
                         <div className="flex items-center justify-between mb-4">
-                            <aspect.icon className="w-8 h-8 text-sabbpe-cyan group-hover:scale-110 transition-transform" />
-                            <span className="text-3xl font-bold text-sabbpe-cyan">{aspect.stat}</span>
+                            <aspect.icon className="w-8 h-8 text-cyan-600 group-hover:scale-110 transition-transform" />
+                            <span className="text-3xl font-bold text-cyan-600">{aspect.stat}</span>
                         </div>
-                        <h3 className="text-lg font-bold text-white mb-2">{aspect.title}</h3>
-                        <p className="text-slate-400 text-sm">{aspect.desc}</p>
+                        <h3 className="text-lg font-bold text-slate-900 mb-2">{aspect.title}</h3>
+                        <p className="text-slate-600 text-sm">{aspect.desc}</p>
                     </motion.div>
                 ))}
             </div>

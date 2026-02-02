@@ -74,10 +74,10 @@ export default function AboutImpactLayer() {
                 viewport={{ once: true }}
                 className="text-center max-w-3xl"
             >
-                <h2 className="text-3xl md:text-5xl font-display font-bold text-white mb-6">
+                <h2 className="text-3xl md:text-5xl font-display font-bold text-slate-900 mb-6">
                     Our Impact by Numbers
                 </h2>
-                <p className="text-lg text-slate-400">
+                <p className="text-lg text-slate-600">
                     Since our founding in 2023, we've been transforming India's digital payments landscape with innovative solutions.
                 </p>
             </motion.div>
@@ -94,12 +94,12 @@ export default function AboutImpactLayer() {
                     <motion.div
                         key={i}
                         variants={itemVariants}
-                        className="relative group overflow-hidden rounded-2xl border border-white/10 bg-white/[0.02] p-8 hover:bg-white/[0.05] transition-all"
+                        className="relative group overflow-hidden rounded-2xl border border-slate-200 bg-white p-8 hover:bg-slate-50 hover:shadow-md transition-all shadow-sm"
                     >
-                        <div className={`absolute -top-20 -right-20 w-40 h-40 bg-gradient-to-br ${impact.color} rounded-full blur-3xl opacity-20 group-hover:opacity-40 transition-opacity`} />
+                        <div className={`absolute -top-20 -right-20 w-40 h-40 bg-gradient-to-br ${impact.color} rounded-full blur-3xl opacity-10 group-hover:opacity-20 transition-opacity`} />
 
                         <div className="relative z-10 space-y-4">
-                            <div className={`w-12 h-12 rounded-full bg-gradient-to-br ${impact.color} flex items-center justify-center`}>
+                            <div className={`w-12 h-12 rounded-full bg-gradient-to-br ${impact.color} flex items-center justify-center shadow-md`}>
                                 <impact.icon className="w-6 h-6 text-white" />
                             </div>
                             <div>
@@ -107,11 +107,11 @@ export default function AboutImpactLayer() {
                                     initial={{ opacity: 0, scale: 0.8 }}
                                     whileInView={{ opacity: 1, scale: 1 }}
                                     transition={{ delay: i * 0.1 + 0.3 }}
-                                    className="text-3xl md:text-4xl font-display font-bold text-white mb-2"
+                                    className="text-3xl md:text-4xl font-display font-bold text-slate-900 mb-2"
                                 >
                                     {impact.metric}
                                 </motion.div>
-                                <p className="text-slate-400 text-sm">{impact.label}</p>
+                                <p className="text-slate-600 text-sm">{impact.label}</p>
                             </div>
                         </div>
                     </motion.div>
@@ -124,7 +124,7 @@ export default function AboutImpactLayer() {
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    className="text-2xl md:text-3xl font-display font-bold text-white text-center mb-12"
+                    className="text-2xl md:text-3xl font-display font-bold text-slate-900 text-center mb-12"
                 >
                     Stories of Success
                 </motion.h3>
@@ -137,14 +137,14 @@ export default function AboutImpactLayer() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: i * 0.1 }}
-                            className="p-8 rounded-2xl border border-white/10 bg-gradient-to-br from-white/[0.05] to-white/[0.02] hover:from-white/[0.08] hover:to-white/[0.04] transition-all group"
+                            className="p-8 rounded-2xl border border-slate-200 bg-white hover:shadow-md hover:bg-slate-50 transition-all group shadow-sm bg-opacity-80"
                         >
-                            <h4 className="text-lg font-bold text-white mb-2 group-hover:text-sabbpe-cyan transition-colors">
+                            <h4 className="text-lg font-bold text-slate-900 mb-2 group-hover:text-blue-600 transition-colors">
                                 {story.title}
                             </h4>
-                            <p className="text-slate-400 text-sm mb-6">{story.desc}</p>
-                            <div className="pt-6 border-t border-white/10">
-                                <p className="text-white font-semibold mb-2 italic">"{story.testimonial}"</p>
+                            <p className="text-slate-600 text-sm mb-6">{story.desc}</p>
+                            <div className="pt-6 border-t border-slate-200">
+                                <p className="text-slate-900 font-semibold mb-2 italic">"{story.testimonial}"</p>
                                 <p className="text-slate-500 text-sm">{story.author}</p>
                             </div>
                         </motion.div>

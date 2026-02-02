@@ -9,7 +9,7 @@ import DashboardCTALayer from '@/components/saas/dashboard/layers/DashboardCTALa
 
 export default function DashboardPage() {
     return (
-        <main className="relative w-full min-h-screen bg-sabbpe-navy-dark">
+        <main className="relative w-full min-h-screen bg-background text-foreground">
             <DashboardHeroLayer />
 
             <LayeredStackScroll>

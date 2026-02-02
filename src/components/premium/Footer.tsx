@@ -20,7 +20,7 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="relative w-full bg-[#02040a] border-t border-white/10">
+    <footer className="relative w-full bg-slate-50 border-t border-slate-200">
       {/* Background gradient */}
       <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-blue-500/5 to-transparent opacity-50 blur-3xl pointer-events-none" />
 
@@ -37,9 +37,9 @@ export default function Footer() {
               <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-blue-500 to-cyan-400 flex items-center justify-center font-bold text-white shadow-lg">
                 S
               </div>
-              <span className="text-lg font-bold text-white">SabbPe</span>
+              <span className="text-lg font-bold text-slate-900">SabbPe</span>
             </div>
-            <p className="text-white/50 text-sm">
+            <p className="text-slate-500 text-sm">
               Financial intelligence for the modern fintech era.
             </p>
           </motion.div>
@@ -50,7 +50,7 @@ export default function Footer() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
           >
-            <h4 className="text-white font-semibold mb-4 text-sm uppercase tracking-wide">
+            <h4 className="text-slate-900 font-semibold mb-4 text-sm uppercase tracking-wide">
               Product
             </h4>
             <ul className="space-y-2">
@@ -58,7 +58,7 @@ export default function Footer() {
                 <li key={item}>
                   <a
                     href="#"
-                    className="text-white/60 hover:text-cyan-300 transition-colors text-sm"
+                    className="text-slate-600 hover:text-primary transition-colors text-sm"
                   >
                     {item}
                   </a>
@@ -73,7 +73,7 @@ export default function Footer() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            <h4 className="text-white font-semibold mb-4 text-sm uppercase tracking-wide">
+            <h4 className="text-slate-900 font-semibold mb-4 text-sm uppercase tracking-wide">
               Company
             </h4>
             <ul className="space-y-2">
@@ -81,7 +81,7 @@ export default function Footer() {
                 <li key={item}>
                   <a
                     href="#"
-                    className="text-white/60 hover:text-cyan-300 transition-colors text-sm"
+                    className="text-slate-600 hover:text-primary transition-colors text-sm"
                   >
                     {item}
                   </a>
@@ -96,7 +96,7 @@ export default function Footer() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
           >
-            <h4 className="text-white font-semibold mb-4 text-sm uppercase tracking-wide">
+            <h4 className="text-slate-900 font-semibold mb-4 text-sm uppercase tracking-wide">
               Connect
             </h4>
             <div className="flex gap-3">
@@ -106,7 +106,7 @@ export default function Footer() {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-full backdrop-blur-md bg-white/10 border border-white/20 flex items-center justify-center text-white/60 hover:text-cyan-300 hover:border-cyan-400/50 transition-all duration-300 hover:bg-white/20"
+                  className="w-10 h-10 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-500 hover:text-primary hover:border-blue-200 hover:shadow-md transition-all duration-300"
                 >
                   <social.Icon size={18} />
                 </a>
@@ -116,7 +116,7 @@ export default function Footer() {
         </div>
 
         {/* Divider */}
-        <div className="h-px bg-gradient-to-r from-transparent via-white/20 to-transparent mb-8" />
+        <div className="h-px bg-slate-200 mb-8" />
 
         {/* Bottom */}
         <motion.div
@@ -126,7 +126,7 @@ export default function Footer() {
           className="flex flex-col md:flex-row items-center justify-between gap-4"
         >
           {/* Left */}
-          <p className="text-white/50 text-sm">
+          <p className="text-slate-500 text-sm">
             &copy; {currentYear} SabbPe. All rights reserved.
           </p>
 
@@ -136,7 +136,7 @@ export default function Footer() {
               <a
                 key={link.label}
                 href={link.href}
-                className="text-white/60 hover:text-cyan-300 transition-colors text-sm"
+                className="text-slate-500 hover:text-primary transition-colors text-sm"
               >
                 {link.label}
               </a>

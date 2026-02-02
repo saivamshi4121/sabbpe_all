@@ -93,8 +93,8 @@ export default function TechnologyMegaMenu({ onClose }: TechnologyMegaMenuProps)
                         className={clsx(
                             'relative px-4 py-2.5 text-sm font-medium text-left cursor-pointer rounded-lg transition-all duration-200 overflow-hidden flex items-center justify-between',
                             activeCategory === category.id
-                                ? 'text-sabbpe-cyan bg-sabbpe-blue/15 border border-sabbpe-blue/30'
-                                : 'text-muted-foreground bg-transparent hover:text-white hover:bg-sabbpe-blue/8'
+                                ? 'text-primary bg-primary/10 border border-primary/20'
+                                : 'text-slate-600 bg-transparent hover:text-primary hover:bg-slate-50'
                         )}
                         onClick={() => setActiveCategory(category.id)}
                         onMouseEnter={() => setActiveCategory(category.id)}
@@ -146,11 +146,11 @@ export default function TechnologyMegaMenu({ onClose }: TechnologyMegaMenuProps)
                                             <Link
                                                 href={item.href}
                                                 onClick={onClose}
-                                                className="group flex items-center gap-3 px-3 py-2.5 text-muted-foreground no-underline text-sm font-medium transition-colors duration-200 rounded-md hover:text-white hover:bg-white/5"
+                                                className="group flex items-center gap-3 px-3 py-2.5 text-slate-600 no-underline text-sm font-medium transition-colors duration-200 rounded-md hover:text-primary hover:bg-slate-50"
                                             >
                                                 {Icon && (
-                                                    <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-sabbpe-blue/20 to-sabbpe-cyan/20 flex items-center justify-center group-hover:from-sabbpe-blue/30 group-hover:to-sabbpe-cyan/30 transition-all shrink-0">
-                                                        <Icon className="w-4 h-4 text-sabbpe-cyan" />
+                                                    <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary/10 to-primary/5 flex items-center justify-center group-hover:from-primary/15 group-hover:to-primary/10 transition-all shrink-0">
+                                                        <Icon className="w-4 h-4 text-primary" />
                                                     </div>
                                                 )}
                                                 <span className="group-hover:translate-x-1 transition-transform duration-200 flex-1 whitespace-nowrap">

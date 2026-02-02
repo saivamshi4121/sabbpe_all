@@ -13,7 +13,7 @@ import FinalCTALayer from './layers/FinalCTALayer';
 
 export default function HomePage() {
     return (
-        <main className="relative w-full min-h-screen bg-sabbpe-navy-dark">
+        <main className="relative w-full min-h-screen bg-background">
             {/* Hero Section - Scrolls normally */}
             <HeroLayer />
 

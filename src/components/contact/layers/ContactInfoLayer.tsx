@@ -9,29 +9,29 @@ const infoCards = [
         title: "Fast Response Time",
         desc: "We respond to inquiries within 24 hours during business days.",
         icon: Clock,
-        color: 'from-blue-900/20 to-indigo-900/20',
-        accent: 'text-blue-400'
+        color: 'from-blue-50 to-indigo-50',
+        accent: 'text-blue-600'
     },
     {
         title: "Global Support",
         desc: "Available in multiple languages and timezones to serve you better.",
         icon: Globe,
-        color: 'from-yellow-900/20 to-orange-900/20',
-        accent: 'text-yellow-400'
+        color: 'from-yellow-50 to-orange-50',
+        accent: 'text-yellow-600'
     },
     {
         title: "Expert Team",
         desc: "Connect with payment specialists who understand your business needs.",
         icon: Users,
-        color: 'from-purple-900/20 to-pink-900/20',
-        accent: 'text-purple-400'
+        color: 'from-purple-50 to-pink-50',
+        accent: 'text-purple-600'
     },
     {
         title: "Dedicated Support",
         desc: "Get personalized assistance with implementation and integration.",
         icon: Zap,
-        color: 'from-cyan-900/20 to-teal-900/20',
-        accent: 'text-cyan-400'
+        color: 'from-cyan-50 to-teal-50',
+        accent: 'text-cyan-600'
     }
 ];
 
@@ -55,13 +55,13 @@ function InfoCard({ children, className = "" }: { children: React.ReactNode; cla
             onMouseMove={handleMouseMove}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
-            className={`relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.02] p-8 flex flex-col justify-between h-[300px] group transition-transform hover:-translate-y-1 ${className}`}
+            className={`relative overflow-hidden rounded-3xl border border-slate-200 bg-white p-8 flex flex-col justify-between h-[300px] group transition-all hover:-translate-y-1 shadow-sm hover:shadow-md ${className}`}
         >
             <div
                 className="pointer-events-none absolute -inset-px opacity-0 transition duration-300 z-10"
                 style={{
                     opacity,
-                    background: `radial-gradient(600px circle at ${position.x}px ${position.y}px, rgba(34,211,238,0.15), transparent 40%)`,
+                    background: `radial-gradient(600px circle at ${position.x}px ${position.y}px, rgba(59,130,246,0.05), transparent 40%)`,
                 }}
             />
             {children}
@@ -79,10 +79,10 @@ export default function ContactInfoLayer() {
                 viewport={{ once: true }}
                 className="text-center mb-16 max-w-3xl"
             >
-                <h2 className="text-3xl md:text-5xl font-display font-bold text-white mb-6">
+                <h2 className="text-3xl md:text-5xl font-display font-bold text-slate-900 mb-6">
                     How We Support You
                 </h2>
-                <p className="text-lg text-sabbpe-text-secondary">
+                <p className="text-lg text-slate-600">
                     Our customer success team is committed to your success. With fast response times and expert guidance,
                     we ensure smooth integration and ongoing support.
                 </p>
@@ -102,11 +102,11 @@ export default function ContactInfoLayer() {
                         >
                             <InfoCard>
                                 <div className="z-20 relative">
-                                    <div className={`inline-block p-3 rounded-lg bg-gradient-to-br ${card.color} mb-4`}>
+                                    <div className={`inline-block p-3 rounded-lg bg-gradient-to-br ${card.color} mb-4 border border-slate-100`}>
                                         <Icon className={`w-6 h-6 ${card.accent}`} />
                                     </div>
-                                    <h3 className="font-display font-bold text-xl text-white mb-2">{card.title}</h3>
-                                    <p className="text-sabbpe-text-secondary leading-relaxed">{card.desc}</p>
+                                    <h3 className="font-display font-bold text-xl text-slate-900 mb-2">{card.title}</h3>
+                                    <p className="text-slate-600 leading-relaxed">{card.desc}</p>
                                 </div>
                             </InfoCard>
                         </motion.div>

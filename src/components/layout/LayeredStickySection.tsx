@@ -77,10 +77,10 @@ export default function LayeredStickySection({ children, index, className = "", 
             >
                 <div
                     ref={contentRef}
-                    className="w-full relative rounded-[28px] border border-sabbpe-border bg-sabbpe-navy-light backdrop-blur-xl shadow-[0px_30px_90px_rgba(0,0,0,0.55)] overflow-hidden"
+                    className="w-full relative rounded-[28px] border border-slate-200 bg-white backdrop-blur-xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] overflow-hidden"
                 >
                     {/* Top Highlight Edge */}
-                    <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-white/25 to-transparent z-50 pointer-events-none" />
+                    <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-slate-200/50 to-transparent z-50 pointer-events-none" />
 
                     {/* Content */}
                     <div className="p-6 md:p-10">

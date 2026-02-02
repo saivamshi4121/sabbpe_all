@@ -32,15 +32,16 @@
 @layer components {
 
   /* Glass Morphism */
+  /* Light Theme Cards */
   .glass-card {
-    @apply bg-white/5 backdrop-blur-xl border border-white/10 rounded-[28px];
+    @apply bg-white border border-slate-200 rounded-[28px];
     box-shadow:
-      0 8px 32px rgba(0, 0, 0, 0.4),
-      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+      0 4px 6px -1px rgba(0, 7, 40, 0.05),
+      0 12px 16px -1px rgba(0, 7, 40, 0.05);
   }
 
   .glass-pill {
-    @apply bg-white/5 backdrop-blur-md border border-white/10 rounded-full;
+    @apply bg-white border border-slate-200 rounded-full shadow-sm text-sm font-medium text-slate-600;
   }
 
   /* Gradient Text */
@@ -64,14 +65,14 @@
 
   /* Button Styles */
   .btn-primary {
-    @apply px-8 py-4 rounded-xl font-bold text-background bg-gradient-to-r from-sabbpe-blue to-sabbpe-cyan;
-    @apply hover:shadow-lg hover:shadow-sabbpe-blue/50 transition-all duration-300;
+    @apply px-8 py-4 rounded-xl font-bold text-white bg-primary;
+    @apply hover:shadow-lg hover:shadow-primary/25 transition-all duration-300;
     @apply hover:-translate-y-0.5;
   }
 
   .btn-secondary {
-    @apply px-8 py-4 rounded-xl font-medium text-foreground border border-white/10;
-    @apply hover:bg-white/5 backdrop-blur-sm transition-all duration-300;
+    @apply px-8 py-4 rounded-xl font-medium text-primary bg-secondary;
+    @apply hover:bg-secondary/80 transition-all duration-300;
   }
 
   /* Section Label */
@@ -90,7 +91,7 @@
     inset: -2px;
     border-radius: inherit;
     padding: 2px;
-    background: linear-gradient(135deg, hsl(217, 91%, 60%), hsl(192, 91%, 55%));
+    background: linear-gradient(135deg, #2563EB, #2EE6D6);
     -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
     mask-composite: exclude;

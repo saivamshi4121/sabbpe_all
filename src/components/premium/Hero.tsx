@@ -16,7 +16,6 @@ import {
   Play,
 } from 'lucide-react';
 import ContactModal from '@/components/modals/ContactModal';
-import DemoModal from '@/components/modals/DemoModal';
 
 const FEATURE_ICONS = [
   { Icon: QrCode, label: 'UPI' },
@@ -58,14 +57,14 @@ const SabbPeLogo = () => {
       {/* P */}
       <path
         d="M 60 18 L 60 52"
-        stroke="#1D4ED8"
+        stroke="#2563EB"
         strokeWidth="6"
         strokeLinecap="round"
       />
       <path
         d="M 60 18 Q 75 18 82 28 Q 86 36 80 46 Q 72 52 60 48"
         fill="none"
-        stroke="#1D4ED8"
+        stroke="#2563EB"
         strokeWidth="6"
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -132,26 +131,23 @@ const IconBubble = ({
         onMouseEnter={() => !isMobile && onHover(index)}
         onMouseLeave={() => !isMobile && onHover(null)}
         onClick={() => isMobile && onHover(isHovered ? null : index)}
-        className="group relative w-full h-full rounded-xl md:rounded-2xl flex items-center justify-center backdrop-blur-xl bg-white/8 border border-white/15 shadow-lg hover:shadow-xl transition-all duration-300"
+        className="group relative w-full h-full rounded-xl md:rounded-2xl flex items-center justify-center backdrop-blur-xl bg-white border border-slate-200 shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:shadow-xl transition-all duration-300"
         whileHover={{
           scale: 1.1,
-          backgroundColor: 'rgba(255, 255, 255, 0.12)',
-          borderColor: 'rgba(34, 211, 238, 0.4)',
+          borderColor: 'rgba(37, 99, 235, 0.4)',
         }}
       >
         {/* Glow effect on hover */}
         <motion.div
-          className="absolute inset-0 rounded-xl md:rounded-2xl bg-gradient-to-br from-cyan-400/0 to-blue-500/0"
+          className="absolute inset-0 rounded-xl md:rounded-2xl bg-gradient-to-br from-blue-50/0 to-blue-100/0"
           animate={{
-            boxShadow: isHovered
-              ? '0 0 30px rgba(34, 211, 238, 0.4)'
-              : '0 0 15px rgba(34, 211, 238, 0)',
+            backgroundColor: isHovered ? 'rgba(239, 246, 255, 1)' : 'rgba(255, 255, 255, 0)',
           }}
           transition={{ duration: 0.3 }}
         />
 
         {/* Icon */}
-        <Icon className="w-5 h-5 md:w-7 md:h-7 text-cyan-300 relative z-10 transition-transform duration-300 group-hover:scale-110" />
+        <Icon className="w-5 h-5 md:w-7 md:h-7 text-primary relative z-10 transition-transform duration-300 group-hover:scale-110" />
 
         {/* Label tooltip on hover */}
         <motion.div
@@ -162,7 +158,7 @@ const IconBubble = ({
               : { opacity: 0, y: 8 }
           }
           transition={{ duration: 0.2 }}
-          className="absolute left-1/2 -translate-x-1/2 whitespace-nowrap text-xs font-semibold text-white bg-black/80 backdrop-blur-sm px-3 py-1.5 rounded-full border border-white/10 pointer-events-none z-50"
+          className="absolute left-1/2 -translate-x-1/2 whitespace-nowrap text-xs font-semibold text-white bg-slate-900 shadow-lg px-3 py-1.5 rounded-full pointer-events-none z-50"
         >
           {label}
         </motion.div>
@@ -180,7 +176,7 @@ interface NetworkHubProps {
 const NetworkHub = ({ hoveredIndex, onHover, isMobile }: NetworkHubProps) => {
   const svgSize = isMobile ? 'w-72 h-72' : 'w-96 h-96 lg:w-[500px] lg:h-[500px]';
   const lineRadius = isMobile ? 100 : 150;
-  
+
   return (
     <div className="relative w-full h-full flex items-center justify-center">
       {/* SVG Container for connecting lines */}
@@ -205,7 +201,7 @@ const NetworkHub = ({ hoveredIndex, onHover, isMobile }: NetworkHubProps) => {
               stroke="url(#gradientLine)"
               strokeWidth="1.5"
               animate={{
-                opacity: isHovered ? 0.8 : 0.3,
+                opacity: isHovered ? 0.8 : 0.2,
                 strokeWidth: isHovered ? 2.5 : 1.5,
               }}
               transition={{ duration: 0.3 }}
@@ -214,21 +210,21 @@ const NetworkHub = ({ hoveredIndex, onHover, isMobile }: NetworkHubProps) => {
         })}
         <defs>
           <linearGradient id="gradientLine" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="rgb(34, 211, 238)" stopOpacity="0.6" />
-            <stop offset="100%" stopColor="rgb(6, 182, 212)" stopOpacity="0" />
+            <stop offset="0%" stopColor="#2563EB" stopOpacity="0.6" />
+            <stop offset="100%" stopColor="#22D3EE" stopOpacity="0" />
           </linearGradient>
         </defs>
       </svg>
 
       {/* Center Hub */}
       <motion.div
-        className="absolute w-20 h-20 xs:w-24 xs:h-24 rounded-2xl xs:rounded-3xl backdrop-blur-2xl bg-gradient-to-br from-white/15 to-white/5 border border-white/20 flex flex-col items-center justify-center shadow-2xl z-20"
+        className="absolute w-20 h-20 xs:w-24 xs:h-24 rounded-2xl xs:rounded-3xl bg-white border border-slate-200 flex flex-col items-center justify-center shadow-xl z-20"
         animate={{
           scale: [1, 1.03, 1],
           boxShadow: [
-            '0 0 40px rgba(6, 182, 212, 0.2)',
-            '0 0 60px rgba(6, 182, 212, 0.4)',
-            '0 0 40px rgba(6, 182, 212, 0.2)',
+            '0 0 40px rgba(37, 99, 235, 0.1)',
+            '0 0 60px rgba(37, 99, 235, 0.2)',
+            '0 0 40px rgba(37, 99, 235, 0.1)',
           ],
         }}
         transition={{
@@ -242,9 +238,9 @@ const NetworkHub = ({ hoveredIndex, onHover, isMobile }: NetworkHubProps) => {
           className="absolute inset-0 rounded-2xl xs:rounded-3xl"
           animate={{
             boxShadow: [
-              'inset 0 0 40px rgba(34, 211, 238, 0.1), 0 0 60px rgba(34, 211, 238, 0.15)',
-              'inset 0 0 50px rgba(34, 211, 238, 0.2), 0 0 80px rgba(34, 211, 238, 0.25)',
-              'inset 0 0 40px rgba(34, 211, 238, 0.1), 0 0 60px rgba(34, 211, 238, 0.15)',
+              'inset 0 0 40px rgba(37, 99, 235, 0.05), 0 0 60px rgba(37, 99, 235, 0.1)',
+              'inset 0 0 50px rgba(37, 99, 235, 0.1), 0 0 80px rgba(37, 99, 235, 0.15)',
+              'inset 0 0 40px rgba(37, 99, 235, 0.05), 0 0 60px rgba(37, 99, 235, 0.1)',
             ],
           }}
           transition={{
@@ -285,7 +281,7 @@ export default function Hero() {
     const checkMobile = () => {
       setIsMobile(window.innerWidth < 768);
     };
-    
+
     checkMobile();
     window.addEventListener('resize', checkMobile);
     return () => window.removeEventListener('resize', checkMobile);
@@ -293,22 +289,27 @@ export default function Hero() {
 
   return (
     <>
-      <section id="hero-section" className="relative w-full min-h-screen bg-[#02040a] overflow-hidden">
+      <section id="hero-section" className="relative w-full min-h-[95vh] bg-background overflow-hidden flex items-center justify-center">
         {/* Subtle background - minimal grid only */}
-        <div className="absolute inset-0 opacity-5" style={{
-          backgroundImage: 'linear-gradient(rgba(255,255,255,.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.1) 1px, transparent 1px)',
-          backgroundSize: '50px 50px'
+        <div className="absolute inset-0 opacity-[0.4]" style={{
+          backgroundImage: 'linear-gradient(#e2e8f0 1px, transparent 1px), linear-gradient(90deg, #e2e8f0 1px, transparent 1px)',
+          backgroundSize: '50px 50px',
+          maskImage: 'radial-gradient(circle at center, black 40%, transparent 90%)'
         }} />
 
+        {/* Soft Blurs */}
+        <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-blue-100/50 rounded-full blur-[100px] -translate-x-1/2 -translate-y-1/2" />
+        <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-cyan-100/40 rounded-full blur-[100px] translate-x-1/2 translate-y-1/2" />
+
         {/* Content */}
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12 py-16 sm:py-20 md:py-32">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center min-h-[70vh]">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12 py-16 sm:py-20">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             {/* Left Side - Text Content */}
             <motion.div
               initial={{ opacity: 0, x: -40 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="space-y-6 sm:space-y-8 order-2 lg:order-1"
+              className="space-y-8 order-2 lg:order-1 text-center lg:text-left"
             >
               {/* Main Headline */}
               <motion.div
@@ -316,10 +317,10 @@ export default function Hero() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.3 }}
               >
-                <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white leading-tight tracking-tight">
+                <h1 className="text-4xl xs:text-5xl sm:text-6xl md:text-7xl font-black text-slate-900 leading-tight tracking-tight">
                   Payments
                   <br />
-                  <span className="bg-gradient-to-r from-cyan-300 via-blue-400 to-cyan-300 bg-clip-text text-transparent">
+                  <span className="bg-gradient-to-r from-primary via-blue-500 to-sabbpe-cyan bg-clip-text text-transparent">
                     Simplified.
                   </span>
                   <br />
@@ -332,7 +333,7 @@ export default function Hero() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.4 }}
-                className="text-base sm:text-lg md:text-xl text-white/60 max-w-md leading-relaxed font-light"
+                className="text-lg sm:text-xl text-slate-600 max-w-lg mx-auto lg:mx-0 leading-relaxed font-normal"
               >
                 Unified UPI, Gateway, Payouts, BBPS & Analytics in one stack for India-scale payments.
               </motion.p>
@@ -343,15 +344,15 @@ export default function Hero() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.5 }}
-                className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-4"
+                className="flex flex-col sm:flex-row gap-4 pt-4 justify-center lg:justify-start"
               >
                 {/* Get Started → Contact Modal */}
-                <ContactModal 
+                <ContactModal
                   trigger={
                     <motion.button
-                      whileHover={{ scale: 1.05, boxShadow: '0 20px 40px rgba(6, 182, 212, 0.3)' }}
+                      whileHover={{ scale: 1.05, boxShadow: '0 10px 30px rgba(37, 99, 235, 0.2)' }}
                       whileTap={{ scale: 0.95 }}
-                      className="w-full sm:w-auto group relative px-6 sm:px-8 py-3 sm:py-4 rounded-lg bg-gradient-to-r from-cyan-400 to-blue-500 text-black font-bold flex items-center justify-center gap-2 overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300"
+                      className="w-full sm:w-auto group relative px-8 py-4 rounded-xl bg-primary text-white font-bold flex items-center justify-center gap-2 overflow-hidden shadow-lg shadow-blue-500/20 transition-all duration-300"
                     >
                       <span className="relative z-10">Get Started</span>
                       <ArrowRight className="w-5 h-5 relative z-10 group-hover:translate-x-1 transition-transform" />
@@ -362,11 +363,11 @@ export default function Hero() {
                 {/* Watch Demo → Product Tour */}
                 <motion.button
                   onClick={() => setShowTour(true)}
-                  whileHover={{ scale: 1.05, backgroundColor: 'rgba(255, 255, 255, 0.12)' }}
+                  whileHover={{ scale: 1.05, backgroundColor: '#F8FAFF' }}
                   whileTap={{ scale: 0.95 }}
-                  className="w-full sm:w-auto group relative px-6 sm:px-8 py-3 sm:py-4 rounded-lg bg-white/8 backdrop-blur-xl border border-white/20 text-white font-bold flex items-center justify-center gap-2 hover:border-white/40 transition-all duration-300"
+                  className="w-full sm:w-auto group relative px-8 py-4 rounded-xl bg-white border border-slate-200 text-slate-700 font-bold flex items-center justify-center gap-2 hover:border-blue-300 hover:text-primary transition-all duration-300 shadow-sm"
                 >
-                  <Play className="w-5 h-5 fill-white" />
+                  <Play className="w-5 h-5 fill-slate-700 group-hover:fill-primary transition-colors" />
                   <span className="relative z-10">Take A Tour</span>
                 </motion.button>
               </motion.div>
@@ -380,7 +381,7 @@ export default function Hero() {
               className="relative h-full min-h-[400px] sm:min-h-[500px] md:min-h-[600px] flex items-center justify-center order-1 lg:order-2"
             >
               {/* Network Hub */}
-              <div className="relative w-full h-full flex items-center justify-center">
+              <div className="relative w-full h-full flex items-center justify-center scale-90 lg:scale-100">
                 <NetworkHub hoveredIndex={hoveredIndex} onHover={setHoveredIndex} isMobile={isMobile} />
               </div>
             </motion.div>

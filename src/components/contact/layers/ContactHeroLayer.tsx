@@ -33,11 +33,11 @@ const contactMethods = [
 
 export default function ContactHeroLayer() {
     return (
-        <section className="relative min-h-[90vh] flex items-center justify-center pt-32 pb-20 overflow-hidden bg-sabbpe-navy-dark">
+        <section className="relative min-h-[90vh] flex items-center justify-center pt-32 pb-20 overflow-hidden bg-background">
             {/* Background Effects */}
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-sabbpe-blue/20 rounded-full blur-[120px] -z-10 opacity-50" />
-            <div className="absolute bottom-0 right-0 w-[800px] h-[800px] bg-sabbpe-cyan/10 rounded-full blur-[120px] -z-10 opacity-30" />
-            <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]" />
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-blue-100/50 rounded-full blur-[120px] -z-10 opacity-50" />
+            <div className="absolute bottom-0 right-0 w-[800px] h-[800px] bg-cyan-100/50 rounded-full blur-[120px] -z-10 opacity-30" />
+            <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center bg-opacity-50 [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]" />
 
             <div className="container mx-auto px-4 md:px-6 relative z-10">
                 <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -47,10 +47,10 @@ export default function ContactHeroLayer() {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.5 }}
-                            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-sabbpe-border backdrop-blur-md hover:bg-white/10 transition-colors cursor-pointer group w-fit mx-auto lg:mx-0"
+                            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-100 border border-slate-200 backdrop-blur-md hover:bg-slate-200 transition-colors cursor-pointer group w-fit mx-auto lg:mx-0"
                         >
-                            <span className="w-2 h-2 rounded-full bg-sabbpe-cyan animate-pulse" />
-                            <span className="text-sm text-sabbpe-text-secondary">Get in Touch</span>
+                            <span className="w-2 h-2 rounded-full bg-cyan-600 animate-pulse" />
+                            <span className="text-sm text-slate-600">Get in Touch</span>
                         </motion.div>
 
                         <motion.div
@@ -58,8 +58,8 @@ export default function ContactHeroLayer() {
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.5, delay: 0.1 }}
                         >
-                            <h1 className="text-4xl md:text-6xl font-display font-bold text-white leading-tight">
-                                Let's Talk About Your <span className="gradient-text">Payment Needs</span>
+                            <h1 className="text-4xl md:text-6xl font-display font-bold text-slate-900 leading-tight">
+                                Let's Talk About Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-600">Payment Needs</span>
                             </h1>
                         </motion.div>
 
@@ -67,7 +67,7 @@ export default function ContactHeroLayer() {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.5, delay: 0.2 }}
-                            className="text-lg text-sabbpe-text-secondary leading-relaxed max-w-xl"
+                            className="text-lg text-slate-600 leading-relaxed max-w-xl"
                         >
                             Have questions about our products or services? Our dedicated team is here to help you find the perfect solution for your business.
                         </motion.p>
@@ -80,7 +80,7 @@ export default function ContactHeroLayer() {
                         >
                             <a
                                 href="#contact-form"
-                                className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-gradient-to-r from-sabbpe-blue to-sabbpe-cyan text-white font-semibold hover:shadow-lg hover:shadow-sabbpe-blue/50 transition-all duration-300 group"
+                                className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-blue-600 text-white font-semibold hover:bg-blue-700 hover:shadow-lg hover:shadow-blue-200 transition-all duration-300 group"
                             >
                                 Start a Conversation
                                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -98,32 +98,32 @@ export default function ContactHeroLayer() {
                                     initial={{ opacity: 0, x: 20 }}
                                     animate={{ opacity: 1, x: 0 }}
                                     transition={{ duration: 0.5, delay: 0.4 + i * 0.1 }}
-                                    className="group p-6 rounded-2xl border border-white/10 bg-white/[0.02] backdrop-blur-md hover:bg-white/[0.05] transition-all duration-300 hover:-translate-y-1"
+                                    className="group p-6 rounded-2xl border border-slate-200 bg-white backdrop-blur-md hover:shadow-md transition-all duration-300 hover:-translate-y-1 shadow-sm"
                                 >
                                     <div className="flex items-start gap-4">
-                                        <div className={`p-3 rounded-lg bg-gradient-to-br ${method.color} opacity-20 flex-shrink-0`}>
+                                        <div className={`p-3 rounded-lg bg-gradient-to-br ${method.color} bg-opacity-10 flex-shrink-0`}>
                                             <Icon className="w-6 h-6 text-white" />
                                         </div>
                                         <div className="flex-1">
-                                            <h3 className="font-semibold text-white mb-1">{method.title}</h3>
-                                            <p className="text-sm text-sabbpe-text-secondary mb-2">{method.desc}</p>
+                                            <h3 className="font-semibold text-slate-900 mb-1">{method.title}</h3>
+                                            <p className="text-sm text-slate-600 mb-2">{method.desc}</p>
                                             {method.emails && (
                                                 <div className="space-y-1">
                                                     {method.emails.map((email, idx) => (
-                                                        <p key={idx} className="text-sm font-medium text-sabbpe-cyan">{email}</p>
+                                                        <p key={idx} className="text-sm font-medium text-cyan-600">{email}</p>
                                                     ))}
                                                 </div>
                                             )}
                                             {method.phone && (
                                                 <div className="space-y-1">
-                                                    <p className="text-sm font-medium text-sabbpe-cyan">{method.phone}</p>
-                                                    <p className="text-xs text-sabbpe-text-secondary">{method.hours}</p>
+                                                    <p className="text-sm font-medium text-cyan-600">{method.phone}</p>
+                                                    <p className="text-xs text-slate-500">{method.hours}</p>
                                                 </div>
                                             )}
                                             {method.schedule && (
                                                 <div className="space-y-1">
                                                     {method.schedule.map((time, idx) => (
-                                                        <p key={idx} className="text-sm text-sabbpe-cyan">{time}</p>
+                                                        <p key={idx} className="text-sm text-cyan-600">{time}</p>
                                                     ))}
                                                 </div>
                                             )}

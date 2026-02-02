@@ -11,16 +11,16 @@ export default function BlockchainPage() {
     const heroOpacity = useTransform(scrollY, [0, 200], [1, 0.7]);
 
     return (
-        <div className="w-full min-h-screen bg-[#02040a] text-white font-sans overflow-hidden">
+        <div className="w-full min-h-screen bg-background text-foreground font-sans overflow-hidden">
             {/* Hero Section */}
             <motion.section
                 className="relative min-h-screen flex items-center justify-center px-4 pt-20"
                 style={{ y: heroY, opacity: heroOpacity }}
             >
                 {/* Background Elements */}
-                <div className="absolute top-0 left-0 w-full h-full bg-[url('/grid.svg')] opacity-20 pointer-events-none" />
-                <div className="absolute top-20 right-20 w-[600px] h-[600px] bg-slate-600/10 rounded-full blur-[120px] -z-10" />
-                <div className="absolute bottom-20 left-20 w-[500px] h-[500px] bg-amber-600/10 rounded-full blur-[100px] -z-10" />
+                <div className="absolute top-0 left-0 w-full h-full bg-[url('/grid.svg')] opacity-5 pointer-events-none" />
+                <div className="absolute top-20 right-20 w-[600px] h-[600px] bg-slate-100/50 rounded-full blur-[120px] -z-10" />
+                <div className="absolute bottom-20 left-20 w-[500px] h-[500px] bg-amber-100/50 rounded-full blur-[100px] -z-10" />
 
                 <div className="container mx-auto grid lg:grid-cols-2 gap-12 items-center z-10">
                     <motion.div
@@ -28,20 +28,20 @@ export default function BlockchainPage() {
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.8 }}
                     >
-                        <div className="inline-flex items-center gap-2 px-4 py-2 bg-amber-500/10 border border-amber-500/20 rounded-full text-amber-400 mb-6 backdrop-blur-sm">
+                        <div className="inline-flex items-center gap-2 px-4 py-2 bg-amber-50 border border-amber-200 rounded-full text-amber-700 mb-6 backdrop-blur-sm">
                             <Box className="w-4 h-4" />
                             <span className="text-sm font-semibold">Decentralized Trust</span>
                         </div>
-                        <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+                        <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight text-slate-900">
                             Blockchain <br />
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-200 to-yellow-500">Technology</span>
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-yellow-600">Technology</span>
                         </h1>
-                        <p className="text-xl text-slate-400 mb-8 max-w-xl leading-relaxed">
+                        <p className="text-xl text-slate-600 mb-8 max-w-xl leading-relaxed">
                             Build secure, transparent, and immutable applications. From smart contracts to enterprise DLT solutions.
                         </p>
                         <div className="flex flex-wrap gap-4">
                             <Link href="/contact">
-                                <button className="px-8 py-4 bg-gradient-to-r from-amber-500 to-yellow-600 rounded-xl font-bold hover:shadow-[0_0_20px_rgba(245,158,11,0.5)] transition-shadow">
+                                <button className="px-8 py-4 bg-gradient-to-r from-amber-500 to-yellow-600 rounded-xl font-bold text-white hover:shadow-[0_0_20px_rgba(245,158,11,0.5)] transition-shadow">
                                     Explore Web3
                                 </button>
                             </Link>
@@ -64,22 +64,22 @@ export default function BlockchainPage() {
                                     transition={{ delay: idx * 0.5, duration: 0.8, type: "spring" }}
                                     className="relative"
                                 >
-                                    <div className="w-64 h-24 bg-[#0e1a2b] border border-amber-500/30 rounded-xl flex items-center justify-between px-6 shadow-xl z-10 relative">
+                                    <div className="w-64 h-24 bg-white border border-amber-200 rounded-xl flex items-center justify-between px-6 shadow-lg z-10 relative">
                                         <div className="flex items-center gap-3">
-                                            <div className="w-10 h-10 bg-amber-500/20 rounded-lg flex items-center justify-center">
-                                                <Box className="w-5 h-5 text-amber-400" />
+                                            <div className="w-10 h-10 bg-amber-100 rounded-lg flex items-center justify-center">
+                                                <Box className="w-5 h-5 text-amber-600" />
                                             </div>
                                             <div className="flex flex-col">
                                                 <span className="text-xs text-slate-500 font-mono">HASH</span>
-                                                <span className="text-xs font-mono text-amber-200">0x8F3...2A</span>
+                                                <span className="text-xs font-mono text-amber-600">0x8F3...2A</span>
                                             </div>
                                         </div>
-                                        <ShieldCheck className="w-5 h-5 text-green-400" />
+                                        <ShieldCheck className="w-5 h-5 text-green-500" />
                                     </div>
                                     {/* Chain Link */}
                                     {idx < 2 && (
                                         <motion.div
-                                            className="w-1 h-8 bg-amber-500/50 mx-auto"
+                                            className="w-1 h-8 bg-amber-300 mx-auto"
                                             initial={{ height: 0 }}
                                             animate={{ height: 32 }}
                                             transition={{ delay: idx * 0.5 + 0.4, duration: 0.3 }}
@@ -96,34 +96,34 @@ export default function BlockchainPage() {
             <section className="py-24 container mx-auto px-4">
                 <div className="grid md:grid-cols-3 gap-8">
                     <motion.div
-                        className="p-8 rounded-3xl bg-white/5 border border-white/10"
+                        className="p-8 rounded-3xl bg-white border border-slate-200 shadow-sm"
                         whileHover={{ y: -5, borderColor: 'rgba(245,158,11,0.5)' }}
                     >
-                        <FileText className="w-12 h-12 text-blue-400 mb-6" />
-                        <h3 className="text-2xl font-bold mb-4">Smart Contracts</h3>
-                        <p className="text-slate-400 leading-relaxed">
+                        <FileText className="w-12 h-12 text-blue-500 mb-6" />
+                        <h3 className="text-2xl font-bold mb-4 text-slate-900">Smart Contracts</h3>
+                        <p className="text-slate-600 leading-relaxed">
                             Self-executing contracts with the terms of the agreement directly written into code. Automated and trustless.
                         </p>
                     </motion.div>
 
                     <motion.div
-                        className="p-8 rounded-3xl bg-white/5 border border-white/10"
+                        className="p-8 rounded-3xl bg-white border border-slate-200 shadow-sm"
                         whileHover={{ y: -5, borderColor: 'rgba(245,158,11,0.5)' }}
                     >
-                        <Lock className="w-12 h-12 text-amber-400 mb-6" />
-                        <h3 className="text-2xl font-bold mb-4">Immutable Ledger</h3>
-                        <p className="text-slate-400 leading-relaxed">
+                        <Lock className="w-12 h-12 text-amber-500 mb-6" />
+                        <h3 className="text-2xl font-bold mb-4 text-slate-900">Immutable Ledger</h3>
+                        <p className="text-slate-600 leading-relaxed">
                             Records cannot be altered retroactively without the alteration of all subsequent blocks.
                         </p>
                     </motion.div>
 
                     <motion.div
-                        className="p-8 rounded-3xl bg-white/5 border border-white/10"
+                        className="p-8 rounded-3xl bg-white border border-slate-200 shadow-sm"
                         whileHover={{ y: -5, borderColor: 'rgba(245,158,11,0.5)' }}
                     >
-                        <Wallet className="w-12 h-12 text-green-400 mb-6" />
-                        <h3 className="text-2xl font-bold mb-4">DeFi Solutions</h3>
-                        <p className="text-slate-400 leading-relaxed">
+                        <Wallet className="w-12 h-12 text-green-500 mb-6" />
+                        <h3 className="text-2xl font-bold mb-4 text-slate-900">DeFi Solutions</h3>
+                        <p className="text-slate-600 leading-relaxed">
                             Building the future of finance with decentralized applications (dApps) and crypto wallets.
                         </p>
                     </motion.div>
@@ -131,12 +131,12 @@ export default function BlockchainPage() {
             </section>
 
             {/* Use Cases */}
-            <section className="py-24 bg-[#0e1a2b]">
+            <section className="py-24 bg-slate-50">
                 <div className="container mx-auto px-4">
-                    <h2 className="text-3xl md:text-5xl font-bold mb-16 text-center">Enterprise Blockchain</h2>
+                    <h2 className="text-3xl md:text-5xl font-bold mb-16 text-center text-slate-900">Enterprise Blockchain</h2>
                     <div className="grid lg:grid-cols-2 gap-12">
                         <div className="space-y-8">
-                            <p className="text-lg text-slate-300">
+                            <p className="text-lg text-slate-600">
                                 We help businesses implement private and public blockchains to enhance security, transparency, and efficiency.
                             </p>
                             <ul className="space-y-4">
@@ -146,16 +146,16 @@ export default function BlockchainPage() {
                                     "Digital Asset Tokenization",
                                     "Cross-border Payments"
                                 ].map((item, idx) => (
-                                    <li key={idx} className="flex items-center gap-3 text-xl font-semibold">
+                                    <li key={idx} className="flex items-center gap-3 text-xl font-semibold text-slate-800">
                                         <ShieldCheck className="w-6 h-6 text-amber-500" />
                                         {item}
                                     </li>
                                 ))}
                             </ul>
                         </div>
-                        <div className="bg-white/5 rounded-2xl p-8 border border-white/10">
-                            <div className="font-mono text-sm text-slate-400">
-                                <div className="mb-4 text-green-400">// Smart Contract Example</div>
+                        <div className="bg-white rounded-2xl p-8 border border-slate-200 shadow-md">
+                            <div className="font-mono text-sm text-slate-500">
+                                <div className="mb-4 text-green-600">// Smart Contract Example</div>
                                 <div>contract SupplyChain {'{'}</div>
                                 <div className="pl-4">struct Product {'{'}</div>
                                 <div className="pl-8">uint id;</div>
@@ -176,9 +176,9 @@ export default function BlockchainPage() {
 
             {/* CTA */}
             <section className="py-24 text-center container mx-auto px-4">
-                <h2 className="text-4xl md:text-6xl font-bold mb-8">Secure Your Future</h2>
+                <h2 className="text-4xl md:text-6xl font-bold mb-8 text-slate-900">Secure Your Future</h2>
                 <Link href="/contact">
-                    <button className="px-10 py-5 bg-gradient-to-r from-amber-500 to-yellow-600 text-black rounded-xl font-bold text-lg hover:shadow-lg transition-shadow">
+                    <button className="px-10 py-5 bg-gradient-to-r from-amber-500 to-yellow-600 text-white rounded-xl font-bold text-lg hover:shadow-lg transition-shadow">
                         Discuss Blockchain
                     </button>
                 </Link>

@@ -132,8 +132,8 @@ export default function ProductsMegaMenu({ onClose }: ProductsMegaMenuProps) {
                         className={clsx(
                             'relative px-4 py-2 text-sm font-medium text-left cursor-pointer rounded-lg transition-all duration-200 overflow-hidden flex items-center gap-3',
                             activeCategory === category.id
-                                ? 'text-sabbpe-cyan bg-sabbpe-blue/15 border border-sabbpe-blue/30'
-                                : 'text-muted-foreground bg-transparent hover:text-white hover:bg-sabbpe-blue/8'
+                                ? 'text-primary bg-primary/10 border border-primary/20'
+                                : 'text-slate-600 bg-transparent hover:text-primary hover:bg-slate-50'
                         )}
                         onClick={() => setActiveCategory(category.id)}
                         onMouseEnter={() => setActiveCategory(category.id)}
@@ -170,7 +170,7 @@ export default function ProductsMegaMenu({ onClose }: ProductsMegaMenuProps) {
                     >
                         {content.map((column, idx) => (
                             <div key={idx} className="flex flex-col gap-3">
-                                <h4 className="text-xs font-bold text-sabbpe-cyan/80 uppercase tracking-widest m-0 p-0 pl-2">
+                                <h4 className="text-xs font-bold text-slate-500 uppercase tracking-widest m-0 p-0 pl-2">
                                     {column.title}
                                 </h4>
                                 <ul className="list-none m-0 p-0 flex flex-col gap-0.5">
@@ -184,11 +184,11 @@ export default function ProductsMegaMenu({ onClose }: ProductsMegaMenuProps) {
                                             <Link
                                                 href={item.href}
                                                 onClick={onClose}
-                                                className="flex items-center justify-between gap-2 px-2 py-1.5 text-muted-foreground no-underline text-sm font-medium transition-colors duration-200 rounded-md hover:text-white hover:bg-white/5"
+                                                className="flex items-center justify-between gap-2 px-2 py-1.5 text-slate-600 no-underline text-sm font-medium transition-colors duration-200 rounded-md hover:text-primary hover:bg-slate-50"
                                             >
                                                 <span>{item.name}</span>
                                                 {item.tag && (
-                                                    <span className="inline-flex items-center px-1.5 py-0.5 bg-sabbpe-blue/15 border border-sabbpe-blue/20 rounded-[4px] text-[10px] font-bold text-sabbpe-cyan uppercase whitespace-nowrap flex-shrink-0 tracking-wider">
+                                                    <span className="inline-flex items-center px-1.5 py-0.5 bg-primary/10 border border-primary/20 rounded-[4px] text-[10px] font-bold text-primary uppercase whitespace-nowrap flex-shrink-0 tracking-wider">
                                                         {item.tag}
                                                     </span>
                                                 )}

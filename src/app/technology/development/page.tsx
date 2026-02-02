@@ -83,23 +83,23 @@ const DevelopmentContent = () => {
     ];
 
     return (
-        <div className="w-full min-h-screen bg-[#02040a] text-white font-sans overflow-hidden">
+        <div className="w-full min-h-screen bg-background text-foreground font-sans overflow-hidden">
             {/* Hero Section */}
             <motion.section
                 style={{ y: heroY, opacity: heroOpacity }}
                 className="relative min-h-[90vh] flex items-center justify-center px-4"
             >
                 {/* Background Effects */}
-                <div className="absolute top-0 left-0 w-full h-full bg-[url('/grid.svg')] opacity-20 pointer-events-none" />
-                <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-600/10 rounded-full blur-[120px] -z-10" />
-                <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-purple-600/10 rounded-full blur-[100px] -z-10" />
+                <div className="absolute top-0 left-0 w-full h-full bg-[url('/grid.svg')] opacity-5 pointer-events-none" />
+                <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-100/50 rounded-full blur-[120px] -z-10" />
+                <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-purple-100/50 rounded-full blur-[100px] -z-10" />
 
                 <div className="max-w-5xl text-center z-10">
                     <motion.div
                         initial={{ opacity: 0, scale: 0.8 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.8 }}
-                        className="inline-flex items-center gap-2 px-4 py-2 bg-blue-500/10 border border-blue-500/20 rounded-full text-blue-400 mb-8 backdrop-blur-sm"
+                        className="inline-flex items-center gap-2 px-4 py-2 bg-blue-50 border border-blue-200 rounded-full text-blue-700 mb-8 backdrop-blur-sm"
                     >
                         <Code className="w-4 h-4" />
                         <span className="text-sm font-semibold">Engineering Excellence</span>
@@ -109,16 +109,16 @@ const DevelopmentContent = () => {
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: 0.2 }}
-                        className="text-5xl md:text-7xl lg:text-8xl font-black mb-8 tracking-tight"
+                        className="text-5xl md:text-7xl lg:text-8xl font-black mb-8 tracking-tight text-slate-900"
                     >
-                        Development <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">Services</span>
+                        Development <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-cyan-500">Services</span>
                     </motion.h1>
 
                     <motion.p
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: 0.4 }}
-                        className="text-lg md:text-2xl text-slate-300 mb-12 max-w-3xl mx-auto leading-relaxed font-light"
+                        className="text-lg md:text-2xl text-slate-600 mb-12 max-w-3xl mx-auto leading-relaxed font-light"
                     >
                         We build scalable, high-performance software solutions tailored to your enterprise needs. From custom apps to full-scale digital transformation.
                     </motion.p>
@@ -130,7 +130,7 @@ const DevelopmentContent = () => {
                     transition={{ duration: 1.5, repeat: Infinity }}
                     className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-50"
                 >
-                    <div className="w-1 h-12 rounded-full bg-gradient-to-b from-blue-400 to-transparent" />
+                    <div className="w-1 h-12 rounded-full bg-gradient-to-b from-blue-600 to-transparent" />
                 </motion.div>
             </motion.section>
 
@@ -144,31 +144,31 @@ const DevelopmentContent = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ margin: "-100px" }}
                         transition={{ duration: 0.8 }}
-                        className="py-24 px-4 container mx-auto border-t border-white/5"
+                        className="py-24 px-4 container mx-auto border-t border-slate-200"
                     >
                         <div className={`grid lg:grid-cols-2 gap-16 items-center ${idx % 2 === 1 ? 'lg:grid-flow-dense' : ''}`}>
                             <div className={idx % 2 === 1 ? 'lg:col-start-2' : ''}>
-                                <div className="bg-white/5 border border-white/10 p-4 rounded-2xl w-fit mb-6 shadow-lg shadow-blue-500/10">
+                                <div className="bg-white border border-slate-200 p-4 rounded-2xl w-fit mb-6 shadow-lg shadow-blue-500/10">
                                     {service.icon}
                                 </div>
-                                <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white">{service.title}</h2>
-                                <p className="text-xl text-blue-400 mb-6">{service.subtitle}</p>
-                                <p className="text-slate-400 mb-8 leading-relaxed text-lg">{service.description}</p>
+                                <h2 className="text-4xl md:text-5xl font-bold mb-4 text-slate-900">{service.title}</h2>
+                                <p className="text-xl text-blue-600 mb-6">{service.subtitle}</p>
+                                <p className="text-slate-600 mb-8 leading-relaxed text-lg">{service.description}</p>
 
                                 <div className="grid sm:grid-cols-2 gap-4 mb-8">
                                     {service.features.map((feature, fIdx) => (
-                                        <div key={fIdx} className="bg-white/5 p-4 rounded-xl border border-white/5 hover:bg-white/10 transition-colors">
-                                            <h4 className="font-bold text-slate-200 mb-1">{feature.title}</h4>
-                                            <p className="text-sm text-slate-400">{feature.desc}</p>
+                                        <div key={fIdx} className="bg-white p-4 rounded-xl border border-slate-200 hover:bg-slate-50 transition-colors shadow-sm">
+                                            <h4 className="font-bold text-slate-900 mb-1">{feature.title}</h4>
+                                            <p className="text-sm text-slate-600">{feature.desc}</p>
                                         </div>
                                     ))}
                                 </div>
 
                                 {/* Stats Mini Grid */}
-                                <div className="flex gap-8 border-t border-white/10 pt-6">
+                                <div className="flex gap-8 border-t border-slate-200 pt-6">
                                     {service.stats.map((stat, sIdx) => (
                                         <div key={sIdx}>
-                                            <div className="text-2xl font-bold text-white">{stat.value}</div>
+                                            <div className="text-2xl font-bold text-slate-900">{stat.value}</div>
                                             <div className="text-xs text-slate-500 uppercase tracking-widest">{stat.label}</div>
                                         </div>
                                     ))}
@@ -177,8 +177,8 @@ const DevelopmentContent = () => {
 
                             <div className={`relative ${idx % 2 === 1 ? 'lg:col-start-1' : ''}`}>
                                 {/* Visual Representation */}
-                                <div className="aspect-[4/3] rounded-3xl bg-gradient-to-br from-slate-900 to-black border border-white/10 relative overflow-hidden group">
-                                    <div className="absolute inset-0 bg-grid-white/[0.05] [mask-image:linear-gradient(0deg,white,rgba(255,255,255,0.5))]"></div>
+                                <div className="aspect-[4/3] rounded-3xl bg-white border border-slate-200 shadow-sm relative overflow-hidden group">
+                                    <div className="absolute inset-0 bg-grid-black/[0.05] [mask-image:linear-gradient(0deg,white,rgba(255,255,255,0.5))]"></div>
 
                                     {/* Animated Elements based on Service Type */}
                                     <div className="absolute inset-0 flex items-center justify-center">
@@ -186,10 +186,10 @@ const DevelopmentContent = () => {
                                             <motion.div
                                                 animate={{ rotate: 360 }}
                                                 transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                                                className="w-64 h-64 border-2 border-dashed border-blue-500/30 rounded-full flex items-center justify-center"
+                                                className="w-64 h-64 border-2 border-dashed border-blue-200 rounded-full flex items-center justify-center"
                                             >
-                                                <div className="w-48 h-48 border border-blue-500/50 rounded-full flex items-center justify-center bg-blue-500/5 backdroop-blur-sm">
-                                                    <Code className="w-16 h-16 text-blue-400" />
+                                                <div className="w-48 h-48 border border-blue-200 rounded-full flex items-center justify-center bg-blue-50 backdroop-blur-sm">
+                                                    <Code className="w-16 h-16 text-blue-600" />
                                                 </div>
                                             </motion.div>
                                         )}
@@ -198,31 +198,31 @@ const DevelopmentContent = () => {
                                                 <motion.div
                                                     animate={{ y: [-20, 20, -20] }}
                                                     transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                                                    className="absolute -left-20 -top-20 p-4 bg-teal-500/10 rounded-2xl border border-teal-500/20 backdrop-blur-md"
+                                                    className="absolute -left-20 -top-20 p-4 bg-teal-50 rounded-2xl border border-teal-200 backdrop-blur-md"
                                                 >
-                                                    <Database className="w-8 h-8 text-teal-400" />
+                                                    <Database className="w-8 h-8 text-teal-600" />
                                                 </motion.div>
                                                 <motion.div
                                                     animate={{ y: [20, -20, 20] }}
                                                     transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-                                                    className="absolute -right-20 bottom-20 p-4 bg-purple-500/10 rounded-2xl border border-purple-500/20 backdrop-blur-md"
+                                                    className="absolute -right-20 bottom-20 p-4 bg-purple-50 rounded-2xl border border-purple-200 backdrop-blur-md"
                                                 >
-                                                    <Cloud className="w-8 h-8 text-purple-400" />
+                                                    <Cloud className="w-8 h-8 text-purple-600" />
                                                 </motion.div>
-                                                <Rocket className="w-24 h-24 text-white opacity-20" />
+                                                <Rocket className="w-24 h-24 text-slate-200 opacity-20" />
                                             </div>
                                         )}
                                         {idx === 2 && ( // Enterprise Mobility
-                                            <div className="grid grid-cols-2 gap-4 opacity-50">
+                                            <div className="grid grid-cols-2 gap-4 opacity-70">
                                                 <motion.div
                                                     animate={{ scale: [1, 1.1, 1] }}
                                                     transition={{ duration: 2, repeat: Infinity }}
-                                                    className="w-24 h-32 bg-purple-500/10 rounded-xl border border-purple-500/30"
+                                                    className="w-24 h-32 bg-purple-50 rounded-xl border border-purple-200"
                                                 />
                                                 <motion.div
                                                     animate={{ scale: [1, 1.1, 1] }}
                                                     transition={{ duration: 2, repeat: Infinity, delay: 0.5 }}
-                                                    className="w-24 h-32 bg-blue-500/10 rounded-xl border border-blue-500/30"
+                                                    className="w-24 h-32 bg-blue-50 rounded-xl border border-blue-200"
                                                 />
                                             </div>
                                         )}
@@ -241,8 +241,8 @@ const DevelopmentContent = () => {
                 transition={{ duration: 0.8 }}
                 className="py-32 px-4 text-center max-w-4xl mx-auto"
             >
-                <h2 className="text-4xl md:text-6xl font-bold text-white mb-6">Ready to Transform Your Business?</h2>
-                <p className="text-xl text-slate-400 mb-10">
+                <h2 className="text-4xl md:text-6xl font-bold text-slate-900 mb-6">Ready to Transform Your Business?</h2>
+                <p className="text-xl text-slate-600 mb-10">
                     Let's discuss how our development services can accelerate your business goals.
                 </p>
                 <Link href="/contact">
@@ -261,7 +261,7 @@ const DevelopmentContent = () => {
 
 export default function DevelopmentPage() {
     return (
-        <Suspense fallback={<div className="min-h-screen bg-[#02040a] flex items-center justify-center text-white">Loading...</div>}>
+        <Suspense fallback={<div className="min-h-screen bg-background flex items-center justify-center text-foreground">Loading...</div>}>
             <DevelopmentContent />
         </Suspense>
     );

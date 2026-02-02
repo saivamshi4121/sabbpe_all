@@ -38,10 +38,10 @@ const features = [
 
 export default function ApiFeaturesLayer() {
     return (
-        <section className="relative py-20 bg-sabbpe-navy-dark">
+        <section className="relative py-20 bg-background text-foreground">
             <div className="container mx-auto px-4">
                 <div className="text-center mb-16">
-                    <h2 className="text-3xl md:text-5xl font-display font-bold text-white mb-4">
+                    <h2 className="text-3xl md:text-5xl font-display font-bold text-slate-900 mb-4">
                         Everything a developer needs
                     </h2>
                 </div>
@@ -52,11 +52,11 @@ export default function ApiFeaturesLayer() {
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ delay: i * 0.1 }}
-                            className="bg-white/5 border border-white/10 p-8 rounded-2xl hover:bg-white/10 transition-colors"
+                            className="bg-white border border-slate-200 p-8 rounded-2xl shadow-sm hover:shadow-md hover:bg-slate-50 transition-colors"
                         >
-                            <f.icon className="w-10 h-10 text-sabbpe-cyan mb-6" />
-                            <h3 className="text-xl font-bold text-white mb-2">{f.title}</h3>
-                            <p className="text-slate-400">{f.desc}</p>
+                            <f.icon className="w-10 h-10 text-cyan-600 mb-6" />
+                            <h3 className="text-xl font-bold text-slate-900 mb-2">{f.title}</h3>
+                            <p className="text-slate-600">{f.desc}</p>
                         </motion.div>
                     ))}
                 </div>

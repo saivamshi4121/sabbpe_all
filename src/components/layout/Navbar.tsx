@@ -84,8 +84,8 @@ export default function Navbar() {
     <>
       <nav
         className={clsx(
-          'fixed top-4 xs:top-6 left-0 right-0 z-[1000] px-3 xs:px-4 md:px-6 transition-all duration-500 ease-in-out',
-          isScrolled ? 'top-2 xs:top-4' : 'top-4 xs:top-6'
+          'fixed top-4 xs:top-5 left-0 right-0 z-[1000] px-2 xs:px-3 md:px-5 transition-all duration-500 ease-in-out',
+          isScrolled ? 'top-2 xs:top-3' : 'top-3 xs:top-4'
         )}
       >
         <div className="max-w-7xl mx-auto">
@@ -93,8 +93,8 @@ export default function Navbar() {
             className={clsx(
               'relative rounded-full transition-all duration-500',
               isScrolled
-                ? 'bg-[#0a0a0a]/80 backdrop-blur-xl border border-white/10 shadow-lg shadow-black/20 p-2 xs:p-3'
-                : 'bg-transparent border border-transparent p-3 xs:p-5'
+                ? 'bg-white/90 backdrop-blur-xl border border-slate-200 shadow-lg shadow-slate-200/50 p-1.5 xs:p-2'
+                : 'bg-transparent border border-transparent p-2 xs:p-3'
             )}
           >
             <div className="flex items-center justify-between px-2 xs:px-4">
@@ -108,9 +108,9 @@ export default function Navbar() {
                   <Image
                     src="/videos/sabbpe_logo.png"
                     alt="SabbPe Logo"
-                    width={140}
-                    height={40}
-                    className="h-22 xs:h-20 md:h-20 w-auto"
+                    width={110}
+                    height={32}
+                    className="h-16 xs:h-14 md:h-14 w-auto"
                     priority
                   />
                 </motion.div>
@@ -127,23 +127,23 @@ export default function Navbar() {
                 >
                   <NavigationMenu.List className="flex items-center gap-1 list-none m-0 p-0">
                     {[
-                      { 
-                        id: 'products', 
-                        label: 'Products', 
+                      {
+                        id: 'products',
+                        label: 'Products',
                         content: <ProductsMegaMenu onClose={() => setValue('')} />,
-                        width: 'w-[900px]' 
+                        width: 'w-[900px]'
                       },
-                      { 
-                        id: 'technology', 
-                        label: 'Technology', 
+                      {
+                        id: 'technology',
+                        label: 'Technology',
                         content: <TechnologyMegaMenu onClose={() => setValue('')} />,
-                        width: 'w-[1000px]' 
+                        width: 'w-[1000px]'
                       },
-                      { 
-                        id: 'saas', 
-                        label: 'SaaS', 
+                      {
+                        id: 'saas',
+                        label: 'SaaS',
                         content: <SaaSMegaMenu onClose={() => setValue('')} />,
-                        width: 'w-[850px]' 
+                        width: 'w-[850px]'
                       },
                     ].map((item) => (
                       <NavigationMenu.Item key={item.id} value={item.id}>
@@ -151,8 +151,8 @@ export default function Navbar() {
                           className={clsx(
                             'group inline-flex items-center gap-1.5 px-4 py-2 text-sm font-medium transition-all duration-300 rounded-full',
                             value === item.id
-                              ? 'text-white bg-white/10'
-                              : 'text-gray-300 hover:text-white hover:bg-white/5'
+                              ? 'text-primary bg-primary/5'
+                              : 'text-slate-600 hover:text-primary hover:bg-slate-50'
                           )}
                         >
                           {item.label}
@@ -163,15 +163,15 @@ export default function Navbar() {
                             )}
                           />
                         </NavigationMenu.Trigger>
-                            <NavigationMenu.Content
-                                className={clsx(
-                                    'absolute top-full left-1/2 -translate-x-1/2 mt-2',
-                                    item.width || 'w-auto',
-                                    'max-w-[90vw]',
-                                    'z-[1001] outline-none animate-in fade-in zoom-in-95 duration-200'
-                                )}
-                            >
-                          <div className="relative -translate-y-3 bg-[#0a0a0a]/95 backdrop-blur-2xl border border-white/10 rounded-3xl p-6 shadow-2xl shadow-black/50 overflow-hidden">
+                        <NavigationMenu.Content
+                          className={clsx(
+                            'absolute top-full left-1/2 -translate-x-1/2 mt-2',
+                            item.width || 'w-auto',
+                            'max-w-[90vw]',
+                            'z-[1001] outline-none animate-in fade-in zoom-in-95 duration-200'
+                          )}
+                        >
+                          <div className="relative -translate-y-3 bg-white/95 backdrop-blur-2xl border border-slate-100 rounded-3xl p-6 shadow-2xl shadow-slate-200/50 overflow-hidden">
 
                             <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-sabbpe-blue via-sabbpe-cyan to-sabbpe-teal opacity-50" />
                             {item.content}
@@ -180,7 +180,7 @@ export default function Navbar() {
                       </NavigationMenu.Item>
                     ))}
 
-                    <div className="w-px h-5 bg-white/10 mx-2" />
+                    <div className="w-px h-5 bg-slate-200 mx-2" />
 
                     {[
                       { label: 'Gift Vouchers', href: 'https://giftvouchers.sabbpe.com' },
@@ -192,7 +192,7 @@ export default function Navbar() {
                       <NavigationMenu.Item key={link.href}>
                         <Link
                           href={link.href}
-                          className="block px-4 py-2 text-sm font-medium text-gray-300 hover:text-white transition-colors"
+                          className="block px-4 py-2 text-sm font-medium text-slate-600 hover:text-primary transition-colors"
                           {...(link.href.startsWith('http')
                             ? { target: '_blank', rel: 'noopener noreferrer' }
                             : {})}
@@ -207,7 +207,7 @@ export default function Navbar() {
 
               {/* Mobile Menu Toggle */}
               <button
-                className="lg:hidden p-2 text-white hover:bg-white/10 rounded-full transition-colors"
+                className="lg:hidden p-2 text-slate-900 hover:bg-slate-100 rounded-full transition-colors"
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 aria-label="Toggle menu"
               >
@@ -216,187 +216,191 @@ export default function Navbar() {
             </div>
           </div>
         </div>
-      </nav>
+      </nav >
 
       {/* Mobile Menu with Accordions */}
       <AnimatePresence>
-        {mobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, x: '100%' }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: '100%' }}
-            transition={{ type: 'tween', duration: 0.3 }}
-            className="fixed inset-0 z-[999] bg-[#0a0a0a] overflow-y-auto lg:hidden"
-          >
-            <div className="pt-24 pb-8 px-4 xs:px-6">
-              <Accordion.Root type="single" collapsible className="space-y-2">
-                {/* Products Accordion */}
-                <Accordion.Item
-                  value="products"
-                  className="border border-white/10 rounded-2xl overflow-hidden bg-white/5"
-                >
-                  <Accordion.Trigger className="flex items-center justify-between w-full px-4 xs:px-6 py-4 text-left text-base xs:text-lg font-semibold text-white hover:bg-white/5 transition-colors group">
-                    <span>Products</span>
-                    <ChevronDown className="w-5 h-5 transition-transform duration-300 group-data-[state=open]:rotate-180" />
-                  </Accordion.Trigger>
-                  <Accordion.Content className="overflow-hidden data-[state=open]:animate-accordion-down data-[state=closed]:animate-accordion-up">
-                    <div className="px-4 xs:px-6 pb-4 space-y-1">
-                      {PRODUCT_LINKS.map((link) => (
-                        <Link
-                          key={link.href}
-                          href={link.href}
-                          onClick={() => setMobileMenuOpen(false)}
-                          className="block px-4 py-3 rounded-xl hover:bg-white/5 transition-colors group"
-                        >
-                          <div className="flex items-start gap-3">
-                            <ChevronRight className="w-4 h-4 mt-1 text-sabbpe-cyan opacity-70 group-hover:opacity-100 transition-opacity" />
-                            <div>
-                              <div className="text-sm xs:text-base font-medium text-white group-hover:text-sabbpe-cyan transition-colors">
-                                {link.title}
-                              </div>
-                              <div className="text-xs xs:text-sm text-white/50 mt-0.5">
-                                {link.description}
-                              </div>
-                            </div>
-                          </div>
-                        </Link>
-                      ))}
-                    </div>
-                  </Accordion.Content>
-                </Accordion.Item>
-
-                {/* Technology Accordion */}
-                <Accordion.Item
-                  value="technology"
-                  className="border border-white/10 rounded-2xl overflow-hidden bg-white/5"
-                >
-                  <Accordion.Trigger className="flex items-center justify-between w-full px-4 xs:px-6 py-4 text-left text-base xs:text-lg font-semibold text-white hover:bg-white/5 transition-colors group">
-                    <span>Technology</span>
-                    <ChevronDown className="w-5 h-5 transition-transform duration-300 group-data-[state=open]:rotate-180" />
-                  </Accordion.Trigger>
-                  <Accordion.Content className="overflow-hidden data-[state=open]:animate-accordion-down data-[state=closed]:animate-accordion-up">
-                    <div className="px-4 xs:px-6 pb-4 space-y-1">
-                      {TECHNOLOGY_LINKS.map((link) => (
-                        <Link
-                          key={link.href}
-                          href={link.href}
-                          onClick={() => setMobileMenuOpen(false)}
-                          className="block px-4 py-3 rounded-xl hover:bg-white/5 transition-colors group"
-                        >
-                          <div className="flex items-start gap-3">
-                            <ChevronRight className="w-4 h-4 mt-1 text-sabbpe-cyan opacity-70 group-hover:opacity-100 transition-opacity" />
-                            <div>
-                              <div className="text-sm xs:text-base font-medium text-white group-hover:text-sabbpe-cyan transition-colors">
-                                {link.title}
-                              </div>
-                              <div className="text-xs xs:text-sm text-white/50 mt-0.5">
-                                {link.description}
+        {
+          mobileMenuOpen && (
+            <motion.div
+              initial={{ opacity: 0, x: '100%' }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: '100%' }}
+              transition={{ type: 'tween', duration: 0.3 }}
+              className="fixed inset-0 z-[999] bg-white overflow-y-auto lg:hidden"
+            >
+              <div className="pt-24 pb-8 px-4 xs:px-6">
+                <Accordion.Root type="single" collapsible className="space-y-2">
+                  {/* Products Accordion */}
+                  <Accordion.Item
+                    value="products"
+                    className="border border-slate-200 rounded-2xl overflow-hidden bg-white"
+                  >
+                    <Accordion.Trigger className="flex items-center justify-between w-full px-4 xs:px-6 py-4 text-left text-base xs:text-lg font-semibold text-slate-900 hover:bg-slate-50 transition-colors group">
+                      <span>Products</span>
+                      <ChevronDown className="w-5 h-5 transition-transform duration-300 group-data-[state=open]:rotate-180" />
+                    </Accordion.Trigger>
+                    <Accordion.Content className="overflow-hidden data-[state=open]:animate-accordion-down data-[state=closed]:animate-accordion-up">
+                      <div className="px-4 xs:px-6 pb-4 space-y-1">
+                        {PRODUCT_LINKS.map((link) => (
+                          <Link
+                            key={link.href}
+                            href={link.href}
+                            onClick={() => setMobileMenuOpen(false)}
+                            className="block px-4 py-3 rounded-xl hover:bg-slate-50 transition-colors group"
+                          >
+                            <div className="flex items-start gap-3">
+                              <ChevronRight className="w-4 h-4 mt-1 text-sabbpe-cyan opacity-70 group-hover:opacity-100 transition-opacity" />
+                              <div>
+                                <div className="text-sm xs:text-base font-medium text-white group-hover:text-sabbpe-cyan transition-colors">
+                                  {link.title}
+                                </div>
+                                <div className="text-xs xs:text-sm text-white/50 mt-0.5">
+                                  {link.description}
+                                </div>
                               </div>
                             </div>
-                          </div>
-                        </Link>
-                      ))}
-                    </div>
-                  </Accordion.Content>
-                </Accordion.Item>
+                          </Link>
+                        ))}
+                      </div>
+                    </Accordion.Content>
+                  </Accordion.Item>
 
-                {/* SaaS Accordion */}
-                <Accordion.Item
-                  value="saas"
-                  className="border border-white/10 rounded-2xl overflow-hidden bg-white/5"
-                >
-                  <Accordion.Trigger className="flex items-center justify-between w-full px-4 xs:px-6 py-4 text-left text-base xs:text-lg font-semibold text-white hover:bg-white/5 transition-colors group">
-                    <span>SaaS</span>
-                    <ChevronDown className="w-5 h-5 transition-transform duration-300 group-data-[state=open]:rotate-180" />
-                  </Accordion.Trigger>
-                  <Accordion.Content className="overflow-hidden data-[state=open]:animate-accordion-down data-[state=closed]:animate-accordion-up">
-                    <div className="px-4 xs:px-6 pb-4 space-y-1">
-                      {SAAS_LINKS.map((link) => (
-                        <Link
-                          key={link.href}
-                          href={link.href}
-                          onClick={() => setMobileMenuOpen(false)}
-                          className="block px-4 py-3 rounded-xl hover:bg-white/5 transition-colors group"
-                        >
-                          <div className="flex items-start gap-3">
-                            <ChevronRight className="w-4 h-4 mt-1 text-sabbpe-cyan opacity-70 group-hover:opacity-100 transition-opacity" />
-                            <div>
-                              <div className="text-sm xs:text-base font-medium text-white group-hover:text-sabbpe-cyan transition-colors">
-                                {link.title}
-                              </div>
-                              <div className="text-xs xs:text-sm text-white/50 mt-0.5">
-                                {link.description}
+                  {/* Technology Accordion */}
+                  <Accordion.Item
+                    value="technology"
+                    className="border border-white/10 rounded-2xl overflow-hidden bg-white/5"
+                  >
+                    <Accordion.Trigger className="flex items-center justify-between w-full px-4 xs:px-6 py-4 text-left text-base xs:text-lg font-semibold text-white hover:bg-white/5 transition-colors group">
+                      <span>Technology</span>
+                      <ChevronDown className="w-5 h-5 transition-transform duration-300 group-data-[state=open]:rotate-180" />
+                    </Accordion.Trigger>
+                    <Accordion.Content className="overflow-hidden data-[state=open]:animate-accordion-down data-[state=closed]:animate-accordion-up">
+                      <div className="px-4 xs:px-6 pb-4 space-y-1">
+                        {TECHNOLOGY_LINKS.map((link) => (
+                          <Link
+                            key={link.href}
+                            href={link.href}
+                            onClick={() => setMobileMenuOpen(false)}
+                            className="block px-4 py-3 rounded-xl hover:bg-white/5 transition-colors group"
+                          >
+                            <div className="flex items-start gap-3">
+                              <ChevronRight className="w-4 h-4 mt-1 text-sabbpe-cyan opacity-70 group-hover:opacity-100 transition-opacity" />
+                              <div>
+                                <div className="text-sm xs:text-base font-medium text-white group-hover:text-sabbpe-cyan transition-colors">
+                                  {link.title}
+                                </div>
+                                <div className="text-xs xs:text-sm text-white/50 mt-0.5">
+                                  {link.description}
+                                </div>
                               </div>
                             </div>
-                          </div>
-                        </Link>
-                      ))}
-                    </div>
-                  </Accordion.Content>
-                </Accordion.Item>
-              </Accordion.Root>
+                          </Link>
+                        ))}
+                      </div>
+                    </Accordion.Content>
+                  </Accordion.Item>
 
-              {/* Direct Links */}
-              <div className="mt-6 space-y-2">
-                <Link
-                  href="https://giftvouchers.sabbpe.com"
-                  className="block px-4 xs:px-6 py-4 text-base xs:text-lg font-medium text-white bg-white/5 rounded-2xl hover:bg-white/10 transition-colors border border-white/10"
-                  onClick={() => setMobileMenuOpen(false)}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Gift Vouchers
-                </Link>
-                <Link
-                  href="https://onboarding.sabbpe.com"
-                  className="block px-4 xs:px-6 py-4 text-base xs:text-lg font-medium text-white bg-white/5 rounded-2xl hover:bg-white/10 transition-colors border border-white/10"
-                  onClick={() => setMobileMenuOpen(false)}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  On Boarding
-                </Link>
-                <Link
-                  href="/services"
-                  className="block px-4 xs:px-6 py-4 text-base xs:text-lg font-medium text-white bg-white/5 rounded-2xl hover:bg-white/10 transition-colors border border-white/10"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  Services
-                </Link>
-                <Link
-                  href="/about"
-                  className="block px-4 xs:px-6 py-4 text-base xs:text-lg font-medium text-white bg-white/5 rounded-2xl hover:bg-white/10 transition-colors border border-white/10"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  About Us
-                </Link>
-                <Link
-                  href="/contact"
-                  className="block px-4 xs:px-6 py-4 text-base xs:text-lg font-medium text-white bg-gradient-to-r from-sabbpe-blue to-sabbpe-cyan rounded-2xl hover:opacity-90 transition-opacity"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  Contact
-                </Link>
+                  {/* SaaS Accordion */}
+                  <Accordion.Item
+                    value="saas"
+                    className="border border-white/10 rounded-2xl overflow-hidden bg-white/5"
+                  >
+                    <Accordion.Trigger className="flex items-center justify-between w-full px-4 xs:px-6 py-4 text-left text-base xs:text-lg font-semibold text-white hover:bg-white/5 transition-colors group">
+                      <span>SaaS</span>
+                      <ChevronDown className="w-5 h-5 transition-transform duration-300 group-data-[state=open]:rotate-180" />
+                    </Accordion.Trigger>
+                    <Accordion.Content className="overflow-hidden data-[state=open]:animate-accordion-down data-[state=closed]:animate-accordion-up">
+                      <div className="px-4 xs:px-6 pb-4 space-y-1">
+                        {SAAS_LINKS.map((link) => (
+                          <Link
+                            key={link.href}
+                            href={link.href}
+                            onClick={() => setMobileMenuOpen(false)}
+                            className="block px-4 py-3 rounded-xl hover:bg-white/5 transition-colors group"
+                          >
+                            <div className="flex items-start gap-3">
+                              <ChevronRight className="w-4 h-4 mt-1 text-sabbpe-cyan opacity-70 group-hover:opacity-100 transition-opacity" />
+                              <div>
+                                <div className="text-sm xs:text-base font-medium text-white group-hover:text-sabbpe-cyan transition-colors">
+                                  {link.title}
+                                </div>
+                                <div className="text-xs xs:text-sm text-white/50 mt-0.5">
+                                  {link.description}
+                                </div>
+                              </div>
+                            </div>
+                          </Link>
+                        ))}
+                      </div>
+                    </Accordion.Content>
+                  </Accordion.Item>
+                </Accordion.Root>
+
+                {/* Direct Links */}
+                <div className="mt-6 space-y-2">
+                  <Link
+                    href="https://giftvouchers.sabbpe.com"
+                    className="block px-4 xs:px-6 py-4 text-base xs:text-lg font-medium text-white bg-white/5 rounded-2xl hover:bg-white/10 transition-colors border border-white/10"
+                    onClick={() => setMobileMenuOpen(false)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Gift Vouchers
+                  </Link>
+                  <Link
+                    href="https://onboarding.sabbpe.com"
+                    className="block px-4 xs:px-6 py-4 text-base xs:text-lg font-medium text-white bg-white/5 rounded-2xl hover:bg-white/10 transition-colors border border-white/10"
+                    onClick={() => setMobileMenuOpen(false)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    On Boarding
+                  </Link>
+                  <Link
+                    href="/services"
+                    className="block px-4 xs:px-6 py-4 text-base xs:text-lg font-medium text-white bg-white/5 rounded-2xl hover:bg-white/10 transition-colors border border-white/10"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Services
+                  </Link>
+                  <Link
+                    href="/about"
+                    className="block px-4 xs:px-6 py-4 text-base xs:text-lg font-medium text-white bg-white/5 rounded-2xl hover:bg-white/10 transition-colors border border-white/10"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    About Us
+                  </Link>
+                  <Link
+                    href="/contact"
+                    className="block px-4 xs:px-6 py-4 text-base xs:text-lg font-medium text-white bg-gradient-to-r from-sabbpe-blue to-sabbpe-cyan rounded-2xl hover:opacity-90 transition-opacity"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Contact
+                  </Link>
+                </div>
               </div>
-            </div>
-            
-          </motion.div>
-        )}
-      </AnimatePresence>
+
+            </motion.div>
+          )
+        }
+      </AnimatePresence >
 
       {/* Backdrop overlay for Desktop Mega Menu */}
       <AnimatePresence>
-        {value && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.2 }}
-            className="fixed inset-x-0 top-28 bottom-0 bg-black/60 backdrop-blur-sm z-[999]"
-            onClick={() => setValue('')}
-          />
-        )}
-      </AnimatePresence>
+        {
+          value && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              className="fixed inset-x-0 top-24 bottom-0 bg-black/60 backdrop-blur-sm z-[999]"
+              onClick={() => setValue('')}
+            />
+          )
+        }
+      </AnimatePresence >
     </>
   );
 }

@@ -13,7 +13,7 @@ export default function NetBankingLayer() {
 
             {/* Visual */}
             <div className="flex-1 w-full relative">
-                <div className="absolute inset-0 bg-emerald-500/10 rounded-full blur-[100px] pointer-events-none" />
+                <div className="absolute inset-0 bg-emerald-100/50 rounded-full blur-[100px] pointer-events-none" />
 
                 <div className="grid grid-cols-2 gap-4 relative z-10">
                     {banks.map((bank, i) => (
@@ -23,15 +23,15 @@ export default function NetBankingLayer() {
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: i * 0.05 }}
-                            className="p-4 rounded-xl bg-white/5 border border-white/10 flex items-center gap-3 backdrop-blur-md"
+                            className="p-4 rounded-xl bg-white border border-slate-200 flex items-center gap-3 shadow-sm hover:shadow-md transition-shadow"
                         >
-                            <div className="w-8 h-8 rounded-full bg-emerald-500/20 flex items-center justify-center text-emerald-400 font-bold text-xs">
+                            <div className="w-8 h-8 rounded-full bg-emerald-50 flex items-center justify-center text-emerald-700 font-bold text-xs border border-emerald-100">
                                 {bank[0]}
                             </div>
-                            <span className="text-white font-medium text-sm">{bank}</span>
+                            <span className="text-slate-800 font-medium text-sm">{bank}</span>
                         </motion.div>
                     ))}
-                    <div className="col-span-2 p-4 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-slate-400 text-sm">
+                    <div className="col-span-2 p-4 rounded-xl bg-white border border-slate-200 flex items-center justify-center text-slate-500 text-sm shadow-sm">
                         + 50 more banks
                     </div>
                 </div>
@@ -44,31 +44,31 @@ export default function NetBankingLayer() {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                 >
-                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-900/40 border border-emerald-500/30 text-emerald-400 text-sm font-bold mb-4">
+                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-sm font-bold mb-4">
                         <Building2 className="w-4 h-4" />
                         NET BANKING
                     </div>
-                    <h2 className="text-4xl md:text-5xl font-display font-bold text-white mb-4">
+                    <h2 className="text-4xl md:text-5xl font-display font-bold text-slate-900 mb-4">
                         Direct Bank Payments
                     </h2>
-                    <p className="text-xl text-sabbpe-text-secondary">
+                    <p className="text-xl text-slate-600">
                         Comprehensive coverage of 50+ Indian banks. Enable trusted, high-value transactions directly from bank accounts.
                     </p>
                 </motion.div>
 
                 <div className="space-y-4">
-                    <div className="p-4 rounded-xl bg-white/5 border-l-4 border-emerald-500">
-                        <h4 className="text-white font-bold mb-1 flex items-center gap-2">
-                            <Lock className="w-4 h-4 text-emerald-400" /> Secure Processing
+                    <div className="p-4 rounded-xl bg-slate-50 border-l-4 border-emerald-500 shadow-sm border border-slate-100">
+                        <h4 className="text-slate-900 font-bold mb-1 flex items-center gap-2">
+                            <Lock className="w-4 h-4 text-emerald-600" /> Secure Processing
                         </h4>
-                        <p className="text-sm text-slate-400">Direct integration with core banking systems ensures bank-grade security for every transaction.</p>
+                        <p className="text-sm text-slate-600">Direct integration with core banking systems ensures bank-grade security for every transaction.</p>
                     </div>
 
-                    <div className="p-4 rounded-xl bg-white/5 border-l-4 border-emerald-500">
-                        <h4 className="text-white font-bold mb-1 flex items-center gap-2">
-                            <ArrowUpRight className="w-4 h-4 text-emerald-400" /> High Success Rates
+                    <div className="p-4 rounded-xl bg-slate-50 border-l-4 border-emerald-500 shadow-sm border border-slate-100">
+                        <h4 className="text-slate-900 font-bold mb-1 flex items-center gap-2">
+                            <ArrowUpRight className="w-4 h-4 text-emerald-600" /> High Success Rates
                         </h4>
-                        <p className="text-sm text-slate-400">Optimized flows reduce drop-offs, making it perfect for high-ticket purchases.</p>
+                        <p className="text-sm text-slate-600">Optimized flows reduce drop-offs, making it perfect for high-ticket purchases.</p>
                     </div>
                 </div>
             </div>

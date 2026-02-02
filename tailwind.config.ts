@@ -17,43 +17,43 @@ export default {
         },
         extend: {
             colors: {
-                background: "hsl(222, 47%, 6%)",
-                foreground: "hsl(210, 40%, 98%)",
+                background: "#F8FAFF", // Light Fintech Background
+                foreground: "#0F172A", // Slate 900
                 card: {
-                    DEFAULT: "hsl(222, 47%, 11%)",
-                    foreground: "hsl(210, 40%, 98%)",
+                    DEFAULT: "#FFFFFF",
+                    foreground: "#0F172A",
                 },
                 popover: {
-                    DEFAULT: "hsl(222, 47%, 11%)",
-                    foreground: "hsl(210, 40%, 98%)",
+                    DEFAULT: "#FFFFFF",
+                    foreground: "#0F172A",
                 },
                 primary: {
-                    DEFAULT: "hsl(217, 91%, 60%)",
-                    foreground: "hsl(222, 47%, 6%)",
+                    DEFAULT: "#2563EB", // Vivid Blue
+                    foreground: "#FFFFFF",
                 },
                 secondary: {
-                    DEFAULT: "hsl(222, 47%, 12%)",
-                    foreground: "hsl(210, 40%, 98%)",
+                    DEFAULT: "#EAF0FF", // Light Blue Tint
+                    foreground: "#2563EB",
                 },
                 muted: {
-                    DEFAULT: "hsl(222, 47%, 15%)",
-                    foreground: "hsl(215, 20%, 65%)",
+                    DEFAULT: "#F1F5F9", // Slate 100
+                    foreground: "#64748B", // Slate 500
                 },
                 accent: {
-                    DEFAULT: "hsl(192, 91%, 55%)",
-                    foreground: "hsl(222, 47%, 6%)",
+                    DEFAULT: "#2EE6D6", // Turquoise
+                    foreground: "#0F2F3A",
                 },
                 destructive: {
                     DEFAULT: "hsl(0, 84%, 60%)",
                     foreground: "hsl(210, 40%, 98%)",
                 },
-                border: "hsl(222, 47%, 15%)",
-                input: "hsl(222, 47%, 15%)",
-                ring: "hsl(217, 91%, 60%)",
+                border: "#E2E8F0", // Slate 200
+                input: "#CBD5E1", // Slate 300
+                ring: "#2563EB",
                 sabbpe: {
                     navy: {
-                        DEFAULT: "#0E1A2B",
-                        light: "#14233C",
+                        DEFAULT: "#0F2F3A", // Keep for reference/dark sections
+                        light: "#163F4D",
                         dark: "#050A10",
                     },
                     blue: {
@@ -65,10 +65,10 @@ export default {
                     green: "#22C55E",
                     yellow: "#EAB308",
                     pastel: "#7C83FF",
-                    border: "rgba(255, 255, 255, 0.06)",
+                    border: "#E2E8F0",
                     text: {
-                        secondary: "rgba(255, 255, 255, 0.72)",
-                        tertiary: "rgba(255, 255, 255, 0.45)",
+                        secondary: "#475569", // Slate 600
+                        tertiary: "#94A3B8", // Slate 400
                     }
                 },
             },

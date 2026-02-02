@@ -52,19 +52,19 @@ export default function SaaSMegaMenu({ onClose }: SaaSMegaMenuProps) {
         <div className="grid grid-cols-[240px_1fr] gap-6">
             {/* Left - Intro Panel */}
             <div className="space-y-3">
-                <div className="text-xs uppercase tracking-wider text-sabbpe-cyan font-semibold">
+                <div className="text-xs uppercase tracking-wider text-primary font-semibold">
                     SaaS Platform
                 </div>
-                <h3 className="font-display text-xl font-bold">
+                <h3 className="font-display text-xl font-bold text-slate-900">
                     Everything you need to manage payments
                 </h3>
-                <p className="text-xs text-muted-foreground leading-relaxed">
+                <p className="text-xs text-slate-600 leading-relaxed">
                     A complete suite of SaaS tools to power your business operations and scale effortlessly.
                 </p>
                 <Link
                     href="/saas"
                     onClick={onClose}
-                    className="inline-flex items-center gap-2 text-xs text-sabbpe-cyan hover:text-sabbpe-blue transition-colors font-medium mt-2"
+                    className="inline-flex items-center gap-2 text-xs text-primary hover:text-primary/80 transition-colors font-medium mt-2"
                 >
                     Explore platform
                     <ArrowRight className="w-3.5 h-3.5" />
@@ -80,7 +80,7 @@ export default function SaaSMegaMenu({ onClose }: SaaSMegaMenuProps) {
                             key={index}
                             href={item.href}
                             onClick={onClose}
-                            className="group glass-card p-3 hover:bg-white/10 transition-all duration-300 relative overflow-hidden"
+                            className="group glass-card p-3 hover:shadow-lg transition-all duration-300 relative overflow-hidden bg-white border border-slate-200"
                         >
                             {/* Gradient accent */}
                             <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${item.gradient}`} />
@@ -90,7 +90,7 @@ export default function SaaSMegaMenu({ onClose }: SaaSMegaMenuProps) {
                                     <Icon className="w-5 h-5 text-background" />
                                 </div>
                                 <div>
-                                    <div className="font-display font-semibold mb-0.5 text-sm group-hover:text-sabbpe-cyan transition-colors">
+                                    <div className="font-display font-semibold mb-0.5 text-sm text-slate-900 group-hover:text-primary transition-colors">
                                         {item.title}
                                     </div>
                                     <div className="text-[10px] text-muted-foreground line-clamp-2">

@@ -82,16 +82,16 @@ const DesignStrategyContent = () => {
     ];
 
     return (
-        <div ref={containerRef} className="bg-[#02040a] text-white overflow-hidden min-h-screen">
+        <div ref={containerRef} className="bg-background text-foreground overflow-hidden min-h-screen">
             {/* Hero Section */}
             <motion.section
                 className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden"
                 style={{ y: heroY, opacity: heroOpacity }}
             >
                 {/* Background Gradients */}
-                <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-blue-600/20 rounded-full blur-[120px] -z-10" />
-                <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-purple-600/20 rounded-full blur-[120px] -z-10" />
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-cyan-500/10 rounded-full blur-[100px] -z-10" />
+                <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-blue-100/50 rounded-full blur-[120px] -z-10" />
+                <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-purple-100/50 rounded-full blur-[120px] -z-10" />
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-cyan-100/30 rounded-full blur-[100px] -z-10" />
 
                 {/* Floating Elements (Parallax) */}
                 <motion.div
@@ -102,7 +102,7 @@ const DesignStrategyContent = () => {
                 >
                     <div className="flex flex-col items-center">
                         <span className="text-6xl mb-2">🎨</span>
-                        <span className="text-xs font-mono text-cyan-400 tracking-widest uppercase">Design</span>
+                        <span className="text-xs font-mono text-cyan-700 tracking-widest uppercase">Design</span>
                     </div>
                 </motion.div>
 
@@ -114,7 +114,7 @@ const DesignStrategyContent = () => {
                 >
                     <div className="flex flex-col items-center">
                         <span className="text-6xl mb-2">💡</span>
-                        <span className="text-xs font-mono text-purple-400 tracking-widest uppercase">Strategy</span>
+                        <span className="text-xs font-mono text-purple-700 tracking-widest uppercase">Strategy</span>
                     </div>
                 </motion.div>
 
@@ -126,7 +126,7 @@ const DesignStrategyContent = () => {
                 >
                     <div className="flex flex-col items-center">
                         <span className="text-6xl mb-2">🚀</span>
-                        <span className="text-xs font-mono text-blue-400 tracking-widest uppercase">Innovation</span>
+                        <span className="text-xs font-mono text-blue-700 tracking-widest uppercase">Innovation</span>
                     </div>
                 </motion.div>
 
@@ -136,7 +136,7 @@ const DesignStrategyContent = () => {
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: 0.2 }}
-                        className="text-5xl md:text-7xl lg:text-8xl font-black mb-6 bg-gradient-to-r from-cyan-300 via-blue-400 to-purple-400 bg-clip-text text-transparent tracking-tight"
+                        className="text-5xl md:text-7xl lg:text-8xl font-black mb-6 bg-gradient-to-r from-cyan-500 via-blue-600 to-purple-600 bg-clip-text text-transparent tracking-tight"
                     >
                         Design, Technology <br /> & Strategy
                     </motion.h1>
@@ -144,7 +144,7 @@ const DesignStrategyContent = () => {
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: 0.4 }}
-                        className="text-lg md:text-2xl text-slate-300 mb-10 max-w-3xl mx-auto leading-relaxed font-light"
+                        className="text-lg md:text-2xl text-slate-600 mb-10 max-w-3xl mx-auto leading-relaxed font-light"
                     >
                         Transform your vision into reality with expert consulting, staffing, and design solutions tailored for the digital age.
                     </motion.p>
@@ -153,10 +153,10 @@ const DesignStrategyContent = () => {
                         initial={{ opacity: 0, scale: 0.8 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.8, delay: 0.6 }}
-                        className="inline-flex items-center gap-3 px-6 py-2 bg-white/5 border border-white/10 rounded-full backdrop-blur-md"
+                        className="inline-flex items-center gap-3 px-6 py-2 bg-slate-50 border border-slate-200 rounded-full backdrop-blur-md shadow-sm"
                     >
-                        <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse shadow-[0_0_10px_rgba(74,222,128,0.5)]"></div>
-                        <span className="text-sm font-semibold text-slate-300">Comprehensive Solutions Available</span>
+                        <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse shadow-[0_0_10px_rgba(74,222,128,0.5)]"></div>
+                        <span className="text-sm font-semibold text-slate-700">Comprehensive Solutions Available</span>
                     </motion.div>
                 </div>
 
@@ -166,8 +166,8 @@ const DesignStrategyContent = () => {
                     transition={{ duration: 1.5, repeat: Infinity }}
                     className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-50"
                 >
-                    <div className="w-1 h-12 rounded-full bg-gradient-to-b from-cyan-400 to-transparent" />
-                    <span className="text-[10px] uppercase tracking-widest text-cyan-400">Scroll to explore</span>
+                    <div className="w-1 h-12 rounded-full bg-gradient-to-b from-cyan-600 to-transparent" />
+                    <span className="text-[10px] uppercase tracking-widest text-cyan-600">Scroll to explore</span>
                 </motion.div>
             </motion.section>
 
@@ -181,19 +181,19 @@ const DesignStrategyContent = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ margin: "-100px" }}
                         transition={{ duration: 0.8, delay: 0.2 }}
-                        className="container mx-auto px-4 py-24 md:py-32 border-t border-white/5"
+                        className="container mx-auto px-4 py-24 md:py-32 border-t border-slate-200"
                     >
                         {/* Section Header */}
                         <div className="text-center mb-16 md:mb-24">
                             <motion.div
-                                className="w-20 h-20 mx-auto mb-6 flex items-center justify-center text-5xl bg-white/5 rounded-full border border-white/10 shadow-2xl"
+                                className="w-20 h-20 mx-auto mb-6 flex items-center justify-center text-5xl bg-white rounded-full border border-slate-200 shadow-xl"
                                 animate={{ rotate: [0, 10, -10, 0] }}
                                 transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
                             >
                                 {service.icon}
                             </motion.div>
-                            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">{service.title}</h2>
-                            <p className="text-xl text-slate-400 max-w-2xl mx-auto">{service.subtitle}</p>
+                            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">{service.title}</h2>
+                            <p className="text-xl text-slate-600 max-w-2xl mx-auto">{service.subtitle}</p>
                         </div>
 
                         {/* Service Items Grid */}
@@ -205,12 +205,12 @@ const DesignStrategyContent = () => {
                                     whileInView={{ opacity: 1, scale: 1 }}
                                     viewport={{ once: true }}
                                     transition={{ delay: idx * 0.1, duration: 0.5 }}
-                                    whileHover={{ y: -5, borderColor: 'rgba(34,211,238,0.3)', backgroundColor: 'rgba(255,255,255,0.08)' }}
-                                    className="p-8 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm transition-all group"
+                                    whileHover={{ y: -5, borderColor: 'rgba(34,211,238,0.5)', backgroundColor: 'rgba(248,250,252,1)' }}
+                                    className="p-8 rounded-2xl bg-white border border-slate-200 backdrop-blur-sm transition-all group shadow-sm"
                                 >
                                     <div className="text-3xl mb-4 group-hover:scale-110 transition-transform duration-300">{item.icon}</div>
-                                    <h3 className="text-xl font-bold text-cyan-100 mb-2 group-hover:text-cyan-400 transition-colors">{item.title}</h3>
-                                    <p className="text-slate-400 leading-relaxed text-sm">{item.desc}</p>
+                                    <h3 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-cyan-600 transition-colors">{item.title}</h3>
+                                    <p className="text-slate-600 leading-relaxed text-sm">{item.desc}</p>
                                 </motion.div>
                             ))}
                         </div>
@@ -223,12 +223,12 @@ const DesignStrategyContent = () => {
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 transition={{ duration: 0.8 }}
-                className="relative py-32 bg-gradient-to-t from-sabbpe-navy via-black to-black text-center overflow-hidden"
+                className="relative py-32 bg-slate-50 text-center overflow-hidden"
             >
-                <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-20" />
+                <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-5" />
                 <div className="relative z-10 container mx-auto px-4">
-                    <h2 className="text-4xl md:text-6xl font-bold text-white mb-6">Ready to Transform?</h2>
-                    <p className="text-xl text-slate-400 mb-10 max-w-2xl mx-auto">
+                    <h2 className="text-4xl md:text-6xl font-bold text-slate-900 mb-6">Ready to Transform?</h2>
+                    <p className="text-xl text-slate-600 mb-10 max-w-2xl mx-auto">
                         Partner with us to unlock innovation, efficiency, and growth for your business.
                     </p>
                     <Link href="/contact">
@@ -248,7 +248,7 @@ const DesignStrategyContent = () => {
 
 export default function DesignStrategyPage() {
     return (
-        <Suspense fallback={<div className="min-h-screen bg-[#02040a] flex items-center justify-center text-white">Loading...</div>}>
+        <Suspense fallback={<div className="min-h-screen bg-background flex items-center justify-center text-foreground">Loading...</div>}>
             <DesignStrategyContent />
         </Suspense>
     );

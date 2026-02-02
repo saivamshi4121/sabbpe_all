@@ -41,7 +41,7 @@ export default function ServicesFAQ() {
                 <motion.div
                     animate={{ scale: [1, 1.1, 1], opacity: [0.2, 0.3, 0.2] }}
                     transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-                    className="absolute top-0 right-0 w-96 h-96 bg-sabbpe-cyan/10 rounded-full blur-[120px] translate-x-1/2 -translate-y-1/2"
+                    className="absolute top-0 right-0 w-96 h-96 bg-cyan-100/50 rounded-full blur-[120px] translate-x-1/2 -translate-y-1/2"
                 />
             </div>
 
@@ -54,10 +54,10 @@ export default function ServicesFAQ() {
                     transition={{ duration: 0.7 }}
                     className="text-center mb-16 lg:mb-20 space-y-4"
                 >
-                    <h2 className="text-4xl lg:text-5xl font-bold font-display text-white">
+                    <h2 className="text-4xl lg:text-5xl font-bold font-display text-slate-900">
                         Frequently Asked Questions
                     </h2>
-                    <p className="text-lg text-muted-foreground">
+                    <p className="text-lg text-slate-600">
                         Everything you need to know about our services
                     </p>
                 </motion.div>
@@ -79,21 +79,21 @@ export default function ServicesFAQ() {
                             transition={{ delay: index * 0.1, duration: 0.5 }}
                             className="group"
                         >
-                            <div className="rounded-2xl bg-white/5 border border-white/10 backdrop-blur-xl overflow-hidden transition-all duration-300 hover:bg-white/[0.07] hover:border-white/20">
+                            <div className="rounded-2xl bg-white border border-slate-200 shadow-sm backdrop-blur-xl overflow-hidden transition-all duration-300 hover:shadow-md hover:bg-slate-50">
                                 {/* Question Button */}
                                 <button
                                     onClick={() => toggleFAQ(index)}
                                     className="w-full px-6 lg:px-8 py-6 flex items-center justify-between gap-4 text-left transition-all duration-300"
                                 >
-                                    <span className="text-lg lg:text-xl font-semibold text-white">
+                                    <span className="text-lg lg:text-xl font-semibold text-slate-900">
                                         {faq.question}
                                     </span>
-                                    <div className={`flex-shrink-0 w-8 h-8 rounded-lg bg-sabbpe-cyan/10 border border-sabbpe-cyan/20 flex items-center justify-center transition-all duration-300 ${openIndex === index ? 'bg-sabbpe-cyan/20 border-sabbpe-cyan/30' : ''
+                                    <div className={`flex-shrink-0 w-8 h-8 rounded-lg bg-cyan-50 border border-cyan-100 flex items-center justify-center transition-all duration-300 ${openIndex === index ? 'bg-cyan-100 border-cyan-200' : ''
                                         }`}>
                                         {openIndex === index ? (
-                                            <Minus className="w-5 h-5 text-sabbpe-cyan" />
+                                            <Minus className="w-5 h-5 text-cyan-600" />
                                         ) : (
-                                            <Plus className="w-5 h-5 text-sabbpe-cyan" />
+                                            <Plus className="w-5 h-5 text-cyan-600" />
                                         )}
                                     </div>
                                 </button>
@@ -109,8 +109,8 @@ export default function ServicesFAQ() {
                                             className="overflow-hidden"
                                         >
                                             <div className="px-6 lg:px-8 pb-6 pt-2">
-                                                <div className="pt-4 border-t border-white/10">
-                                                    <p className="text-base text-muted-foreground leading-relaxed">
+                                                <div className="pt-4 border-t border-slate-200">
+                                                    <p className="text-base text-slate-600 leading-relaxed">
                                                         {faq.answer}
                                                     </p>
                                                 </div>
@@ -131,9 +131,9 @@ export default function ServicesFAQ() {
                     transition={{ delay: 0.5, duration: 0.5 }}
                     className="mt-12 text-center"
                 >
-                    <p className="text-muted-foreground">
+                    <p className="text-slate-600">
                         Still have questions?{' '}
-                        <button className="text-sabbpe-cyan font-semibold hover:underline transition-all">
+                        <button className="text-cyan-600 font-semibold hover:underline transition-all">
                             Contact our support team
                         </button>
                     </p>

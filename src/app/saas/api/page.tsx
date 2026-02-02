@@ -8,7 +8,7 @@ import ApiCTALayer from '@/components/saas/api/layers/ApiCTALayer';
 
 export default function ApiSuitePage() {
     return (
-        <main className="relative w-full min-h-screen bg-sabbpe-navy-dark">
+        <main className="relative w-full min-h-screen bg-background text-foreground">
             <ApiHeroLayer />
 
             <LayeredStackScroll>

@@ -9,29 +9,29 @@ const missions = [
         title: "Our Mission",
         desc: "Simplify and unify the financial ecosystem for everyone. Making digital payments accessible across India.",
         icon: Target,
-        color: 'from-blue-900/20 to-indigo-900/20',
-        accent: 'text-blue-400'
+        color: 'from-blue-50 to-indigo-50',
+        accent: 'text-blue-600'
     },
     {
         title: "Our Vision",
         desc: "Become India's most trusted digital payments partner, empowering merchants with innovative financial solutions.",
         icon: Lightbulb,
-        color: 'from-yellow-900/20 to-orange-900/20',
-        accent: 'text-yellow-400'
+        color: 'from-yellow-50 to-orange-50',
+        accent: 'text-yellow-600'
     },
     {
         title: "Our Values",
         desc: "Innovation, Trust, and Human-Centric Design. Understanding real-world pain points and solving them effectively.",
         icon: Users,
-        color: 'from-purple-900/20 to-pink-900/20',
-        accent: 'text-purple-400'
+        color: 'from-purple-50 to-pink-50',
+        accent: 'text-purple-600'
     },
     {
         title: "Banking Partnerships",
         desc: "Strategic alliances with 50+ aggregators and banking institutions expanding our reach across India.",
         icon: Globe,
-        color: 'from-cyan-900/20 to-teal-900/20',
-        accent: 'text-cyan-400'
+        color: 'from-cyan-50 to-teal-50',
+        accent: 'text-cyan-600'
     }
 ];
 
@@ -55,13 +55,13 @@ function MissionCard({ children, className = "" }: { children: React.ReactNode; 
             onMouseMove={handleMouseMove}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
-            className={`relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.02] p-8 flex flex-col justify-between h-[300px] group transition-transform hover:-translate-y-1 ${className}`}
+            className={`relative overflow-hidden rounded-3xl border border-slate-200 bg-white p-8 flex flex-col justify-between h-[300px] group transition-all hover:-translate-y-1 shadow-sm hover:shadow-md ${className}`}
         >
             <div
                 className="pointer-events-none absolute -inset-px opacity-0 transition duration-300 z-10"
                 style={{
                     opacity,
-                    background: `radial-gradient(600px circle at ${position.x}px ${position.y}px, rgba(34,211,238,0.15), transparent 40%)`,
+                    background: `radial-gradient(600px circle at ${position.x}px ${position.y}px, rgba(59,130,246,0.05), transparent 40%)`,
                 }}
             />
             {children}
@@ -79,10 +79,10 @@ export default function AboutMissionLayer() {
                 viewport={{ once: true }}
                 className="text-center mb-16 max-w-3xl"
             >
-                <h2 className="text-3xl md:text-5xl font-display font-bold text-white mb-6">
+                <h2 className="text-3xl md:text-5xl font-display font-bold text-slate-900 mb-6">
                     Our Purpose & Values
                 </h2>
-                <p className="text-lg text-slate-400">
+                <p className="text-lg text-slate-600">
                     At SabbPe, we're focused on understanding real-world pain points and developing human-centric solutions.
                     We're transforming India's digital payments ecosystem with integrity and innovation.
                 </p>
@@ -99,17 +99,17 @@ export default function AboutMissionLayer() {
                         transition={{ delay: i * 0.1 }}
                     >
                         <MissionCard>
-                            <div className={`absolute inset-0 ${mission.color} opacity-50 group-hover:opacity-100 transition-opacity duration-500 blur-2xl`} />
+                            <div className={`absolute inset-0 bg-gradient-to-br ${mission.color} opacity-50 group-hover:opacity-100 transition-opacity duration-500`} />
 
                             <div className="relative z-20 flex justify-between items-start">
-                                <div className="p-3 rounded-xl bg-white/5 border border-white/10 text-white group-hover:bg-white/10 group-hover:border-white/20">
+                                <div className="p-3 rounded-xl bg-white border border-slate-200 text-slate-900 group-hover:bg-slate-50 group-hover:border-slate-300 transition-colors shadow-sm">
                                     <mission.icon className={`w-6 h-6 ${mission.accent} transition-colors`} />
                                 </div>
                             </div>
 
                             <div className="relative z-20 mt-auto">
-                                <h3 className="text-xl font-bold text-white mb-2">{mission.title}</h3>
-                                <p className="text-slate-300 text-sm leading-relaxed">{mission.desc}</p>
+                                <h3 className="text-xl font-bold text-slate-900 mb-2">{mission.title}</h3>
+                                <p className="text-slate-600 text-sm leading-relaxed">{mission.desc}</p>
                             </div>
                         </MissionCard>
                     </motion.div>

@@ -41,7 +41,7 @@ const STACKING_CARDS_DATA = [
 
 export default function PremiumHomePage() {
   return (
-    <main className="relative w-full min-h-screen bg-[#02040a]">
+    <main className="relative w-full min-h-screen bg-background text-foreground">
       {/* Hero Section */}
       <Hero />
 

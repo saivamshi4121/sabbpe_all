@@ -11,7 +11,7 @@ import OnlineNavigation from '@/components/products/online-payments/OnlineNaviga
 
 export default function OnlinePaymentsPage() {
     return (
-        <main className="relative w-full min-h-screen bg-sabbpe-navy-dark">
+        <main className="relative w-full min-h-screen bg-background">
             {/* Hero Section */}
             <OnlineHeroLayer />
 

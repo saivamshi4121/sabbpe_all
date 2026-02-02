@@ -8,7 +8,7 @@ import AnalyticsCTALayer from '@/components/saas/analytics/layers/AnalyticsCTALa
 
 export default function AnalyticsEnginePage() {
     return (
-        <main className="relative w-full min-h-screen bg-sabbpe-navy-dark">
+        <main className="relative w-full min-h-screen bg-background text-foreground">
             <AnalyticsHeroLayer />
 
             <LayeredStackScroll>

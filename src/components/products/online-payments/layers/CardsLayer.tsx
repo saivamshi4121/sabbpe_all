@@ -17,14 +17,14 @@ export default function CardsLayer() {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                 >
-                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/20 border border-blue-500/30 text-blue-400 text-sm font-bold mb-4">
+                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-200 text-blue-700 text-sm font-bold mb-4">
                         <CreditCard className="w-4 h-4" />
                         CARDS
                     </div>
-                    <h2 className="text-4xl md:text-5xl font-display font-bold text-white mb-4">
+                    <h2 className="text-4xl md:text-5xl font-display font-bold text-slate-900 mb-4">
                         Credit & Debit Cards
                     </h2>
-                    <p className="text-xl text-sabbpe-text-secondary">
+                    <p className="text-xl text-slate-600">
                         Seamless card processing for Visa, Mastercard, RuPay, Amex, and more. Optimized for maximum conversion.
                     </p>
                 </motion.div>
@@ -36,17 +36,13 @@ export default function CardsLayer() {
                         "International Card Support (92 Currencies)",
                         "EMI Options on Major Bank Cards"
                     ].map((text, i) => (
-                        <motion.div
+                        <div
                             key={i}
-                            initial={{ opacity: 0, x: -20 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: 0.2 + (i * 0.1) }}
                             className="flex items-center gap-3"
                         >
-                            <Check className="w-5 h-5 text-blue-400" />
-                            <span className="text-white font-medium">{text}</span>
-                        </motion.div>
+                            <Check className="w-5 h-5 text-primary" />
+                            <span className="text-slate-800 font-medium">{text}</span>
+                        </div>
                     ))}
                 </div>
             </div>
@@ -58,12 +54,12 @@ export default function CardsLayer() {
                 viewport={{ once: true }}
                 className="flex-1 relative flex items-center justify-center p-8"
             >
-                <div className="absolute inset-0 bg-blue-500/10 rounded-full blur-[80px]" />
+                <div className="absolute inset-0 bg-blue-100/50 rounded-full blur-[80px]" />
 
                 {/* 3D Card Effect */}
                 <motion.div
                     whileHover={{ rotateY: 10, rotateX: 5 }}
-                    className="w-96 h-60 bg-gradient-to-br from-slate-900 to-slate-800 rounded-2xl border border-white/10 shadow-2xl relative overflow-hidden group p-6 flex flex-col justify-between transform transition-transform"
+                    className="w-96 h-60 bg-gradient-to-br from-slate-900 to-slate-800 rounded-2xl border border-white/10 shadow-2xl shadow-blue-900/20 relative overflow-hidden group p-6 flex flex-col justify-between transform transition-transform"
                     style={{ transformStyle: 'preserve-3d' }}
                 >
                     <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3" />
@@ -97,19 +93,19 @@ export default function CardsLayer() {
                 <motion.div
                     animate={{ y: [-10, 10, -10] }}
                     transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                    className="absolute top-0 right-10 bg-white/10 backdrop-blur-md border border-white/20 p-3 rounded-xl flex items-center gap-2"
+                    className="absolute top-0 right-10 bg-white border border-slate-200 shadow-lg p-3 rounded-xl flex items-center gap-2"
                 >
-                    <Globe className="w-5 h-5 text-blue-400" />
-                    <span className="text-xs font-bold text-white">Global Access</span>
+                    <Globe className="w-5 h-5 text-blue-600" />
+                    <span className="text-xs font-bold text-slate-800">Global Access</span>
                 </motion.div>
 
                 <motion.div
                     animate={{ y: [10, -10, 10] }}
                     transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                    className="absolute bottom-0 left-10 bg-white/10 backdrop-blur-md border border-white/20 p-3 rounded-xl flex items-center gap-2"
+                    className="absolute bottom-0 left-10 bg-white border border-slate-200 shadow-lg p-3 rounded-xl flex items-center gap-2"
                 >
-                    <ShieldCheck className="w-5 h-5 text-green-400" />
-                    <span className="text-xs font-bold text-white">PCI DSS Level 1</span>
+                    <ShieldCheck className="w-5 h-5 text-green-600" />
+                    <span className="text-xs font-bold text-slate-800">PCI DSS Level 1</span>
                 </motion.div>
 
             </motion.div>

@@ -38,10 +38,10 @@ const features = [
 
 export default function AnalyticsFeaturesLayer() {
     return (
-        <section className="relative py-20 bg-sabbpe-navy-dark">
+        <section className="relative py-20 bg-background text-foreground">
             <div className="container mx-auto px-4">
                 <div className="text-center mb-16">
-                    <h2 className="text-3xl md:text-5xl font-display font-bold text-white mb-4">
+                    <h2 className="text-3xl md:text-5xl font-display font-bold text-slate-900 mb-4">
                         Insights that matter
                     </h2>
                 </div>
@@ -52,13 +52,13 @@ export default function AnalyticsFeaturesLayer() {
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ delay: i * 0.1 }}
-                            className="bg-white/5 border border-white/10 p-8 rounded-2xl hover:bg-white/10 transition-colors group cursor-default"
+                            className="bg-white border border-slate-200 p-8 rounded-2xl shadow-sm hover:shadow-md hover:bg-slate-50 transition-colors group cursor-default"
                         >
-                            <div className="w-12 h-12 rounded-xl bg-indigo-500/20 flex items-center justify-center mb-6 group-hover:bg-indigo-500/30 transition-colors">
-                                <f.icon className="w-6 h-6 text-indigo-400 group-hover:text-indigo-300" />
+                            <div className="w-12 h-12 rounded-xl bg-indigo-50 flex items-center justify-center mb-6 group-hover:bg-indigo-100 transition-colors">
+                                <f.icon className="w-6 h-6 text-indigo-600 group-hover:text-indigo-700" />
                             </div>
-                            <h3 className="text-xl font-bold text-white mb-2">{f.title}</h3>
-                            <p className="text-slate-400">{f.desc}</p>
+                            <h3 className="text-xl font-bold text-slate-900 mb-2">{f.title}</h3>
+                            <p className="text-slate-600">{f.desc}</p>
                         </motion.div>
                     ))}
                 </div>

@@ -9,7 +9,7 @@ import LayeredStickySection from '@/components/layout/LayeredStickySection';
 
 export default function ContactPage() {
     return (
-        <main className="relative w-full min-h-screen bg-sabbpe-navy-dark">
+        <main className="relative w-full min-h-screen bg-background text-foreground">
             {/* Hero Section */}
             <ContactHeroLayer />
 
